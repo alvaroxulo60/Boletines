@@ -1,12 +1,18 @@
 public class Ejercicio1 {
-private int n1 = 0;
-private int multiplos7 = 0;
-private int multiplos13 = 0;
     public static void main(String[] args) {
-        n1 = i;
-        for (int i>0; i<100; i++);
-        if(i % 7 == 0);
-        multiplos7++;
+        for (int i = 1; i < 100; i++)  {
+            if (i % 7 ==0) {
+                System.out.println("El numero " + i + " es multiplo de 7");}
+            if (i % 13 ==0) {
+                System.out.println("El numero "+i+" es multiplo de 13");}
+            if (i % 7 ==0 && i % 13 ==0 ){
+                System.out.println("El numero "+i+" es multiplo de 7 y 13");
+            }
+
+        }
+
 
     }
+
+
 }
