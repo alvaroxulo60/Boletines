@@ -8,10 +8,6 @@ public class Ejercicio1 {
             if (i % 7 ==0 && i % 13 ==0 ){
                 System.out.println("El numero "+i+" es multiplo de 7 y 13");
             }
-
         }
-
-
     }
-
 }
