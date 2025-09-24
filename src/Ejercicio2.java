@@ -6,8 +6,8 @@ public class Ejercicio2 {
         Scanner sc = new Scanner(System.in);
         int n1 = sc.nextInt();
 
-        for (int i = 0; i <11 ; i++) {
-            System.out.println(n1+" * "+ i +" = " +n1*i );
+        for (int i = 0; i < 11; i++) {
+            System.out.println(n1 + " * " + i + " = " + n1 * i);
         }
 
 
