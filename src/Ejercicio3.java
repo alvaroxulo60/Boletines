@@ -7,7 +7,8 @@ public class Ejercicio3 {
         int cant = 0;
         cant = sc.nextInt();
         while (cant == 0 || cant<0 ){
-
+        System.out.println("Introduzca una cantidad valida: ");
+        cant = sc.nextInt();
         }
     }
 }
