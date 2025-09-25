@@ -11,6 +11,7 @@ public class Ejercicio7 {
             int num = sc.nextInt();
             suma += num;
         }
-        System.out.println("La media de esos numeros es "+suma/cant);
+        double media =suma/cant;
+        System.out.println("La media de esos numeros es "+ media);
     }
 }
