@@ -2,24 +2,23 @@ import java.util.Scanner;
 
 public class Ejercicio8 {
     public static void main(String[] args) {
-        System.out.println("Introduce un numero:");
+        int menor = Integer.MAX_VALUE;
+        int num;
+        String res;
         Scanner sc = new Scanner(System.in);
-        int menor = sc.nextInt();
-        System.out.println("¿Desea introducir otro numero?(S/N)");
-        String res = sc.next();
-        if (res.equalsIgnoreCase("S")) {
-            while (res.equalsIgnoreCase("S")) {
-                System.out.println("Introduce un nuevo numero:");
-                int nuevo = sc.nextInt();
-                if (nuevo < menor) {
-                    menor = nuevo;
-                }
-                System.out.println("¿Desea introducir otro numero?(S/N)");
-                res = sc.next();
+        do {
+            System.out.println("Introduce un numero: ");
+            num = sc.nextInt();
+            if (num < menor) {
+                menor = num;
             }
-            System.out.println("El numero mas pequeño es " + menor);
-        } else
-            System.out.println("No es una respuesta valida");
-
+            do {
+                System.out.println("¿Quieres introducir otro numero? (S/N)");
+                res = sc.next();
+            }while (!res.equalsIgnoreCase("S")&& !res.equalsIgnoreCase("N"));
+        } while (res.equalsIgnoreCase("s"));
+        if (res.equalsIgnoreCase("N")) {
+            System.out.printf("El numero mas pequeño introducido es %d", menor);
+        }
     }
 }
