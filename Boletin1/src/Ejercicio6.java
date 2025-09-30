@@ -11,6 +11,7 @@ public class Ejercicio6 {
         for (int i = 0; i < Math.abs(n2); i++) {
             res += n1;
         }
+        if(n2<0) res =-res;
         System.out.println("El resultado del producto es: " + res);
     }
 }
