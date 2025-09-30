@@ -17,8 +17,7 @@ public class Ejercicio9 {
         }
         if (num == total) {
             System.out.println("El numero " + num + " es un numero perfecto");
-        }
-        else
+        } else
             System.out.printf("El numero %d no es un numero perfecto", num);
     }
 }

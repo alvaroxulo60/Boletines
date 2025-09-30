@@ -15,7 +15,7 @@ public class Ejercicio8 {
             do {
                 System.out.println("¿Quieres introducir otro numero? (S/N)");
                 res = sc.next();
-            }while (!res.equalsIgnoreCase("S")&& !res.equalsIgnoreCase("N"));
+            } while (!res.equalsIgnoreCase("S") && !res.equalsIgnoreCase("N"));
         } while (res.equalsIgnoreCase("s"));
         if (res.equalsIgnoreCase("N")) {
             System.out.printf("El numero mas pequeño introducido es %d", menor);

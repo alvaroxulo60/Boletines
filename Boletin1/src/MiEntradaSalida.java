@@ -22,9 +22,11 @@ public class MiEntradaSalida {
             if (a<=0){
                 System.out.println("Numero no válido.");
             }
-        } while (a < 0);
+        } while (a <= 0);
         return a;
     }
+
+
 
     public static void main(String[] args) {
         int a = MiEntradaSalida.leerEnteroPositivo("Introduce tu numero: ");

@@ -8,9 +8,9 @@ public class Ejercicio6 {
         int res = 0;
         System.out.println("Introduce tu segundo numero: ");
         int n2 = sc.nextInt();
-        for (int i = 0; i <n2 ; i++) {
-            res +=n1;
+        for (int i = 0; i < n2; i++) {
+            res += n1;
         }
-        System.out.println("El resultado del producto es: "+res);
+        System.out.println("El resultado del producto es: " + res);
     }
 }

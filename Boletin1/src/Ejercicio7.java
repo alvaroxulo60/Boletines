@@ -7,7 +7,7 @@ public class Ejercicio7 {
         Scanner sc = new Scanner(System.in);
         int cant = sc.nextInt();
         double suma = 0;
-        while (cant<=0){
+        while (cant <= 0) {
             System.out.println("Esa cantidad no es valida. Introduce una nueva: ");
             cant = sc.nextInt();
         }
