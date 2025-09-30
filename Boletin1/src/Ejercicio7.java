@@ -13,7 +13,7 @@ public class Ejercicio7 {
         }
         for (int i = 1; i <= cant; i++) {
             System.out.println("Introduce el " + i + "º número");
-            int num = sc.nextInt();
+            double num = sc.nextInt();
             suma += num;
         }
         double media = suma / cant;
