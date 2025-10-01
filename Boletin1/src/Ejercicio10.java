@@ -18,6 +18,9 @@ public class Ejercicio10 {
             } else
                 texto = texto + "*" + (num - i + 1);
         }
-        System.out.printf("El resultado factorial de %d es %d debido a "+texto, num, fact);
+        if (num ==0){
+            System.out.println("El resultado factorial de 0 es 1 debido a su definicion");
+        } else
+            System.out.printf("El resultado factorial de %d es %d debido a "+texto, num, fact);
     }
 }

@@ -11,16 +11,14 @@ public class Ejercicio9 {
             System.out.println("Eso no es un numero positivo, cateto. Introduce un número positivo.");
             num = sc.nextInt();
         }
-        for (int i = 1; i < num; i++) {
-            if (num % i == 0 && i <= (num / 2)) {
+        for (int i = 1; i <= num/2; i++) {
+            if (num % i == 0) {
                 total += i;
-
             if(texto.isEmpty()){
                 texto = texto + i;
             }
             else
                 texto = texto + "+"+ i;
-
             }
         }
         if (num == total) {
