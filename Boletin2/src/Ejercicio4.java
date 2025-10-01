@@ -1,7 +1,6 @@
 public class Ejercicio4 {
     public static void main(String[] args) {
-        double random = Math.random() * 100;
-        int secreto = (int) random;
+        int random = (int) (Math.random() * 100);
         int n1;
         int error = 1;
         do {
@@ -10,8 +9,8 @@ public class Ejercicio4 {
                 error++;
             }
         } while (n1 < 0 || n1 > 100);
-        while (secreto != n1 && error != 5) {
-            if (secreto < n1) {
+        while (random != n1 && error != 5) {
+            if (random < n1) {
                 System.out.println("El numero secreto es mas pequeño");
                 n1 = MiEntradaSalida.leerEnteroPositivo("Introduce un numero entre 1 y 100: ", false);
             } else {
@@ -20,11 +19,11 @@ public class Ejercicio4 {
             }
             error++;
         }
-        if (secreto == n1) {
+        if (random == n1) {
             System.out.println("Has acertado. Felicidades");
         }
         if (error == 5) {
-            System.out.println("Has fallado, intentalo de nuevo. El numero secreto era " + secreto);
+            System.out.println("Has fallado, intentalo de nuevo. El numero secreto era " + random);
         }
     }
 }
