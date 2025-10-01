@@ -6,6 +6,7 @@ public class Ejercicio9 {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
         int total = 0;
+        String texto="";
         while (num < 0) {
             System.out.println("Eso no es un numero positivo, cateto. Introduce un número positivo.");
             num = sc.nextInt();
@@ -13,11 +14,18 @@ public class Ejercicio9 {
         for (int i = 1; i < num; i++) {
             if (num % i == 0 && i <= (num / 2)) {
                 total += i;
+
+            if(texto.isEmpty()){
+                texto = texto + i;
+            }
+            else
+                texto = texto + "+"+ i;
+
             }
         }
         if (num == total) {
-            System.out.println("El numero " + num + " es un numero perfecto");
+            System.out.println("El numero " + num + " es un numero perfecto porque "+texto+"="+num);
         } else
-            System.out.printf("El numero %d no es un numero perfecto", num);
+            System.out.println("El numero "+num+" no es perfecto porque "+texto+"!="+num);
     }
 }
