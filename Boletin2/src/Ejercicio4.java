@@ -6,7 +6,7 @@ public class Ejercicio4 {
         int error = 1;
         do {
             n1 = MiEntradaSalida.leerEnteroPositivo("Introduce un numero entre 1 y 100: ", false);
-            if(n1<0||n1>100){
+            if (n1 < 0 || n1 > 100) {
                 error++;
             }
         } while (n1 < 0 || n1 > 100);
