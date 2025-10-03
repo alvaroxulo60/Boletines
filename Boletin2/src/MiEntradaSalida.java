@@ -38,6 +38,11 @@ public class MiEntradaSalida {
         return a;
     }
 
+    /**
+     * Leer un decimal
+     * @param mensaje El mensaje a introducir
+     * @return Lo introducido por el usuario
+     */
     public static double leerDecimal(String mensaje) {
         System.out.print(mensaje);
         return sc.nextDouble();
@@ -59,11 +64,22 @@ public class MiEntradaSalida {
         return a;
     }
 
-
+    /**
+     * Generar un número aleatorio determinado por un máximo
+     * @param max hasta que número se va a generar
+     * @return número generado aleatoriamente
+     */
     public static int generaAleatorio(int max) {
         return (int) (Math.random() * max + 1);
     }
 
+    /**
+     * Generar un número aleatorio entre un máximo y un mínimo
+     * @param min Primer número del intervalo
+     * @param max Segundo número del intervalo
+     * @param seAceptaElMaximo ¿El máximo entra en ese intervalo?
+     * @return El número genrado aleatoriamente
+     */
     public static int generaAleatorioEntre(int min, int max, boolean seAceptaElMaximo) {
         int random = 0, ventana;
 
@@ -75,6 +91,14 @@ public class MiEntradaSalida {
         return (int) (Math.random() * ventana) + min;
     }
 
+    /**
+     * Resolver ecuaciones de 2do grado
+     * @param a índice que acompaña a la x al cuadrado
+     * @param b índice que acompaña a la x
+     * @param c termino independiente
+     * @param resultados ¿Mostrar resultados?
+     * @return número de resultados y los valores si se indica
+     */
     public static int ecuacionSegundoGrado(double a, double b, double c, boolean resultados) {
         double raiz = (b * b) - 4 * a * c;
         if (raiz > 0) {
@@ -88,7 +112,7 @@ public class MiEntradaSalida {
         if (raiz == 0) {
             double x3 = -b / (2 * a);
             if (resultados) {
-                System.out.println("x3=" + x3);
+                System.out.println("x3= " + x3);
             }
             return 1;
         } else {
