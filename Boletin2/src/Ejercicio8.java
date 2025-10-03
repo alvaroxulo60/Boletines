@@ -3,6 +3,6 @@ public class Ejercicio8 {
         double a = MiEntradaSalida.leerEntero("Introduce tu primer numero: ");
         double b = MiEntradaSalida.leerEntero("Introduce tu segundo numero: ");
         double c = MiEntradaSalida.leerEntero("Introduce tu segundo numero: ");
-        System.out.println("Esta ecuacion tiene "+MiEntradaSalida.ecuacionSegundoGrado(a,b,c, true)+" soluciones");
+        System.out.println("Esta ecuación de segundo grado tiene "+MiEntradaSalida.ecuacionSegundoGrado(a,b,c, false)+" soluciones");
     }
 }

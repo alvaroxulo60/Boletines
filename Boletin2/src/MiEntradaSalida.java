@@ -81,14 +81,14 @@ public class MiEntradaSalida {
             double x1 = (-b + Math.sqrt(raiz)) / (2 * a);
             double x2 = (-b - Math.sqrt(raiz)) / (2 * a);
             if (resultados){
-                System.out.println("Tiene dos soluciones x1= "+x1+ " y x2= "+x2);
+                System.out.println("x1= "+x1+ " y x2= "+x2);
             }
             return 2;
         }
         if (raiz == 0) {
             double x3 = -b / (2 * a);
             if (resultados) {
-                System.out.println("Tiene una solucion " + x3);
+                System.out.println("x3=" + x3);
             }
             return 1;
         } else {
