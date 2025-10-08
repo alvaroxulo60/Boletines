@@ -1,13 +1,16 @@
-public class Ejercicio1 {
+public class Ejercicio2 {
     public static void main(String[] args) {
         int num = MiEntradaSalida.leerEnteroPositivo("Introduce un numero: ", true);
+        int original = num;
         int invertido = 0, resto;
         while (num > 0) {
             resto = num % 10;
-            System.out.println(resto);
             invertido = invertido * 10 + resto;
             num /= 10;
         }
-        System.out.println(invertido);
+        if (invertido == original) {
+            System.out.println("Es un numero capicua");
+        } else
+            System.out.println("Vete al carajo");
     }
 }
