@@ -121,8 +121,6 @@ public class MiEntradaSalida {
             }
             return 0;
         }
-
-
     }
     public static String leerTexto(String mensaje) {
         System.out.print(mensaje);

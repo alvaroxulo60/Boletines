@@ -1,6 +1,6 @@
 public class Ejercicio2 {
     public static void main(String[] args) {
-        int num = MiEntradaSalida.leerEnteroPositivo("Introduce un numero: ", true);
+        int num = MiEntradaSalida.leerEnteroPositivo("Introduce un número: ", true);
         int original = num;
         int invertido = 0, resto;
         while (num > 0) {
@@ -9,7 +9,7 @@ public class Ejercicio2 {
             num /= 10;
         }
         if (invertido == original) {
-            System.out.println("Es un numero capicua");
+            System.out.println("Es un numero capicúa");
         } else
             System.out.println("Vete al carajo");
     }
