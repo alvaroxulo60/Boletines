@@ -9,7 +9,7 @@ public class Ejercicio3 {
             char a = numero.charAt(i);
             if (resultado == 0) {
                 resultado = valorDeLetra(a);
-            } else if (resultado < valorDeLetra(a++)) {
+            } else if (resultado < valorDeLetra(a)) {
                 resultado = valorDeLetra(a) - resultado;
             } else {
                 resultado += valorDeLetra(a);
