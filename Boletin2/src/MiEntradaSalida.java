@@ -109,7 +109,7 @@ public class MiEntradaSalida {
             }
             return 2;
         }
-        if (raiz == 0) {
+        else if (raiz == 0) {
             double x3 = -b / (2 * a);
             if (resultados) {
                 System.out.println("x3= " + x3);
