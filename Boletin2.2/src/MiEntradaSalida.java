@@ -40,6 +40,7 @@ public class MiEntradaSalida {
 
     /**
      * Leer un decimal
+     *
      * @param mensaje El mensaje a introducir
      * @return Lo introducido por el usuario
      */
@@ -66,6 +67,7 @@ public class MiEntradaSalida {
 
     /**
      * Generar un número aleatorio determinado por un máximo
+     *
      * @param max hasta que número se va a generar
      * @return número generado aleatoriamente
      */
@@ -75,8 +77,9 @@ public class MiEntradaSalida {
 
     /**
      * Generar un número aleatorio entre un máximo y un mínimo
-     * @param min Primer número del intervalo
-     * @param max Segundo número del intervalo
+     *
+     * @param min              Primer número del intervalo
+     * @param max              Segundo número del intervalo
      * @param seAceptaElMaximo ¿El máximo entra en ese intervalo?
      * @return El número genrado aleatoriamente
      */
@@ -93,9 +96,10 @@ public class MiEntradaSalida {
 
     /**
      * Resolver ecuaciones de 2do grado
-     * @param a índice que acompaña a la x al cuadrado
-     * @param b índice que acompaña a la x
-     * @param c termino independiente
+     *
+     * @param a          índice que acompaña a la x al cuadrado
+     * @param b          índice que acompaña a la x
+     * @param c          termino independiente
      * @param resultados ¿Mostrar resultados?
      * @return número de resultados y los valores si se indica
      */
@@ -104,12 +108,11 @@ public class MiEntradaSalida {
         if (raiz > 0) {
             double x1 = (-b + Math.sqrt(raiz)) / (2 * a);
             double x2 = (-b - Math.sqrt(raiz)) / (2 * a);
-            if (resultados){
-                System.out.println("x1= "+x1+ " y x2= "+x2);
+            if (resultados) {
+                System.out.println("x1= " + x1 + " y x2= " + x2);
             }
             return 2;
-        }
-        else if (raiz == 0) {
+        } else if (raiz == 0) {
             double x3 = -b / (2 * a);
             if (resultados) {
                 System.out.println("x3= " + x3);
@@ -122,9 +125,35 @@ public class MiEntradaSalida {
             return 0;
         }
     }
+
+    /**
+     * Leer una cadena de texto
+     *
+     * @param mensaje Mensaje a mostrar
+     * @return String leido
+     */
     public static String leerTexto(String mensaje) {
         System.out.print(mensaje);
         return sc.next();
     }
 
+    /**
+     * Leer entero en un rango
+     *
+     * @param mensaje mensaje a mostrar
+     * @param min     valor mínimo
+     * @param max     valor máximo
+     * @return Numero leido por teclado
+     */
+    public static int leerEnteroRango(String mensaje, int min, int max) {
+        int a;
+        do {
+            System.out.println(mensaje);
+            a = sc.nextInt();
+            if (a < min || a > max) {
+                System.out.println("Número no válido.");
+            }
+        } while (a < min || a > max);
+        return a;
+    }
 }
