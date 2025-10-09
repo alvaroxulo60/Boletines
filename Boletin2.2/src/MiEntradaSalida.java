@@ -28,8 +28,7 @@ public class MiEntradaSalida {
     public static int leerEnteroPositivo(String mensaje, boolean seAceptaCero) {
         int a;
         do {
-            System.out.println(mensaje);
-            a = sc.nextInt();
+            a = leerEntero(mensaje);
             if (a < 0 || a == 0 && !seAceptaCero) {
                 System.out.println("Numero no válido.");
             }
@@ -146,12 +145,17 @@ public class MiEntradaSalida {
      * @return Numero leido por teclado
      */
     public static int leerEnteroRango(String mensaje, int min, int max) {
+        if (min > max) {
+            //Mostrar error
+            System.out.println("El mínimo es mayor que el máximo");
+            //TODO: Cambiar esto a ver las excepciones
+            return -1;
+        }
         int a;
         do {
-            System.out.println(mensaje);
-            a = sc.nextInt();
+            a = leerEntero(mensaje);
             if (a < min || a > max) {
-                System.out.println("Número no válido.");
+                System.out.println("Número no válido, esta fuera del rango.");
             }
         } while (a < min || a > max);
         return a;
