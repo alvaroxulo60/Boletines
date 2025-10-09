@@ -1,7 +1,6 @@
 public class Ejercicio4 {
     public static void main(String[] args) {
 
-
         int hora = MiEntradaSalida.leerEnteroPositivo("Introdcuce tu hora: ", true);
         int minutos = MiEntradaSalida.leerEnteroPositivo("Introdcuce tus minutos: ", true);
         int segundos = MiEntradaSalida.leerEnteroPositivo("Introdcuce tus segundos: ", true);
@@ -23,8 +22,10 @@ public class Ejercicio4 {
 
 
         hora += sumaHoras;
+        int dias = 0;
         boolean cambioDia = false;
         if (hora >= 24) {
+            dias = hora / 24;
             hora = hora % 24;
             cambioDia = true;
         }
@@ -32,7 +33,7 @@ public class Ejercicio4 {
 
         System.out.printf("La hora resultante es: %02d:%02d:%02d", hora, minutos, segundos);
         if (cambioDia) {
-            System.out.print(" (del día siguiente)");
+            System.out.printf(" y han pasado %d Días", dias);
         }
         System.out.println();
     }
