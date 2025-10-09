@@ -1,9 +1,9 @@
 public class Ejercicio4 {
     public static void main(String[] args) {
 
-        int hora = MiEntradaSalida.leerEnteroPositivo("Introdcuce tu hora: ", true);
-        int minutos = MiEntradaSalida.leerEnteroPositivo("Introdcuce tus minutos: ", true);
-        int segundos = MiEntradaSalida.leerEnteroPositivo("Introdcuce tus segundos: ", true);
+        int hora = MiEntradaSalida.leerEnteroRango("Introdcuce tu hora: ", 0,23);
+        int minutos = MiEntradaSalida.leerEnteroRango("Introdcuce tus minutos: ", 0,59);
+        int segundos = MiEntradaSalida.leerEnteroRango("Introdcuce tus segundos: ", 0,59);
 
 
         int sumaHoras = MiEntradaSalida.leerEnteroPositivo("¿Cuantas horas quieres sumar? ", true);

@@ -141,8 +141,8 @@ public class MiEntradaSalida {
      * Leer entero en un rango
      *
      * @param mensaje mensaje a mostrar
-     * @param min     valor mínimo
-     * @param max     valor máximo
+     * @param min     valor mínimo incluido
+     * @param max     valor máximo incluido
      * @return Numero leido por teclado
      */
     public static int leerEnteroRango(String mensaje, int min, int max) {
