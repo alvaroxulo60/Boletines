@@ -160,4 +160,23 @@ public class MiEntradaSalida {
         } while (a < min || a > max);
         return a;
     }
+
+    /**
+     * Recoger el caracter 'S' o 'N'
+     *
+     * @param mensaje Mensaje a mostrar
+     * @return El caracter obtenido por teclado
+     */
+    public static char SN(String mensaje) {
+        char caracter;
+        do {
+            String texto = leerTexto(mensaje).toUpperCase();
+            caracter = texto.charAt(0);
+            if (caracter != 'S' && caracter != 'N') {
+                System.out.println("Respuesta no válida");
+            }
+        } while (caracter != 'S' && caracter != 'N');
+        return caracter;
+    }
+
 }
