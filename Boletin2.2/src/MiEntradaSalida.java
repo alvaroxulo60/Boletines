@@ -167,7 +167,7 @@ public class MiEntradaSalida {
      * @param mensaje Mensaje a mostrar
      * @return El caracter obtenido por teclado
      */
-    public static char SN(String mensaje) {
+    public static char leerSN(String mensaje) {
         char caracter;
         do {
             String texto = leerTexto(mensaje).toUpperCase();
