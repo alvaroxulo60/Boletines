@@ -11,9 +11,11 @@ public class Ejercicio3 {
         int temporal;
         int cantMayor=0;
         int cantMenor=0;
+        //Rellenar el array
         for (int i = 0; i < numeros.length; i++) {
             numeros[i] = MiEntradaSalida.leerEntero("Introduce tu " + (i + 1) + "º número: ");
         }
+        //Comprobar el mayor y el menor
         for (int numero : numeros) {
             temporal=numero;
             if (temporal>mayor ){
@@ -24,6 +26,7 @@ public class Ejercicio3 {
             }
 
         }
+        //Sumar la cantidad de veces que aparece el mayor o el menor
         for (int n1 : numeros){
 
             if (n1==mayor){
@@ -33,6 +36,7 @@ public class Ejercicio3 {
                 cantMenor++;
             }
         }
+        //Hacer la suma para la media
         for (int numero : numeros) {
             suma += numero;
         }
