@@ -22,10 +22,14 @@ public class Ejercicio3 {
             else if (temporal<menor){
                 menor=temporal;
             }
-            if (temporal==mayor){
+
+        }
+        for (int n1 : numeros){
+
+            if (n1==mayor){
                 cantMayor++;
             }
-            if (temporal==menor){
+            else if (n1==menor){
                 cantMenor++;
             }
         }
