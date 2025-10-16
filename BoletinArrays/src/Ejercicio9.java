@@ -8,24 +8,24 @@ public class Ejercicio9 {
         }
         System.out.println("Primera lista: " + Arrays.toString(numeros));
         Arrays.sort(numeros);
-        int nuevoTam = eliminarDuplicados(numeros,numeros.length);
-        for (int i = 0; i <nuevoTam ; i++) {
-            System.out.println(numeros[i]+"");
+        int nuevoTam = eliminarDuplicados(numeros, numeros.length);
+        for (int i = 0; i < nuevoTam; i++) {
+            System.out.println(numeros[i] + "");
         }
 
     }
 
 
     public static int eliminarDuplicados(int[] lista, int n) {
-        if (n==1||n==0) return n;
-        int x =0;
-        for (int i = 0; i < n-1; i++) {
-            if (lista[i]!= lista[i+1]){
-                lista[x++]=lista[i];
+        if (n == 1 || n == 0) return n;
+        int x = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (lista[i] != lista[i + 1]) {
+                lista[x++] = lista[i];
             }
 
         }
-        lista[x++] = lista[n-1];
+        lista[x++] = lista[n - 1];
         return x;
     }
 }
