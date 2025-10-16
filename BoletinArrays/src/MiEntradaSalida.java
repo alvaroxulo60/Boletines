@@ -83,7 +83,7 @@ public class MiEntradaSalida {
      * @return El número genrado aleatoriamente
      */
     public static int generaAleatorioEntre(int min, int max, boolean seAceptaElMaximo) {
-        int random = 0, ventana;
+        int ventana;
 
         if (seAceptaElMaximo) {
             ventana = max - min + 1;

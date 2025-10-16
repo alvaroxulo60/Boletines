@@ -1,24 +1,20 @@
-public class Ejercicio4 {
+public class Ejercicio4B {
     final static int CANTIDAD_NUMEROS = 6000;
 
     public static void main(String[] args) {
-        int[] generados = new int[CANTIDAD_NUMEROS];
+        int[] digitos = new int[10];
         double media;
         double suma = 0;
         int digito;
-        for (int i = 0; i < generados.length; i++) {
-            generados[i] = MiEntradaSalida.generaAleatorioEntre(0, 100, true);
-        }
-        for (int n1 : generados) {
-            suma += n1;
+        for (int i = 0; i < CANTIDAD_NUMEROS; i++) {
+            int numGenerado = MiEntradaSalida.generaAleatorioEntre(0, 100, true);
+            suma += numGenerado;
+            digitos[numGenerado % 10]++;
         }
         media = suma / CANTIDAD_NUMEROS;
         System.out.println("La media es " + media);
         System.out.println();
-        int[] digitos = new int[10];
-        for (int n2 : generados) {
-            digitos[n2 % 10]++;
-        }
+
         int mayor = Integer.MIN_VALUE;
         int mayorIndice = 0;
         for (int i = 0; i < digitos.length; i++) {
