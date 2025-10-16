@@ -9,10 +9,11 @@ public class Ejercicio9 {
         System.out.println("Primera lista: " + Arrays.toString(numeros));
         Arrays.sort(numeros);
         int nuevoTam = eliminarDuplicados(numeros, numeros.length);
+        int[] nuevo = new int[nuevoTam];
         for (int i = 0; i < nuevoTam; i++) {
-            System.out.println(numeros[i] + "");
+            nuevo[i] = numeros[i];
         }
-
+        System.out.println("Aquí esta la lista sin duplicados y ordenada: "+Arrays.toString(nuevo));
     }
 
 
