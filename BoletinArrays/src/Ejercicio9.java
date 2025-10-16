@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class Ejercicio9 {
     public static void main(String[] args) {
@@ -7,14 +6,26 @@ public class Ejercicio9 {
         for (int i = 0; i < numeros.length; i++) {
             numeros[i] = MiEntradaSalida.generaAleatorio(numeros.length);
         }
-        System.out.println("Primera lista: "+ Arrays.toString(numeros));
-        int anterior = 0;
-        for (int i = 0; i <numeros.length ; i++) {
-            if (numeros[i]==anterior){
-                numeros[i]=0;
-            }
-            anterior=numeros[i];
+        System.out.println("Primera lista: " + Arrays.toString(numeros));
+        Arrays.sort(numeros);
+        int nuevoTam = eliminarDuplicados(numeros,numeros.length);
+        for (int i = 0; i <nuevoTam ; i++) {
+            System.out.println(numeros[i]+"");
         }
-        System.out.println("La lista sin repetidos: "+Arrays.toString(numeros));
+
+    }
+
+
+    public static int eliminarDuplicados(int[] lista, int n) {
+        if (n==1||n==0) return n;
+        int x =0;
+        for (int i = 0; i < n-1; i++) {
+            if (lista[i]!= lista[i+1]){
+                lista[x++]=lista[i];
+            }
+
+        }
+        lista[x++] = lista[n-1];
+        return x;
     }
 }
