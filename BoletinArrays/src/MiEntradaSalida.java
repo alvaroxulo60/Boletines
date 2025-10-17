@@ -94,38 +94,6 @@ public class MiEntradaSalida {
     }
 
     /**
-     * Resolver ecuaciones de 2do grado
-     *
-     * @param a          índice que acompaña a la x al cuadrado
-     * @param b          índice que acompaña a la x
-     * @param c          termino independiente
-     * @param resultados ¿Mostrar resultados?
-     * @return número de resultados y los valores si se indica
-     */
-    public static int ecuacionSegundoGrado(double a, double b, double c, boolean resultados) {
-        double raiz = (b * b) - 4 * a * c;
-        if (raiz > 0) {
-            double x1 = (-b + Math.sqrt(raiz)) / (2 * a);
-            double x2 = (-b - Math.sqrt(raiz)) / (2 * a);
-            if (resultados) {
-                System.out.println("x1= " + x1 + " y x2= " + x2);
-            }
-            return 2;
-        } else if (raiz == 0) {
-            double x3 = -b / (2 * a);
-            if (resultados) {
-                System.out.println("x3= " + x3);
-            }
-            return 1;
-        } else {
-            if (resultados) {
-                System.out.println("No tiene soluciones");
-            }
-            return 0;
-        }
-    }
-
-    /**
      * Leer una cadena de texto
      *
      * @param mensaje Mensaje a mostrar
