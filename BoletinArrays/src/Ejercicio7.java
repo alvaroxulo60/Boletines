@@ -14,13 +14,12 @@ public class Ejercicio7 {
             System.out.println("En la lista "+ Arrays.toString(numeros)+" no aparece el numero "+ consulta);
     }
     public static boolean contieneElemento(int[] lista, int consulta){
-        boolean contenido = false;
         for (int n : lista){
             if ( consulta == n){
-                contenido = true;
-                break;
+               return true;
+
             }
         }
-        return contenido;
+        return false;
     }
 }
