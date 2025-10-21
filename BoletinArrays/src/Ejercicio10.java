@@ -13,9 +13,8 @@ public class Ejercicio10 {
 
     public static int[] unirArraysComunes(int[] lista1, int[] lista2) {
         int size = 0;
-        int comparacion = Math.min(lista1.length,lista2.length);
-        int[] comunes = new int[lista1.length];
-        for (int i = 0; i < comparacion; i++) {
+        int[] comunes = new int[Math.min(lista1.length,lista2.length)];
+        for (int i = 0; i < comunes.length; i++) {
             if (contieneElemento(lista1, lista2[i]) && !contieneElemento(comunes,lista2[i])){
                 comunes[size++]=lista2[i];
             }
