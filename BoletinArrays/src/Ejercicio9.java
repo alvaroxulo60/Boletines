@@ -15,8 +15,6 @@ public class Ejercicio9 {
         }
         System.out.println("Aquí esta la lista sin duplicados y ordenada: "+Arrays.toString(nuevo));
     }
-
-
     public static int eliminarDuplicados(int[] lista, int n) {
         if (n == 1 || n == 0) return n;
         int x = 0;

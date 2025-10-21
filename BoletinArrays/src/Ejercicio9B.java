@@ -11,7 +11,5 @@ public class Ejercicio9B {
                 .distinct()
                 .toArray();
         System.out.println(Arrays.toString(copia));
-
-
     }
 }
