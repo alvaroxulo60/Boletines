@@ -17,7 +17,6 @@ public class Ejercicio7 {
         for (int n : lista){
             if ( consulta == n){
                return true;
-
             }
         }
         return false;
