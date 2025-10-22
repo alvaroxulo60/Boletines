@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Ejercicio8 {
-    //Crea un método que devuelva la posición que ocupa un valor dentro de un array, o
+    //Crea una función que devuelva la posición que ocupa un valor dentro de un array, o
     //-1 si el array no contiene ese valor
     public static void main(String[] args) {
         int[] numeros = new int[MiEntradaSalida.generaAleatorio(10)];

@@ -20,14 +20,14 @@ public class Ejercicio9 {
         int posListaSinDuplicados=0;
         boolean heTratadoElCero=false;
 
-        for (int i = 0; i < lista.length; i++) {
-            if (lista[i]==0 && !heTratadoElCero){
+        for (int j : lista) {
+            if (j == 0 && !heTratadoElCero) {
                 posListaSinDuplicados++;
-                heTratadoElCero=true;
+                heTratadoElCero = true;
                 continue;
             }
-            if (!contieneElemento(listaSinDuplicados,lista[i])){
-                listaSinDuplicados[posListaSinDuplicados++]=lista[i];
+            if (!contieneElemento(listaSinDuplicados, j)) {
+                listaSinDuplicados[posListaSinDuplicados++] = j;
             }
         }
         listaSinDuplicados=Arrays.copyOf(listaSinDuplicados,posListaSinDuplicados);
