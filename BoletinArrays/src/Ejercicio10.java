@@ -11,6 +11,12 @@ public class Ejercicio10 {
         System.out.println(Arrays.toString(unirArraysComunes(numeros, numeros2)));
     }
 
+    /**
+     * Comparar los arrays y devolver un nuevo array con los comunes
+     * @param lista1  Primera lista a comparar
+     * @param lista2  Segunda lista a comparar
+     * @return una lista con los valores comunes sin elementos duplicados
+     */
     public static int[] unirArraysComunes(int[] lista1, int[] lista2) {
         int size = 0;
         int[] comunes = new int[Math.min(lista1.length,lista2.length)];
@@ -22,6 +28,13 @@ public class Ejercicio10 {
         comunes=Arrays.copyOf(comunes,size);
         return comunes;
     }
+
+    /**
+     * Comprobar si en una lista hay un valor determinado
+     * @param lista lista de números en la que queremos comprobar si aparece el numero
+     * @param consulta el número que queremos saber si esta en la lista
+     * @return true si esta en la lista, false si no esta
+     */
     public static boolean contieneElemento(int[] lista, int consulta){
     for (int n : lista){
         if ( consulta == n){

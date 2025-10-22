@@ -4,9 +4,15 @@ public class Ejercicio11 {
     //Crea una función que acepte un array de enteros y devuelva el mismo array ordenado
     //de menor a mayor. Utiliza para ello la función de ordenación de la burbuja.
     public static void main(String[] args) {
-        int[] numeros = {9,8,7,6,5,4,3,2,1,};
+        int[] numeros = {9,6,5,7,8,1,2,4,3};
         System.out.println(Arrays.toString(ordenarArray(numeros)));
     }
+
+    /**
+     * Introducir un array y devolverlo ordenado de menor a mayor
+     * @param array array a ordenar
+     * @return array ordenado
+     */
     public static int[] ordenarArray(int[] array){
         int aux;
         for (int i = 0; i < array.length-1; i++) {
