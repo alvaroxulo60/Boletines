@@ -7,7 +7,7 @@ public class Ejercicio1 {
         if (comprobarNegativoMatrices(matriz)) {
             System.out.print("En la matriz si hay un valor negativo");
         } else
-            System.out.print("En la matriz " + Arrays.toString(matriz) + " no hay un valor negativo");
+            System.out.print("En la matriz no hay un valor negativo");
     }
 
     public static boolean comprobarNegativoMatrices(int[][] matriz) {
