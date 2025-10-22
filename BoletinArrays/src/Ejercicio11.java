@@ -5,7 +5,7 @@ public class Ejercicio11 {
     //de menor a mayor. Utiliza para ello la función de ordenación de la burbuja.
     public static void main(String[] args) {
         int[] numeros = {9,6,5,7,8,1,2,4,3};
-        System.out.println(Arrays.toString(ordenarArray(numeros)));
+        System.out.println(Arrays.toString(ordenarArrayMetodoBurjbuja(numeros)));
     }
 
     /**
@@ -13,7 +13,7 @@ public class Ejercicio11 {
      * @param array array a ordenar
      * @return array ordenado
      */
-    public static int[] ordenarArray(int[] array){
+    public static int[] ordenarArrayMetodoBurjbuja(int[] array){
         int aux;
         for (int i = 0; i < array.length-1; i++) {
             for (int j = 0; j < array.length-1; j++) {
