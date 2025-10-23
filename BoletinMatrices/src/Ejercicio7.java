@@ -14,12 +14,12 @@ public class Ejercicio7 {
         System.out.println("Matriz 3");
         MiEntradaSalida.imprimirMatriz(matriz3);
         System.out.println();
-        if (comprobarMatrices(matriz1, matriz2)) {
+        if (comprobarTamañoMatrices(matriz1, matriz2)) {
             respuesta1 = "sí";
         } else {
             respuesta1 = "no";
         }
-        if (comprobarMatrices(matriz2, matriz3)) {
+        if (comprobarTamañoMatrices(matriz2, matriz3)) {
             respuesta2 = "sí";
         } else {
             respuesta2 = "no";
@@ -30,6 +30,22 @@ public class Ejercicio7 {
     }
 
     public static boolean comprobarMatrices(int[][] matriz1, int[][] matriz2) {
+        if (comprobarTamañoMatrices(matriz1, matriz2)){
+            for (int i = 0; i < matriz1.length; i++) {
+                for (int j = 0; j < matriz1[i].length; j++) {
+                    if (matriz1[i][j] != matriz2[i][j]) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public static boolean comprobarTamañoMatrices(int[][] matriz1, int[][] matriz2){
         if (matriz1.length != matriz2.length) {
             return false;
         }
@@ -38,13 +54,9 @@ public class Ejercicio7 {
                 return false;
             }
         }
-        for (int i = 0; i < matriz1.length; i++) {
-            for (int j = 0; j < matriz1[i].length; j++) {
-                if (matriz1[i][j] != matriz2[i][j]) {
-                    return false;
-                }
-            }
-        }
+
         return true;
     }
+
 }
+
