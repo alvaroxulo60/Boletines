@@ -11,13 +11,18 @@ public class Ejercicio1 {
     }
 
     public static boolean comprobarNegativoMatrices(int[][] matriz) {
+        boolean encontrado=false;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (matriz[i][j] < 0) {
-                    return true;
+                   encontrado=true;
+                   break;
                 }
             }
+            if (encontrado){
+                break;
+            }
         }
-        return false;
+        return encontrado;
     }
 }

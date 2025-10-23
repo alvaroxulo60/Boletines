@@ -9,7 +9,7 @@ public class Ejercicio6 {
 
     public static String linea(int[][] matriz) {
         StringBuilder linea = new StringBuilder();
-        for (int j = matriz.length; j >=0 ; j--) {
+        for (int j = matriz[0].length-1; j >=0 ; j--) {
             for (int i = matriz.length-1; i >=0; i--) {
                 linea.append(matriz[i][j]).append(" ");
             }
