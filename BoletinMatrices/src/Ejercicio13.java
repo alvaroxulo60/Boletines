@@ -22,12 +22,7 @@ public class Ejercicio13 {
         reflejada = new int[matriz.length][matriz[0].length];
         for (int i = matriz.length-1; i>=0; i--) {
             for (int j = matriz[i].length-1; j >=0 ; j--) {
-                if (i==j){
-                    reflejada[i][j]=matriz[i][j];
-                }
-                else {
-                    reflejada[j][i]=matriz[i][j];
-                }
+                reflejada[matriz[i].length-1-j][matriz.length-1-i]=matriz[i][j];
             }
         }
         return reflejada;
