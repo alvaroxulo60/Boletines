@@ -14,9 +14,9 @@ public class Ejercicio8 {
 
     public static int[][] sumarMatrices(int[][] matriz1, int[][] matriz2){
         int[][] suma;
-        int[][] error = {{0},{0}};
+        int[][] error = {{-1}};
         if (Ejercicio7.comprobarTamañoMatrices(matriz1, matriz2)){
-            suma = matriz1;
+            suma = new int[matriz1.length][matriz1[0].length];
             for (int i = 0; i < matriz1.length; i++) {
                 for (int j = 0; j < matriz1[i].length; j++) {
                     suma[i][j]=matriz1[i][j]+matriz2[i][j];
