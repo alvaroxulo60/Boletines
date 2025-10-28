@@ -17,7 +17,7 @@ public class Ejercicio10 {
      * @return un booleano con el resultado de si es simetrica o no
      */
     public static boolean comprobarSimetriaEjeY(int[][] matriz) {
-        for (int j = 0; j < matriz[0].length; j++) {
+        for (int j = 0; j < matriz[0].length/2; j++) {
             for (int i = 0; i < matriz.length; i++) {
                 if (matriz[i][j] != matriz[i][(matriz[i].length - 1) - j]) {
                     return false;
