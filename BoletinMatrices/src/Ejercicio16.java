@@ -10,10 +10,10 @@ public class Ejercicio16 {
         MiEntradaSalida.imprimirMatriz(matriz);
         System.out.println();
         System.out.println("El resultado es: ");
-        MiEntradaSalida.imprimirMatriz(adyacentes(matriz));
+        MiEntradaSalida.imprimirMatriz(adyacentesPares(matriz));
     }
 
-    public static int[][] adyacentes(int[][] matriz) {
+    public static int[][] adyacentesPares(int[][] matriz) {
         int[][] nueva = new int[matriz.length][matriz[0].length];
         //Arrays para el desplazamiento en las 8 direcciones
         int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
@@ -26,12 +26,12 @@ public class Ejercicio16 {
                     int nj = j + dy[k];
                     //Comprueba que la posicion no esta fuera de los limites de la matriz
                     if (ni >= 0 && ni < matriz.length && nj >= 0 && nj < matriz[0].length) {
-                        if(matriz[ni][nj] %2==0){
+                        if (matriz[ni][nj] % 2 == 0) {
                             contador++;
                         }
                     }
                 }
-                nueva[i][j]= contador;
+                nueva[i][j] = contador;
             }
         }
         return nueva;
