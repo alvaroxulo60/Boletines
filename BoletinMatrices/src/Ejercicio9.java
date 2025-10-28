@@ -17,7 +17,7 @@ public class Ejercicio9 {
      * @return un booleano con el resultado
      */
     public static boolean comprobarSimetriaEjeX(int[][] matriz) {
-        for (int i = 0; i < matriz.length; i++) {
+        for (int i = 0; i < matriz.length/2; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (matriz[i][j] != matriz[(matriz.length - 1) - i][j]) {
                     return false;
