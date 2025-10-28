@@ -24,6 +24,7 @@ public class Ejercicio16 {
                 for (int k = 0; k < 8; k++) {
                     int ni = i + dx[k];
                     int nj = j + dy[k];
+                    //Comprueba que la posicion no esta fuera de los limites de la matriz
                     if (ni >= 0 && ni < matriz.length && nj >= 0 && nj < matriz[0].length) {
                         if(matriz[ni][nj] %2==0){
                             contador++;
