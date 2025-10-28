@@ -7,7 +7,7 @@ public class Ejercicio16 {
 
     public static void main(String[] args) {
         int[][] matriz = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 0}, {3, 2, 1, 4, 5}, {9, 5, 8, 6, 7}, {0, 9, 8, 5, 4}};
-        System.out.println("La matriz OG");
+        System.out.println("La matriz OG:");
         MiEntradaSalida.imprimirMatriz(matriz);
         System.out.println();
         System.out.println("El resultado es: ");
