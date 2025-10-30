@@ -1,7 +1,3 @@
-package app;
-
-import domain.Metodos;
-
 public class Jardin {
     final static int semilla = 1;
     final static int[][] JARDIN = {

@@ -1,5 +1,3 @@
-package domain;
-
 public class Metodos {
     final static int SEMILLA = 1;
     final static int AGUA = 2;
