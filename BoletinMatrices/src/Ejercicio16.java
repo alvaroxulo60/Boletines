@@ -11,30 +11,36 @@ public class Ejercicio16 {
         MiEntradaSalida.imprimirMatriz(matriz);
         System.out.println();
         System.out.println("El resultado es: ");
-        MiEntradaSalida.imprimirMatriz(adyacentesPares(matriz));
+        MiEntradaSalida.imprimirMatriz(generarMatrizResultado(matriz));
     }
 
-    public static int[][] adyacentesPares(int[][] matriz) {
-        int[][] nueva = new int[matriz.length][matriz[0].length];
-        //Arrays para el desplazamiento en las 8 direcciones
-        int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
-        int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                int contador = 0;
-                for (int k = 0; k < 8; k++) {
-                    int ni = i + dx[k];
-                    int nj = j + dy[k];
-                    //Comprueba que la posicion no esta fuera de los limites de la matriz
-                    if (ni >= 0 && ni < matriz.length && nj >= 0 && nj < matriz[0].length) {
-                        if (matriz[ni][nj] % 2 == 0) {
-                            contador++;
-                        }
+    public static int adyacentesPares(int[][] matriz, int fila, int columa) {
+        int contador = 0;
+        for (int i = fila - 1; i <= fila + 1; i++) {
+            for (int j = columa - 1; j <= columa + 1; j++) {
+                if (i == fila && j == columa) continue;
+                if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
+                    if (esPar(matriz[i][j])) {
+                        contador++;
                     }
                 }
-                nueva[i][j] = contador;
             }
         }
-        return nueva;
+        return contador;
+    }
+
+    public static boolean esPar(int valor) {
+        return valor % 2 == 0;
+    }
+
+    public static int[][] generarMatrizResultado(int[][] matriz) {  //Función para generar la matriz resultado
+        int[][] resultado = new int[matriz.length][matriz[0].length];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                resultado[i][j] = adyacentesPares(matriz, i, j);
+            }
+        }
+        return resultado;
     }
 }
+
