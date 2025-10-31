@@ -1,5 +1,4 @@
 public class Jardin {
-    final static int semilla = 1;
     final static int[][] JARDIN = {
             {1, 0, 0, 0, 1, 0, 0, 0, 2, 1, 1, 0, 0, 5, 0},
             {0, 2, 0, 5, 0, 0, 3, 0, 1, 0, 0, 0, 1, 0, 0},
@@ -17,7 +16,7 @@ public class Jardin {
             {0, 1, 2, 1, 0, 0, 0, 0, 0, 2, 3, 1, 0, 0, 1},
             {1, 3, 4, 0, 0, 5, 0, 0, 1, 0, 0, 0, 0, 4, 2}
     };
-
+    //Llamar al metodo recorreJardin desde la clase Metodos
    public static void main(String[] args) {
        Metodos.recorreJardin(JARDIN);
    }
