@@ -10,94 +10,58 @@ public class Metodos {
 
     /**
      * Comprobar si hay agua cerca de la semilla
-     * @param matriz La matriz original
-     * @param fil La fila en la que esta la semilla
-     * @param col La columna en la que esta la semilla
      *
-     * @return a partir de crear una matriz más pequeña devuelve si hay agua o no
+     * @param matriz La matriz original
+     * @param fil    La fila en la que esta la semilla
+     * @param col    La columna en la que esta la semilla
+     * @return Llama al metodo buscarElemento y comprueba
      */
     public static boolean agua(int[][] matriz, int fil, int col) {
-        for (int i = fil - 1; i <= fil + 1; i++) {
-            for (int j = col - 1; j <= col + 1; j++) {
-                if (i == fil && j == col) continue;
-                if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
-                    if (matriz[i][j] == AGUA) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        return buscaElemento(matriz, fil, col, 1, AGUA);
     }
+
     /**
      * Comprobar si hay abejas cerca de la semilla
-     * @param matriz La matriz original
-     * @param fil La fila en la que esta la semilla
-     * @param col La columna en la que esta la semilla
      *
-     * @return a partir de crear una matriz más pequeña devuelve si hay abejas o no
+     * @param matriz La matriz original
+     * @param fil    La fila en la que esta la semilla
+     * @param col    La columna en la que esta la semilla
+     * @return Llama al metodo buscarElemento y comprueba
      */
     public static boolean abeja(int[][] matriz, int fil, int col) {
-        for (int i = fil - 3; i <= fil + 3; i++) {
-            for (int j = col - 3; j <= col + 3; j++) {
-                if (i == fil && j == col) continue;
-                if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
-                    if (matriz[i][j] == ABEJA) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        return buscaElemento(matriz, fil, col, 3, ABEJA);
     }
+
     /**
      * Comprobar si hay hierba cerca de la semilla
-     * @param matriz La matriz original
-     * @param fil La fila en la que esta la semilla
-     * @param col La columna en la que esta la semilla
      *
-     * @return a partir de crear una matriz más pequeña devuelve si hay hierba o no
+     * @param matriz La matriz original
+     * @param fil    La fila en la que esta la semilla
+     * @param col    La columna en la que esta la semilla
+     * @return Llama al metodo buscarElemento y comprueba
      */
     public static boolean hierba(int[][] matriz, int fil, int col) {
-        for (int i = fil - 1; i <= fil + 1; i++) {
-            for (int j = col - 1; j <= col + 1; j++) {
-                if (i == fil && j == col) continue;
-                if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
-                    if (matriz[i][j] == HIERBA) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        return buscaElemento(matriz, fil, col, 1, HIERBA);
     }
+
     /**
      * Comprobar si hay gusanos cerca de la semilla
-     * @param matriz La matriz original
-     * @param fil La fila en la que esta la semilla
-     * @param col La columna en la que esta la semilla
      *
-     * @return a partir de crear una matriz más pequeña devuelve si hay gusanos o no
+     * @param matriz La matriz original
+     * @param fil    La fila en la que esta la semilla
+     * @param col    La columna en la que esta la semilla
+     * @return Llama al metodo buscarElemento y comprueba
      */
     public static boolean gusanos(int[][] matriz, int fil, int col) {
-        for (int i = fil - 1; i <= fil + 1; i++) {
-            for (int j = col - 1; j <= col + 1; j++) {
-                if (i == fil && j == col) continue;
-                if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
-                    if (matriz[i][j] == GUSANO) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        return buscaElemento(matriz, fil, col, 1, GUSANO);
     }
 
     /**
      * Comprobar si florece esa semilla
+     *
      * @param matriz matriz a recorrer
-     * @param fil fila en la que esta
-     * @param colum columna en la que esta
+     * @param fil    fila en la que esta
+     * @param colum  columna en la que esta
      * @return si la semilla florece o no
      */
     public static boolean florecer(int[][] matriz, int fil, int colum) {
@@ -107,20 +71,45 @@ public class Metodos {
 
     /**
      * Recorrer el jardin buscando 1
+     *
      * @param matriz la matyriz a recorrer
      */
-    public static void recorreJardin(int[][] matriz){
+    public static void recorreJardin(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                if (matriz[i][j] == SEMILLA){
-                    if(florecer(matriz, i, j)){
-                        System.out.printf("La semilla en la posición [%d,%d] va a florecer\n",i,j);
+                if (matriz[i][j] == SEMILLA) {
+                    if (florecer(matriz, i, j)) {
+                        System.out.printf("La semilla en la posición [%d,%d] va a florecer\n", i, j);
                     }
                 }
             }
 
         }
 
+    }
+
+    /**
+     * Buscar elemento en una matriz
+     *
+     * @param matriz         matriz a recorrer
+     * @param fil            fila de la posicion inicial
+     * @param col            columna de la posicion inicial
+     * @param rango          en que area buscar
+     * @param elementoBuscar Que es lo que buscas
+     * @return devuelve si esta o no
+     */
+    public static boolean buscaElemento(int[][] matriz, int fil, int col, int rango, int elementoBuscar) {
+        for (int i = fil - rango; i <= fil + rango; i++) {
+            for (int j = col - rango; j <= col + rango; j++) {
+                if (i == fil && j == col) continue;
+                if (i >= 0 && i < matriz.length && j >= 0 && j < matriz[0].length) {
+                    if (matriz[i][j] == elementoBuscar) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 
