@@ -1,25 +1,27 @@
 package Ejercicio2;
 
 public class Cuenta {
-     private int saldo;
+    private int saldo;
 
     public Cuenta(){
-      setSaldo();
+    setSaldo();
     }
 
     public int getSaldo() {
-        return saldo;
+    return saldo;
     }
 
     private void setSaldo() {
-        this.saldo = 1000;
+    this.saldo = 1000;
     }
 
-    public int reintegro(int dineroASacar){
-        return saldo-=dineroASacar;
+    public void reintegro(int dineroASacar){
+        saldo -= dineroASacar;
     }
 
-    public int ingreso(int dineroAIngresar){
-        return saldo+=dineroAIngresar;
+    public void ingreso(int dineroAIngresar){
+        saldo += dineroAIngresar;
     }
+
+
 }

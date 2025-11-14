@@ -8,7 +8,7 @@ public class Principal {
         Cuenta cuenta = new Cuenta();
         boolean operaciones = true;
         while (operaciones){
-            System.out.printf("Ahora mismo tiene %d€ en su cuenta \n", cuenta.getSaldo());
+            System.out.printf("Ahora mismo tiene %s€ en su cuenta \n", cuenta.getSaldo());
             String comando = MiEntradaSalida.leerLinea("¿Desea ingeresar, retirar o no hacer nada?: \n");
             switch (comando.toLowerCase()){
                 case "ingresar":
