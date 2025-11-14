@@ -1,7 +1,7 @@
 package utils;
 
 import java.util.Scanner;
-
+//Version2.0
 public class MiEntradaSalida {
     private static Scanner sc = new Scanner(System.in);
 
