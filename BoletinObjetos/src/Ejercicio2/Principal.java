@@ -17,7 +17,7 @@ public class Principal {
                     break;
                 case "retirar":
 
-                    int dineroARetirar = MiEntradaSalida.leerEnteroPositivo("¿Cuanto desea retirar?",true);
+                    int dineroARetirar = MiEntradaSalida.leerEnteroPositivo("¿Cuanto desea retirar?\n",true);
                     if (cuenta.getSaldo()<dineroARetirar){
                         System.out.print("No tienes suficiente dinero en la cuenta. ");
                         break;
