@@ -79,14 +79,18 @@ public class Maquina {
     }
 
     public void servirCafe(String comanda, double dinero) throws MaquinaCafeException {
-        double precio = 0;
+        double precio = switch (comanda.toLowerCase()) {
+            case "cafe" -> PRECIOCAFE;
+            case "leche" -> PRECIOLECHE;
+            case "cafe con leche" -> PRECIOCAFECONLECHE;
+            default -> 0;
+        };
         if (dinero >= precio) {
             switch (comanda.toLowerCase()) {
                 case "cafe":
                     if (depositoCafe > 0 && depositoVasos > 0) {
                         depositoCafe -= 1;
                         depositoVasos -= 1;
-                        precio = PRECIOCAFE;
                         break;
                     } else
                         throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
@@ -94,7 +98,6 @@ public class Maquina {
                     if (depositoLeche > 0 && depositoVasos > 0) {
                         depositoLeche -= 1;
                         depositoVasos -= 1;
-                        precio = PRECIOLECHE;
                         break;
                     } else
                         throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
@@ -103,7 +106,6 @@ public class Maquina {
                         depositoLeche -= 1;
                         depositoCafe -= 1;
                         depositoVasos -= 1;
-                        precio = PRECIOCAFECONLECHE;
                         break;
                     } else
                         throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
