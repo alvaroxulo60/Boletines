@@ -113,8 +113,7 @@ public class Maquina {
             }
             System.out.print("Recoge tu cambio de " + (dinero - precio) + "€\n");
 
-        } else if (dinero < precio) {
-            throw new MaquinaCafeException("No has metido suficiente saldo.");
-        }
+        } else throw new MaquinaCafeException("No has metido suficiente saldo.");
+
     }
 }
