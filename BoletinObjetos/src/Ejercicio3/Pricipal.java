@@ -7,6 +7,7 @@ public class Pricipal {
 
 public static void main(String[] args) {
     Maquina maquinaCafe = new Maquina();
+    boolean funcionando = true;
     System.out.print("Bienvenido a Bermudo´s & coffe.\n");
     System.out.print("""
             Este es nuestro menú:
@@ -14,12 +15,15 @@ public static void main(String[] args) {
             Leche = 0,8€
             Café con leche = 1,5€
             """);
-    String comando = MiEntradaSalida.leerLinea("¿Que desea tomar?");
-    double saldo = MiEntradaSalida.leerDecimal("Introduce el saldo correspondiente");
-    if (comando.startsWith("apagar")){
-        System.out.print("Gracias por venir a Bermudo´s & coffe");
-    }else {
-        maquinaCafe.servirCafe(comando,saldo);
+    while (funcionando) {
+        String comando = MiEntradaSalida.leerLinea("¿Que desea tomar o desea apagar la máquina?\n");
+        if (comando.startsWith("apagar")) {
+            funcionando=false;
+            System.out.print("Gracias por venir a Bermudo´s & coffe");
+        } else {
+            double saldo = MiEntradaSalida.leerDecimal("Introduce el saldo correspondiente: ");
+            maquinaCafe.servirCafe(comando, saldo);
+        }
     }
     }
 }
