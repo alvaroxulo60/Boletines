@@ -8,8 +8,7 @@ public class Principal {
         Cuenta cuenta = new Cuenta();
         boolean operaciones = true;
         while (operaciones){
-            System.out.printf("Ahora mismo tiene %s€ en su cuenta \n", cuenta.getSaldo());
-            String comando = MiEntradaSalida.leerLinea("¿Desea ingeresar, retirar o no hacer nada?: \n");
+            String comando = MiEntradaSalida.leerLinea("¿Desea ingeresar, retirar, consultar o no hacer nada?: \n");
             switch (comando.toLowerCase()){
                 case "ingresar":
                     int dineroAIngresar = MiEntradaSalida.leerEnteroPositivo("¿Cuanto desea ingresar?\n",true);
@@ -28,6 +27,9 @@ public class Principal {
                     System.out.println("Hasta luego, muchas gracias. Asi ha quedado su saldo:");
                     System.out.println(cuenta.getSaldo()+"€");
                     operaciones=false;
+                    break;
+                case "consultar":
+                    cuenta.consulta();
                     break;
                 default:
                     System.out.println("Comando no valido.");
