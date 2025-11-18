@@ -1,22 +1,24 @@
 package Ejercicio2;
 
+import Exceptions.CuentaException;
+
 public class Cuenta {
-    private int saldo;
+    private double saldo;
     private int numeroIngresos;
     private int numeroReintegros;
 
-    public Cuenta(){
-    setSaldo();
-    setNumeroIngresos();
-    setNumeroReintegros();
+    public Cuenta() {
+        setSaldo();
+        setNumeroIngresos();
+        setNumeroReintegros();
     }
 
-    public int getSaldo() {
-    return saldo;
+    public double getSaldo() {
+        return saldo;
     }
 
     private void setSaldo() {
-    this.saldo = 1000;
+        this.saldo = 1000;
     }
 
     public int getNumeroIngresos() {
@@ -44,16 +46,26 @@ public class Cuenta {
                 '}';
     }
 
-    public void reintegro(int dineroASacar){
+    public void reintegro(int dineroASacar) throws CuentaException {
+        if (dineroASacar <= 0) {
+            throw new CuentaException("El saldo no puede ser negativo");
+        }
+        if (dineroASacar > this.saldo) {
+            throw new CuentaException("No tienes suficiente saldo");
+        }
         saldo -= dineroASacar;
         numeroReintegros++;
     }
 
-    public void ingreso(int dineroAIngresar){
+    public void ingreso(int dineroAIngresar) throws CuentaException {
+        if (dineroAIngresar < 0) {
+            throw new CuentaException("El saldo no puede ser negativo");
+        }
         saldo += dineroAIngresar;
         numeroIngresos++;
     }
-    public void consulta(){
+
+    public void consulta() {
         System.out.println(toString());
     }
 

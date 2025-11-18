@@ -1,5 +1,7 @@
 package utils;
 
+import Exceptions.MiEntradaSalidaException;
+
 import java.util.Scanner;
 //Version2.0
 public class MiEntradaSalida {
@@ -110,12 +112,10 @@ public class MiEntradaSalida {
      * @param max     valor máximo incluido
      * @return Numero leido por teclado
      */
-    public static int leerEnteroRango(String mensaje, int min, int max) {
+    public static int leerEnteroRango(String mensaje, int min, int max) throws MiEntradaSalidaException {
         if (min > max) {
             //Mostrar error
-            System.out.println("El mínimo es mayor que el máximo");
-            //TODO: Cambiar esto a ver las excepciones
-            return -1;
+            throw new MiEntradaSalidaException("El mínimo es mayor que el máximo");
         }
         int a;
         do {
