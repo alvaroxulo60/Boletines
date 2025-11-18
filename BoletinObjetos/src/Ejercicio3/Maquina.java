@@ -113,7 +113,9 @@ public class Maquina {
                     throw new MaquinaCafeException("No entiendo ese comando");
 
             }
-            System.out.print("Recoge tu cambio de " + (dinero - precio) + "€\n");
+            double cambio = dinero -precio;
+            System.out.print("Recoge tu cambio de " + cambio + "€\n");
+            this.monedero -= cambio;
 
         } else throw new MaquinaCafeException("No has metido suficiente saldo.");
 
