@@ -62,7 +62,7 @@ public class Maquina {
     }
 
     public void rellenarDepositos(int cafe, int leche, int vasos) throws MaquinaCafeException {
-        if (cafe<0 || leche<0 || vasos<0) throw new MaquinaCafeException("Error: Alguna cantidad es negativa\n");
+        if (cafe < 0 || leche < 0 || vasos < 0) throw new MaquinaCafeException("Error: Alguna cantidad es negativa\n");
         else {
             this.depositoCafe += cafe;
             this.depositoLeche += leche;
@@ -75,10 +75,10 @@ public class Maquina {
     }
 
     public void consultarMaquina() {
-        System.out.print(toString()+"\n");
+        System.out.print(toString() + "\n");
     }
 
-    public void servirCafe(String comanda, double dinero)throws MaquinaCafeException {
+    public void servirCafe(String comanda, double dinero) throws MaquinaCafeException {
         double precio = 0;
         if (dinero >= precio) {
             switch (comanda.toLowerCase()) {
@@ -111,10 +111,9 @@ public class Maquina {
                     throw new MaquinaCafeException("No entiendo ese comando");
 
             }
-            System.out.print("Recoge tu cambio de "+(dinero-precio)+"€\n");
+            System.out.print("Recoge tu cambio de " + (dinero - precio) + "€\n");
 
-        }
-        else if (dinero< precio){
+        } else if (dinero < precio) {
             throw new MaquinaCafeException("No has metido suficiente saldo.");
         }
     }
