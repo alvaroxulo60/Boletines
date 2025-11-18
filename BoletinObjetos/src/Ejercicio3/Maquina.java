@@ -61,10 +61,13 @@ public class Maquina {
                 '}';
     }
 
-    public void rellenarDepositos(int cafe, int leche, int vasos) {
-        this.depositoCafe += cafe;
-        this.depositoLeche += leche;
-        this.depositoVasos += vasos;
+    public void rellenarDepositos(int cafe, int leche, int vasos) throws MaquinaCafeException {
+        if (cafe<0 || leche<0 || vasos<0) throw new MaquinaCafeException("Error: Alguna cantidad es negativa\n");
+        else {
+            this.depositoCafe += cafe;
+            this.depositoLeche += leche;
+            this.depositoVasos += vasos;
+        }
     }
 
     public void vaciarMonedero() {
@@ -72,7 +75,7 @@ public class Maquina {
     }
 
     public void consultarMaquina() {
-        System.out.print("toString()");
+        System.out.print(toString()+"\n");
     }
 
     public void servirCafe(String comanda, double dinero)throws MaquinaCafeException {
@@ -86,8 +89,7 @@ public class Maquina {
                         precio = PRECIOCAFE;
                         break;
                     } else
-                        System.out.print("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
-                    break;
+                        throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
                 case "leche":
                     if (depositoLeche > 0 && depositoVasos > 0) {
                         depositoLeche -= 1;
@@ -95,8 +97,7 @@ public class Maquina {
                         precio = PRECIOLECHE;
                         break;
                     } else
-                        System.out.print("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito \n");
-                    break;
+                        throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
                 case "cafe con leche":
                     if (depositoCafe > 0 && depositoVasos > 0 && depositoLeche > 0) {
                         depositoLeche -= 1;
@@ -105,18 +106,16 @@ public class Maquina {
                         precio = PRECIOCAFECONLECHE;
                         break;
                     } else
-                        System.out.print("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito \n");
-                    break;
+                        throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
                 default:
-                    System.out.print("No entiendo, introduzca algo que este en el menu.\n");
-                    break;
+                    throw new MaquinaCafeException("No entiendo ese comando");
 
             }
-            System.out.print("Recoge tu cambio de "+(dinero-precio)+"€");
-        }
+            System.out.print("Recoge tu cambio de "+(dinero-precio)+"€\n");
 
+        }
         else if (dinero< precio){
-            System.out.print("No has metido suficiente saldo.");
+            throw new MaquinaCafeException("No has metido suficiente saldo.");
         }
     }
 }
