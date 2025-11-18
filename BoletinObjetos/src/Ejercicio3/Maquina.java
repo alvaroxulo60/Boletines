@@ -85,38 +85,38 @@ public class Maquina {
             case "cafe con leche" -> PRECIOCAFECONLECHE;
             default -> 0;
         };
+        double cambio = dinero - precio;
         if (dinero >= precio) {
-            switch (comanda.toLowerCase()) {
-                case "cafe":
-                    if (depositoCafe > 0 && depositoVasos > 0) {
-                        depositoCafe -= 1;
-                        depositoVasos -= 1;
-                        break;
-                    } else
-                        throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
-                case "leche":
-                    if (depositoLeche > 0 && depositoVasos > 0) {
-                        depositoLeche -= 1;
-                        depositoVasos -= 1;
-                        break;
-                    } else
-                        throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
-                case "cafe con leche":
-                    if (depositoCafe > 0 && depositoVasos > 0 && depositoLeche > 0) {
-                        depositoLeche -= 1;
-                        depositoCafe -= 1;
-                        depositoVasos -= 1;
-                        break;
-                    } else
-                        throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
-                default:
-                    throw new MaquinaCafeException("No entiendo ese comando");
-
-            }
-            double cambio = dinero -precio;
-            System.out.print("Recoge tu cambio de " + cambio + "€\n");
-            this.monedero -= cambio;
-
+            if (cambio < monedero) {
+                switch (comanda.toLowerCase()) {
+                    case "cafe":
+                        if (depositoCafe > 0 && depositoVasos > 0) {
+                            depositoCafe -= 1;
+                            depositoVasos -= 1;
+                            break;
+                        } else
+                            throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
+                    case "leche":
+                        if (depositoLeche > 0 && depositoVasos > 0) {
+                            depositoLeche -= 1;
+                            depositoVasos -= 1;
+                            break;
+                        } else
+                            throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
+                    case "cafe con leche":
+                        if (depositoCafe > 0 && depositoVasos > 0 && depositoLeche > 0) {
+                            depositoLeche -= 1;
+                            depositoCafe -= 1;
+                            depositoVasos -= 1;
+                            break;
+                        } else
+                            throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
+                    default:
+                        throw new MaquinaCafeException("No entiendo ese comando");
+                }
+                System.out.print("Recoge tu cambio de " + cambio + "€\n");
+                this.monedero -= cambio;
+            } else throw new MaquinaCafeException("No hay suficiente cambio en la maquina");
         } else throw new MaquinaCafeException("No has metido suficiente saldo.");
 
     }
