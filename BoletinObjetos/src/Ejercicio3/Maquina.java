@@ -1,5 +1,7 @@
 package Ejercicio3;
 
+import Exceptions.MaquinaCafeException;
+
 public class Maquina {
     private int depositoCafe;
     private int depositoLeche;
@@ -73,7 +75,7 @@ public class Maquina {
         System.out.print("toString()");
     }
 
-    public void servirCafe(String comanda, double dinero) {
+    public void servirCafe(String comanda, double dinero)throws MaquinaCafeException {
         double precio = 0;
         if (dinero >= precio) {
             switch (comanda.toLowerCase()) {
