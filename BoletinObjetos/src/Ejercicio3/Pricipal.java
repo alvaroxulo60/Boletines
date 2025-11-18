@@ -35,6 +35,7 @@ public class Pricipal {
                 case "tomar":
                     String tipo = MiEntradaSalida.leerLinea("¿Que deseas tomar?\n");
                     saldo = MiEntradaSalida.leerDecimal("Introduce el saldo correspondiente: ");
+
                     try {
                         maquinaCafe.servirCafe(tipo, saldo);
                     } catch (MaquinaCafeException e) {
