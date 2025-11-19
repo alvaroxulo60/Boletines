@@ -1,7 +1,8 @@
 package boletin4_2.ejercicio2;
 
 public class DiscoDuro {
-    String marca;
-    String tipo;
+    private String marca;
+    private String tipo;
+    private int capacidad;
 
 }

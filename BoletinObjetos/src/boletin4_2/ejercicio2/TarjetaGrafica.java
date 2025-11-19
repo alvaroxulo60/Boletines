@@ -1,9 +1,9 @@
 package boletin4_2.ejercicio2;
 
-public class Microprocesador {
+public class TarjetaGrafica {
     private String marca;
     private String modelo;
     private int numNucleos;
-    private float VelBase;
-    private String socket;
+    private float velocidad;
+    private int capacidad;
 }
