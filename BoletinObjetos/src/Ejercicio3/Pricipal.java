@@ -37,7 +37,8 @@ public class Pricipal {
                     saldo = MiEntradaSalida.leerDecimal("Introduce el saldo correspondiente: ");
 
                     try {
-                        maquinaCafe.servirCafe(tipo, saldo);
+                        System.out.println("Aqui tienes tu cambio de "+maquinaCafe.servirCafe(tipo, saldo)+"€");
+
                     } catch (MaquinaCafeException e) {
                         System.out.println(e.getMessage());
                     }

@@ -78,7 +78,7 @@ public class Maquina {
         System.out.print(toString() + "\n");
     }
 
-    public void servirCafe(String comanda, double dinero) throws MaquinaCafeException {
+    public double servirCafe(String comanda, double dinero) throws MaquinaCafeException {
         double precio = switch (comanda.toLowerCase()) {
             case "cafe" -> PRECIOCAFE;
             case "leche" -> PRECIOLECHE;
@@ -114,10 +114,9 @@ public class Maquina {
                     default:
                         throw new MaquinaCafeException("No entiendo ese comando");
                 }
-                System.out.print("Recoge tu cambio de " + cambio + "€\n");
                 this.monedero -= cambio;
             } else throw new MaquinaCafeException("No hay suficiente cambio en la maquina");
         } else throw new MaquinaCafeException("No has metido suficiente saldo.");
-
+        return cambio;
     }
 }
