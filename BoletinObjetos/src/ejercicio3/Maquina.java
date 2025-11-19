@@ -61,7 +61,7 @@ public class Maquina {
                 '}';
     }
 
-    public void rellenarDepositos()  {
+    public void rellenarDepositos() {
         setDepositoCafe();
         setDepositoLeche();
         setDepositoVasos();
