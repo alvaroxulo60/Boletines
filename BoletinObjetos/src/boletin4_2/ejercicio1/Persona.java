@@ -77,4 +77,17 @@ public class Persona {
     public double getIMC(){
     return getPeso()/Math.pow(getAltura(),2);
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", dni=" + dni + getLetraDni() +
+                ", sexo=" + sexo +
+                ", altura=" + altura +
+                ", peso=" + peso +
+                ", IMC=" + getIMC() +
+                '}';
+    }
 }

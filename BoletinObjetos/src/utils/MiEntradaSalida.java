@@ -45,9 +45,7 @@ public class MiEntradaSalida {
      */
     public static double leerDecimal(String mensaje) {
         System.out.print(mensaje);
-        double valor = sc.nextDouble();
-        sc.nextLine();
-        return valor;
+        return Double.parseDouble(sc.nextLine());
     }
 
     /**
