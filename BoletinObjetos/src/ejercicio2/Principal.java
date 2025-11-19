@@ -1,6 +1,6 @@
-package Ejercicio2;
+package ejercicio2;
 
-import Exceptions.CuentaException;
+import exceptions.CuentaException;
 import utils.MiEntradaSalida;
 
 public class Principal {

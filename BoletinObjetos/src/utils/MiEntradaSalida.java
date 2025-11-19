@@ -1,6 +1,6 @@
 package utils;
 
-import Exceptions.MiEntradaSalidaException;
+import exceptions.MiEntradaSalidaException;
 
 import java.util.Scanner;
 //Version2.0

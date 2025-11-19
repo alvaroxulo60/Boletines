@@ -1,6 +1,6 @@
-package Ejercicio3;
+package ejercicio3;
 
-import Exceptions.MaquinaCafeException;
+import exceptions.MaquinaCafeException;
 
 public class Maquina {
     private int depositoCafe;

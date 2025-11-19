@@ -1,6 +1,6 @@
-package Ejercicio3;
+package ejercicio3;
 
-import Exceptions.MaquinaCafeException;
+import exceptions.MaquinaCafeException;
 import utils.MiEntradaSalida;
 
 public class Pricipal {
