@@ -3,12 +3,12 @@ package boletin4_2.ejercicio1;
 import java.time.LocalDate;
 
 public class Persona {
-    String nombre;
-    LocalDate fechaNacimiento;
-    int dni;
-    char sexo;
-    float altura;
-    float peso;
+     private String nombre;
+    private LocalDate fechaNacimiento;
+    private int dni;
+    private char sexo;
+    private float altura;
+    private float peso;
 
 
     public Persona(String nombre, LocalDate fechaNacimiento, int dni, char sexo, float altura, float peso) {
