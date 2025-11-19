@@ -44,14 +44,7 @@ public class Pricipal {
                     }
                     break;
                 case "rellenar depositos":
-                    int cafe = MiEntradaSalida.leerEntero("Cantidad de dosis de cafe a rellenar: ");
-                    int leche = MiEntradaSalida.leerEntero("Cantidad de dosis de leche a rellenar: ");
-                    int vasos = MiEntradaSalida.leerEntero("Cantidad de vasos a rellenar: ");
-                    try {
-                        maquinaCafe.rellenarDepositos(cafe, leche, vasos);
-                    } catch (MaquinaCafeException e) {
-                        System.out.println(e.getMessage());
-                    }
+                    maquinaCafe.rellenarDepositos();
                     break;
                 case "vaciar monedero":
                     maquinaCafe.vaciarMonedero();

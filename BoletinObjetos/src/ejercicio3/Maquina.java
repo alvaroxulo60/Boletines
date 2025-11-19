@@ -61,13 +61,10 @@ public class Maquina {
                 '}';
     }
 
-    public void rellenarDepositos(int cafe, int leche, int vasos) throws MaquinaCafeException {
-        if (cafe < 0 || leche < 0 || vasos < 0) throw new MaquinaCafeException("Error: Alguna cantidad es negativa\n");
-        else {
-            this.depositoCafe += cafe;
-            this.depositoLeche += leche;
-            this.depositoVasos += vasos;
-        }
+    public void rellenarDepositos()  {
+        setDepositoCafe();
+        setDepositoLeche();
+        setDepositoVasos();
     }
 
     public void vaciarMonedero() {
