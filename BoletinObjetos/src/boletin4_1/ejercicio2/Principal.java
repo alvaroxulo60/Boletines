@@ -6,7 +6,16 @@ import utils.MiEntradaSalida;
 public class Principal {
     public static void main(String[] args) {
         System.out.printf("Bienvenido a BermudoBank.%n");
-        Cuenta cuenta = new Cuenta();
+        Cuenta cuenta = null;
+
+        while (cuenta==null){
+            double saldoInical = MiEntradaSalida.leerDecimal("Introdduce el saldo inicial: \n");
+            try {
+                cuenta = new Cuenta(saldoInical);
+            } catch (CuentaException e) {
+                System.out.println(e.getMessage());
+            }
+        }
         boolean operaciones = true;
         while (operaciones) {
             String comando = MiEntradaSalida.leerLinea("¿Desea ingeresar, retirar, consultar o no hacer nada?: \n");

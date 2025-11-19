@@ -7,8 +7,8 @@ public class Cuenta {
     private int numeroIngresos;
     private int numeroReintegros;
 
-    public Cuenta() {
-        setSaldo();
+    public Cuenta(double saldoInicial) throws CuentaException{
+        setSaldo(saldoInicial);
         setNumeroIngresos();
         setNumeroReintegros();
     }
@@ -17,8 +17,11 @@ public class Cuenta {
         return saldo;
     }
 
-    private void setSaldo() {
-        this.saldo = 1000;
+    private void setSaldo(double saldoInicial) throws CuentaException {
+        if (saldoInicial < 0){
+            throw new CuentaException("Error: El saldo inicial no puede ser negativo");
+        }
+        this.saldo=saldoInicial;
     }
 
     public int getNumeroIngresos() {
