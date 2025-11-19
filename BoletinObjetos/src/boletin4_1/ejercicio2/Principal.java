@@ -1,4 +1,4 @@
-package ejercicio2;
+package boletin4_1.ejercicio2;
 
 import exceptions.CuentaException;
 import utils.MiEntradaSalida;

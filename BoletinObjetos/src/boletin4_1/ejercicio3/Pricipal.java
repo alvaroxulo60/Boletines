@@ -1,4 +1,4 @@
-package ejercicio3;
+package boletin4_1.ejercicio3;
 
 import exceptions.MaquinaCafeException;
 import utils.MiEntradaSalida;
