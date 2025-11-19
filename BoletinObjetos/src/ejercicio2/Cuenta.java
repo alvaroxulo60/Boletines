@@ -46,8 +46,8 @@ public class Cuenta {
                 '}';
     }
 
-    public void reintegro(int dineroASacar) throws CuentaException {
-        if (dineroASacar <= 0) {
+    public void reintegro(double dineroASacar) throws CuentaException {
+        if (dineroASacar < 0) {
             throw new CuentaException("El saldo no puede ser negativo");
         }
         if (dineroASacar > this.saldo) {
@@ -57,7 +57,7 @@ public class Cuenta {
         numeroReintegros++;
     }
 
-    public void ingreso(int dineroAIngresar) throws CuentaException {
+    public void ingreso(double dineroAIngresar) throws CuentaException {
         if (dineroAIngresar < 0) {
             throw new CuentaException("El saldo no puede ser negativo");
         }
