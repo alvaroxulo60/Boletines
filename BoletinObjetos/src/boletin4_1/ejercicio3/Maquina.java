@@ -15,15 +15,15 @@ public class Maquina {
     private final int MAXVASOS;
     private final double MAXMONEDERO;
 
-    public Maquina(int MAXDOSISCAFE, int MAXDOSISLECHE, int MAXVASOS, double MAXMONEDERO) {
-        setDepositoCafe(MAXDOSISCAFE);
-        setDepositoLeche(MAXDOSISLECHE);
-        setDepositoVasos(MAXVASOS);
-        setMonedero(MAXMONEDERO);
-        this.MAXDOSISCAFE = MAXDOSISCAFE;
-        this.MAXDOSISLECHE = MAXDOSISLECHE;
-        this.MAXVASOS = MAXVASOS;
-        this.MAXMONEDERO = MAXMONEDERO;
+    public Maquina(int maxDosisCafe, int maxDosisLeche, int maxVasos, double maxMonedero) {
+        setDepositoCafe(maxDosisCafe);
+        setDepositoLeche(maxDosisLeche);
+        setDepositoVasos(maxVasos);
+        setMonedero(maxMonedero);
+        this.MAXDOSISCAFE = maxDosisCafe;
+        this.MAXDOSISLECHE = maxDosisLeche;
+        this.MAXVASOS = maxVasos;
+        this.MAXMONEDERO = maxMonedero;
     }
 
     public int getDepositoCafe() {
@@ -85,12 +85,7 @@ public class Maquina {
     }
 
     public double servirCafe(String comanda, double dinero) throws MaquinaCafeException {
-        double precio = switch (comanda.toLowerCase()) {
-            case "cafe" -> PRECIOCAFE;
-            case "leche" -> PRECIOLECHE;
-            case "cafe con leche" -> PRECIOCAFECONLECHE;
-            default -> 0;
-        };
+        double precio = establecerPrecio(comanda);
         double cambio = dinero - precio;
         if (dinero >= precio) {
             if (cambio < monedero) {
@@ -126,4 +121,21 @@ public class Maquina {
         return cambio;
     }
 
+    private double establecerPrecio(String comanda) {
+        switch (comanda.toLowerCase()) {
+            case "cafe" -> {
+                return PRECIOCAFE;
+            }
+            case "leche" -> {
+                return PRECIOLECHE;
+            }
+            case "cafe con leche" -> {
+                return PRECIOCAFECONLECHE;
+            }
+            default -> {
+                return 0;
+            }
+
+        }
+    }
 }
