@@ -135,7 +135,6 @@ public class Maquina {
             default -> {
                 return 0;
             }
-
         }
     }
 }
