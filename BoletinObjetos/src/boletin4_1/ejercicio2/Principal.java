@@ -18,15 +18,10 @@ public class Principal {
         }
         boolean operaciones = true;
         while (operaciones) {
-            String comando = MiEntradaSalida.leerLinea("¿Desea ingeresar, retirar, consultar o no hacer nada?: \n");
+            String comando = MiEntradaSalida.leerLinea("¿Desea ingresar, retirar, consultar o no hacer nada?: \n");
             switch (comando.toLowerCase()) {
                 case "ingresar":
-                    int dineroAIngresar = MiEntradaSalida.leerEntero("¿Cuanto desea ingresar?\n");
-                    try {
-                        cuenta.ingreso(dineroAIngresar);
-                    } catch (CuentaException e) {
-                        System.out.println("Error al ingresar dinero: " + e.getMessage());
-                    }
+                   ingresar(cuenta);
                     break;
                 case "retirar":
                     int dineroARetirar = MiEntradaSalida.leerEntero("¿Cuanto desea retirar?\n");
@@ -49,4 +44,13 @@ public class Principal {
             }
         }
     }
+    public static void ingresar(Cuenta cuenta) {
+        int dineroAIngresar = MiEntradaSalida.leerEntero("¿Cuanto desea ingresar?\n");
+        try {
+            cuenta.ingreso(dineroAIngresar);
+        } catch (CuentaException e) {
+            System.out.println("Error al ingresar dinero: " + e.getMessage());
+        }
+    }
 }
+
