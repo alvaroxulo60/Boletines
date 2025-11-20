@@ -9,7 +9,7 @@ public class Principal {
         Cuenta cuenta = null;
 
         while (cuenta==null){
-            double saldoInical = MiEntradaSalida.leerDecimal("Introdduce el saldo inicial: \n");
+            double saldoInical = MiEntradaSalida.leerDecimal("Introduce el saldo inicial: \n");
             try {
                 cuenta = new Cuenta(saldoInical);
             } catch (CuentaException e) {

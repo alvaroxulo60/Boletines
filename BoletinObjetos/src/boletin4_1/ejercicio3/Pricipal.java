@@ -7,7 +7,7 @@ public class Pricipal {
 
 
     public static void main(String[] args) {
-        Maquina maquinaCafe = new Maquina();
+        Maquina maquinaCafe = new Maquina(50,50,80,10);
         boolean funcionando = true;
         double saldo;
         System.out.print("Bienvenido a Bermudo´s & coffe.\n");

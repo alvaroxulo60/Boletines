@@ -10,44 +10,52 @@ public class Maquina {
     public final double PRECIOCAFE = 1;
     public final double PRECIOLECHE = 0.8;
     public final double PRECIOCAFECONLECHE = 1.5;
+    private final int MAXDOSISCAFE;
+    private final int MAXDOSISLECHE;
+    private final int MAXVASOS;
+    private final double MAXMONEDERO;
 
-    public Maquina() {
-        setDepositoCafe();
-        setDepositoLeche();
-        setDepositoVasos();
-        setMonedero();
+    public Maquina(int MAXDOSISCAFE, int MAXDOSISLECHE, int MAXVASOS, double MAXMONEDERO) {
+        setDepositoCafe(MAXDOSISCAFE);
+        setDepositoLeche(MAXDOSISLECHE);
+        setDepositoVasos(MAXVASOS);
+        setMonedero(MAXMONEDERO);
+        this.MAXDOSISCAFE = MAXDOSISCAFE;
+        this.MAXDOSISLECHE = MAXDOSISLECHE;
+        this.MAXVASOS = MAXVASOS;
+        this.MAXMONEDERO = MAXMONEDERO;
     }
 
     public int getDepositoCafe() {
         return depositoCafe;
     }
 
-    private void setDepositoCafe() {
-        this.depositoCafe = 50;
+    private void setDepositoCafe(int cafe) {
+        this.depositoCafe = cafe;
     }
 
     public int getDepositoLeche() {
         return depositoLeche;
     }
 
-    private void setDepositoLeche() {
-        this.depositoLeche = 50;
+    private void setDepositoLeche(int leche) {
+        this.depositoLeche = leche;
     }
 
     public int getDepositoVasos() {
         return depositoVasos;
     }
 
-    public void setDepositoVasos() {
-        this.depositoVasos = 80;
+    public void setDepositoVasos(int vasos) {
+        this.depositoVasos = vasos;
     }
 
     public double getMonedero() {
         return monedero;
     }
 
-    private void setMonedero() {
-        this.monedero = 10;
+    private void setMonedero(double dinero) {
+        this.monedero = dinero;
     }
 
 
@@ -62,9 +70,10 @@ public class Maquina {
     }
 
     public void rellenarDepositos() {
-        setDepositoCafe();
-        setDepositoLeche();
-        setDepositoVasos();
+        setDepositoCafe(MAXDOSISCAFE);
+        setDepositoLeche(MAXDOSISLECHE);
+        setDepositoVasos(MAXVASOS);
+        setMonedero(MAXMONEDERO);
     }
 
     public void vaciarMonedero() {
