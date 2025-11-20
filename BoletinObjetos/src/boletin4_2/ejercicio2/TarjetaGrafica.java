@@ -6,4 +6,8 @@ public class TarjetaGrafica {
     private int numNucleos;
     private float velocidad;
     private int capacidad;
+
+    public TarjetaGrafica(String marca, String modelo, int numNucleos, float velocidad, int capacidad) {
+
+    }
 }

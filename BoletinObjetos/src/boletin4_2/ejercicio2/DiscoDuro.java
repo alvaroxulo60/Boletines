@@ -5,4 +5,7 @@ public class DiscoDuro {
     private String tipo;
     private int capacidad;
 
+    public DiscoDuro(String marca, String tipo, int capacidad) {
+
+    }
 }

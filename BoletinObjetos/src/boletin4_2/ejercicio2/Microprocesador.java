@@ -6,4 +6,8 @@ public class Microprocesador {
     private int numNucleos;
     private float VelBase;
     private String socket;
+
+    public Microprocesador(String marca, String modelo, int numNucleos, float velBase, String socket) {
+
+    }
 }
