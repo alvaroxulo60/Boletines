@@ -116,4 +116,5 @@ public class Maquina {
         } else throw new MaquinaCafeException("No has metido suficiente saldo.");
         return cambio;
     }
+
 }
