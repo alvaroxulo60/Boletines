@@ -94,6 +94,7 @@ public class Maquina {
                         if (depositoCafe > 0 && depositoVasos > 0) {
                             depositoCafe -= 1;
                             depositoVasos -= 1;
+                            this.monedero+=PRECIOCAFE;
                             break;
                         } else
                             throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
@@ -101,6 +102,7 @@ public class Maquina {
                         if (depositoLeche > 0 && depositoVasos > 0) {
                             depositoLeche -= 1;
                             depositoVasos -= 1;
+                            this.monedero+=PRECIOLECHE;
                             break;
                         } else
                             throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
@@ -109,6 +111,7 @@ public class Maquina {
                             depositoLeche -= 1;
                             depositoCafe -= 1;
                             depositoVasos -= 1;
+                            this.monedero+=PRECIOCAFECONLECHE;
                             break;
                         } else
                             throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");

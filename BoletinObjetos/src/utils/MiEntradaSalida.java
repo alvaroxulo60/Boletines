@@ -65,8 +65,28 @@ public class MiEntradaSalida {
      * @return Lo introducido por el usuario
      */
     public static double leerDouble(String mensaje) {
-        System.out.print(mensaje);
-        return Double.parseDouble(sc.nextLine());
+        double integer = 0;
+        // Variable que almacenará un booleano que indicará si se le debe volver a pedir el dato al usuario.
+        boolean flag = true;
+
+        while (flag) {
+            // Pedimos el entero por pantalla.
+            System.out.println(mensaje);
+            // Comprobamos si el usuario está introduciendo algo correcto usando la excepción del método parseInt.
+            try {
+                integer = Double.parseDouble(sc.nextLine());
+                // Si llegamos hasta aquí, es porque el usuario ha introducido un dato correcto.
+                flag = false;
+            }
+            // Si se lanza la excepción, informamos al usuario de su error.
+            catch (NumberFormatException e) {
+                // 2. Mensaje de error específico.
+                System.out.println("Error: Debe introducir un número entero.");
+            }
+
+        }
+
+        return integer;
     }
 
     /**
@@ -76,25 +96,30 @@ public class MiEntradaSalida {
      * @return lo introducido por el usuario
      */
     public static float leerFloat(String mensaje) {
-        System.out.print(mensaje);
-        return Float.parseFloat(sc.nextLine());
+        float integer = 0;
+        // Variable que almacenará un booleano que indicará si se le debe volver a pedir el dato al usuario.
+        boolean flag = true;
+
+        while (flag) {
+            // Pedimos el entero por pantalla.
+            System.out.println(mensaje);
+            // Comprobamos si el usuario está introduciendo algo correcto usando la excepción del método parseInt.
+            try {
+                integer = Float.parseFloat(sc.nextLine());
+                // Si llegamos hasta aquí, es porque el usuario ha introducido un dato correcto.
+                flag = false;
+            }
+            // Si se lanza la excepción, informamos al usuario de su error.
+            catch (NumberFormatException e) {
+                // 2. Mensaje de error específico.
+                System.out.println("Error: Debe introducir un número entero.");
+            }
+
+        }
+
+        return integer;
     }
 
-    /**
-     * Minimo Común Divisor de 2 números
-     *
-     * @param a primer numero
-     * @param b segundo numero
-     * @return el mcd
-     */
-    public static int mcd(int a, int b) {
-        while (b != 0) {
-            int temporal = b;
-            b = a % b;
-            a = temporal;
-        }
-        return a;
-    }
 
     /**
      * Generar un número aleatorio determinado por un máximo

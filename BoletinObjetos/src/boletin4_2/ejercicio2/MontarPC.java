@@ -20,7 +20,7 @@ public class MontarPC {
         System.out.println("¡Perfecto! Vamos con lo ultimo, el disco duro. \n");
         discoDuro = crearDiscoDuro();
         System.out.println("Vamos a hacer las comprobaciones necesarias. Espera un momento porfavor. \n");
-        cargando();
+        comprobar();
         try {
             placaBase.setMicroprocesador(microprocesador);
             System.out.println("Tu ordenador esta listo. Asi ha quedado:");
@@ -68,7 +68,7 @@ public class MontarPC {
         return new DiscoDuro(marca,tipo,capacidad);
     }
 
-    public static void cargando() throws InterruptedException {
+    public static void comprobar() throws InterruptedException {
         int total = 50; // ancho de la barra
 
         for (int i = 0; i <= total; i++) {
