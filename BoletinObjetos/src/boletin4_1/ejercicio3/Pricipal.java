@@ -34,7 +34,7 @@ public class Pricipal {
             switch (comando.toLowerCase()) {
                 case "tomar":
                     String tipo = MiEntradaSalida.leerLinea("¿Que deseas tomar?\n");
-                    saldo = MiEntradaSalida.leerDecimal("Introduce el saldo correspondiente: ");
+                    saldo = MiEntradaSalida.leerDouble("Introduce el saldo correspondiente: ");
 
                     try {
                         System.out.println("Aqui tienes tu cambio de " + maquinaCafe.servirCafe(tipo, saldo) + "€\n");
