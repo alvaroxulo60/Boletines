@@ -57,7 +57,7 @@ public class MontarPC {
         String modelo = MiEntradaSalida.leerLinea("Introduce el modelo: \n");
         int numNucleos = MiEntradaSalida.leerEnteroPositivo("Introduce el numero de nucleos: ",false);
         float velocidad = MiEntradaSalida.leerFloat("Introduce la velocidad: \n");
-        int capacidad = MiEntradaSalida.leerEntero("Introduce la capacidad: \n");
+        int capacidad = MiEntradaSalida.leerEntero("Introduce la capacidad en GB: ");
         return new TarjetaGrafica(marca,modelo,numNucleos,velocidad,capacidad);
     }
 
