@@ -22,19 +22,19 @@ public class Ordenador {
     public String compatibilidad(Videojuego videojuego) {
         StringBuilder mensaje = new StringBuilder();
         if (microprocesador.getNumNucleos()<videojuego.getNUCLEOS_PROCESADOR()){
-            mensaje.append("Error: La CPU no tiene los suficientes núcleos.");
+            mensaje.append("Error: La CPU no tiene los suficientes núcleos.\n");
         }
         if (microprocesador.getVelBase()<videojuego.getVELOCIDAD_MINIMA_CPU()){
-            mensaje.append("Error: La cpu no tiene suficiente velocidad.");
+            mensaje.append("Error: La CPU no tiene suficiente velocidad.\n");
         }
         if (discoDuro.getCapacidad()<videojuego.getCAPACIDAD_MINIMA_DISCO()){
-            mensaje.append("Error: El disco duro no tiene suficiente espacio");
+            mensaje.append("Error: El disco duro no tiene suficiente espacio\n");
         }
         if (tarjetaGrafica.getNumNucleos()<videojuego.getMINIMOS_NUCLEOS_GPU()){
-            mensaje.append("Error: La GPU no tiene suficientes núcleos.");
+            mensaje.append("Error: La GPU no tiene suficientes núcleos.\n");
         }
         if (tarjetaGrafica.getCapacidad()<videojuego.getMINIMA_MEMORIA_GPU()){
-            mensaje.append("Error: La GPU no tiene suficiciente memoria.");
+            mensaje.append("Error: La GPU no tiene suficiciente memoria.\n");
         }
         return mensaje.toString();
     }
