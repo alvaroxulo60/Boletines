@@ -7,10 +7,10 @@ import boletin4_2.ejercicio2.TarjetaGrafica;
 import exceptions.VideojuegosException;
 
 public class Ordenador {
-    DiscoDuro discoDuro;
-    Microprocesador microprocesador;
-    PlacaBase placaBase;
-    TarjetaGrafica tarjetaGrafica;
+     private DiscoDuro discoDuro;
+     private Microprocesador microprocesador;
+     private PlacaBase placaBase;
+     private TarjetaGrafica tarjetaGrafica;
 
 
     public Ordenador(DiscoDuro discoDuro, Microprocesador microprocesador, PlacaBase placaBase, TarjetaGrafica tarjetaGrafica) {
@@ -20,7 +20,7 @@ public class Ordenador {
         this.tarjetaGrafica = tarjetaGrafica;
     }
 
-    public boolean compatibilidad(Videojuego videojuego) throws VideojuegosException {
+    public void compatibilidad(Videojuego videojuego) throws VideojuegosException {
         if (microprocesador.getNumNucleos()<videojuego.getNUCLEOS_PROCESADOR()){
             throw new VideojuegosException("Error: La CPU no tiene los suficientes núcleos.");
         }
@@ -36,6 +36,5 @@ public class Ordenador {
         if (tarjetaGrafica.getCapacidad()<videojuego.getMINIMA_MEMORIA_GPU()){
             throw new VideojuegosException("Error: La GPU no tiene suficiciente memoria.");
         }
-        return true;
     }
 }

@@ -47,7 +47,7 @@ public class MontarPC {
         String marca = MiEntradaSalida.leerLinea("Introduce la marca: \n");
         String modelo = MiEntradaSalida.leerLinea("Introduce el modelo: \n");
         int numNucleos = MiEntradaSalida.leerEnteroPositivo("Introduce el numero de nucleos: ", false);
-        float velBase = MiEntradaSalida.leerFloat("Introduce la velocidad base: \n");
+        float velBase = MiEntradaSalida.leerFloat("Introduce la velocidad base: ");
         String socket = MiEntradaSalida.leerLinea("Introduce el socket: \n");
         return new Microprocesador(marca,modelo,numNucleos,velBase,socket);
     }
@@ -56,7 +56,7 @@ public class MontarPC {
         String marca = MiEntradaSalida.leerLinea("Introduce la marca: \n");
         String modelo = MiEntradaSalida.leerLinea("Introduce el modelo: \n");
         int numNucleos = MiEntradaSalida.leerEnteroPositivo("Introduce el numero de nucleos: ",false);
-        float velocidad = MiEntradaSalida.leerFloat("Introduce la velocidad: \n");
+        float velocidad = MiEntradaSalida.leerFloat("Introduce la velocidad: ");
         int capacidad = MiEntradaSalida.leerEntero("Introduce la capacidad en GB: ");
         return new TarjetaGrafica(marca,modelo,numNucleos,velocidad,capacidad);
     }
