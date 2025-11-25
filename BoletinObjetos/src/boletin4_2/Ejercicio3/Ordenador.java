@@ -20,13 +20,22 @@ public class Ordenador {
         this.tarjetaGrafica = tarjetaGrafica;
     }
 
-    public void compatibilidad(Videojuego videojuego1) throws VideojuegosException {
-        if (microprocesador.getNumNucleos()<videojuego1.getNUCLEOS_PROCESADOR()){
-            throw new VideojuegosException("Error: La CPU no tiene los suficientes nucleos.");
+    public boolean compatibilidad(Videojuego videojuego) throws VideojuegosException {
+        if (microprocesador.getNumNucleos()<videojuego.getNUCLEOS_PROCESADOR()){
+            throw new VideojuegosException("Error: La CPU no tiene los suficientes núcleos.");
         }
-        if (microprocesador.getVelBase()<videojuego1.getVELOCIDAD_MINIMA_CPU()){
+        if (microprocesador.getVelBase()<videojuego.getVELOCIDAD_MINIMA_CPU()){
             throw new VideojuegosException("Error: La cpu no tiene suficiente velocidad.");
         }
-        if (discoDuro.getCapacidad()<)
+        if (discoDuro.getCapacidad()<videojuego.getCAPACIDAD_MINIMA_DISCO()){
+            throw new VideojuegosException("Error: El disco duro no tiene suficiente espacio");
+        }
+        if (tarjetaGrafica.getNumNucleos()<videojuego.getMINIMOS_NUCLEOS_GPU()){
+            throw new VideojuegosException("Error: La GPU no tiene suficientes núcleos.");
+        }
+        if (tarjetaGrafica.getCapacidad()<videojuego.getMINIMA_MEMORIA_GPU()){
+            throw new VideojuegosException("Error: La GPU no tiene suficiciente memoria.");
+        }
+        return true;
     }
 }
