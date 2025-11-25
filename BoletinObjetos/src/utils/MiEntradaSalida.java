@@ -271,4 +271,13 @@ public class MiEntradaSalida{
        }
 
     }
+
+    public static void main(String[] args) {
+        try {
+            LocalDate fecha = MiEntradaSalida.fecha("lol");
+            System.out.println(fecha);
+        } catch (MiEntradaSalidaException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
