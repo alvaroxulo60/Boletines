@@ -11,14 +11,10 @@ public class Pricipal {
         boolean funcionando = true;
         double saldo;
         System.out.print("Bienvenido a Bermudo´s & coffe.\n");
-        System.out.print("""
-                =====================
-                Este es nuestro menú:
-                Café solo = 1€
-                Leche = 0,8€
-                Café con leche = 1,5€
-                =====================
-                \n""");
+        System.out.print("=====================\n");
+        System.out.println("Cafe = "+maquinaCafe.PRECIOCAFE);
+        System.out.println("Leche = "+maquinaCafe.PRECIOCAFE);
+        System.out.println("Cafe con leche = "+maquinaCafe.PRECIOCAFECONLECHE);
         System.out.print("""
                 ===================
                 ¿Qué quieres hacer?
