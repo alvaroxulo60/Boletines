@@ -15,7 +15,7 @@ public class PlacaBase {
     }
 
     public void setMicroprocesador(Microprocesador m) throws MontarPCException{
-        if (!this.socket.equals(m.getSocket())){
+        if (!esCompatible(m)){
             throw new MontarPCException("Error: Los sockets no coinciden");
         }
     }

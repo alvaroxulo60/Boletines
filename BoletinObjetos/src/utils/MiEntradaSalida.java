@@ -2,6 +2,7 @@ package utils;
 
 import exceptions.MiEntradaSalidaException;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -259,10 +260,15 @@ public class MiEntradaSalida{
         System.out.println();
     }
 
-    public static LocalDate fecha(String mensaje){
+    public static LocalDate fecha(String mensaje) throws MiEntradaSalidaException {
        int año =  leerEnteroPositivo("Introduce el año: ",true);
        int mes =  leerEnteroPositivo("Introduce el mes: ",true);
        int dia =  leerEnteroPositivo("Introduce el dia: ",true);
-       return LocalDate.of(año,mes,dia);
+       try {
+           return LocalDate.of(año,mes,dia);
+       }catch (DateTimeException e){
+           throw new MiEntradaSalidaException("Fecha no valida.");
+       }
+
     }
 }
