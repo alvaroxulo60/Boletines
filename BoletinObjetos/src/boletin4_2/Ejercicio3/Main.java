@@ -59,15 +59,14 @@ public class Main {
                 System.out.println(e.getMessage());
             }
         }
-        for (int i = 0; i < videojuegos.length; i++) {
-            if (i==opcion){
-                try {
-                    ordenador.compatibilidad(videojuegos[i]);
-                    System.out.println("El videojuego es compatible");
-                } catch (VideojuegosException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+        try {
+            ordenador.compatibilidad(videojuegos[opcion]);
+            System.out.println("El videojuego es compatible");
+        } catch (VideojuegosException e) {
+            System.out.println(e.getMessage());
         }
+
+
+
     }
 }

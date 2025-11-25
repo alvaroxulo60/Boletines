@@ -2,6 +2,7 @@ package utils;
 
 import exceptions.MiEntradaSalidaException;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 //Version2.0
@@ -256,5 +257,12 @@ public class MiEntradaSalida{
             }
         }
         System.out.println();
+    }
+
+    public static LocalDate fecha(String mensaje){
+       int año =  leerEnteroPositivo("Introduce el año: ",true);
+       int mes =  leerEnteroPositivo("Introduce el mes: ",true);
+       int dia =  leerEnteroPositivo("Introduce el dia: ",true);
+       return LocalDate.of(año,mes,dia);
     }
 }
