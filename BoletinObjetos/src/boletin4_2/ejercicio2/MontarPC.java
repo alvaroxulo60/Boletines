@@ -23,10 +23,13 @@ public class MontarPC {
         comprobar();
         try {
             placaBase.setMicroprocesador(microprocesador);
-            System.out.println("Tu ordenador esta listo. Asi ha quedado:");
+            System.out.println("\nTu ordenador esta listo. Asi ha quedado:");
             placaBase.componentes();
+            System.out.println();
             microprocesador.componentes();
+            System.out.println();
             tarjetaGrafica.componentes();
+            System.out.println();
             discoDuro.componentes();
 
         } catch (MontarPCException e) {
