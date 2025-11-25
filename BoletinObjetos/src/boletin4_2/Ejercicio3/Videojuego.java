@@ -1,8 +1,5 @@
 package boletin4_2.Ejercicio3;
 
-import boletin4_2.Ejercicio3.Ordenador;
-import exceptions.VideojuegosException;
-
 import java.time.LocalDate;
 
 public class Videojuego {

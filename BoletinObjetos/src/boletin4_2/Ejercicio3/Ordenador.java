@@ -4,7 +4,6 @@ import boletin4_2.ejercicio2.DiscoDuro;
 import boletin4_2.ejercicio2.Microprocesador;
 import boletin4_2.ejercicio2.PlacaBase;
 import boletin4_2.ejercicio2.TarjetaGrafica;
-import exceptions.VideojuegosException;
 
 public class Ordenador {
      private DiscoDuro discoDuro;

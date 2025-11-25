@@ -3,7 +3,6 @@ package boletin4_2.Ejercicio3;
 import boletin4_2.ejercicio2.*;
 import exceptions.MiEntradaSalidaException;
 import exceptions.MontarPCException;
-import exceptions.VideojuegosException;
 import utils.MiEntradaSalida;
 
 import java.time.LocalDate;
