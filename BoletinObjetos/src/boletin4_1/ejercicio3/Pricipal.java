@@ -12,9 +12,9 @@ public class Pricipal {
         double saldo;
         System.out.print("Bienvenido a Bermudo´s & coffe.\n");
         System.out.print("=====================\n");
-        System.out.println("Cafe = "+maquinaCafe.PRECIOCAFE);
-        System.out.println("Leche = "+maquinaCafe.PRECIOCAFE);
-        System.out.println("Cafe con leche = "+maquinaCafe.PRECIOCAFECONLECHE);
+        System.out.println("Cafe = "+Maquina.PRECIO_CAFE);
+        System.out.println("Leche = "+Maquina.PRECIO_LECHE);
+        System.out.println("Cafe con leche = "+Maquina.PRECIO_CAFE_CON_LECHE);
         System.out.print("""
                 ===================
                 ¿Qué quieres hacer?

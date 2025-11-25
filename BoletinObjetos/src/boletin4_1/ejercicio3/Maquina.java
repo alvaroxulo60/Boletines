@@ -7,23 +7,23 @@ public class Maquina {
     private int depositoLeche;
     private int depositoVasos;
     private double monedero;
-    public final double PRECIOCAFE = 1;
-    public final double PRECIOLECHE = 0.8;
-    public final double PRECIOCAFECONLECHE = 1.5;
-    private final int MAXDOSISCAFE;
-    private final int MAXDOSISLECHE;
-    private final int MAXVASOS;
-    private final double MAXMONEDERO;
+    public static final double PRECIO_CAFE = 1;
+    public static final double PRECIO_LECHE = 0.8;
+    public static final double PRECIO_CAFE_CON_LECHE = 1.5;
+    private final int MAX_DOSIS_CAFE;
+    private final int MAX_DOSIS_LECHE;
+    private final int MAX_VASOS;
+    private final double MAX_MONEDERO;
 
     public Maquina(int maxDosisCafe, int maxDosisLeche, int maxVasos, double maxMonedero) {
         setDepositoCafe(maxDosisCafe);
         setDepositoLeche(maxDosisLeche);
         setDepositoVasos(maxVasos);
         setMonedero(maxMonedero);
-        this.MAXDOSISCAFE = maxDosisCafe;
-        this.MAXDOSISLECHE = maxDosisLeche;
-        this.MAXVASOS = maxVasos;
-        this.MAXMONEDERO = maxMonedero;
+        this.MAX_DOSIS_CAFE = maxDosisCafe;
+        this.MAX_DOSIS_LECHE = maxDosisLeche;
+        this.MAX_VASOS = maxVasos;
+        this.MAX_MONEDERO = maxMonedero;
     }
 
     public int getDepositoCafe() {
@@ -70,10 +70,10 @@ public class Maquina {
     }
 
     public void rellenarDepositos() {
-        setDepositoCafe(MAXDOSISCAFE);
-        setDepositoLeche(MAXDOSISLECHE);
-        setDepositoVasos(MAXVASOS);
-        setMonedero(MAXMONEDERO);
+        setDepositoCafe(MAX_DOSIS_CAFE);
+        setDepositoLeche(MAX_DOSIS_LECHE);
+        setDepositoVasos(MAX_VASOS);
+        setMonedero(MAX_MONEDERO);
     }
 
     public void vaciarMonedero() {
@@ -94,7 +94,7 @@ public class Maquina {
                         if (depositoCafe > 0 && depositoVasos > 0) {
                             depositoCafe -= 1;
                             depositoVasos -= 1;
-                            this.monedero+=PRECIOCAFE;
+                            this.monedero+= PRECIO_CAFE;
                             break;
                         } else
                             throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
@@ -102,7 +102,7 @@ public class Maquina {
                         if (depositoLeche > 0 && depositoVasos > 0) {
                             depositoLeche -= 1;
                             depositoVasos -= 1;
-                            this.monedero+=PRECIOLECHE;
+                            this.monedero+= PRECIO_LECHE;
                             break;
                         } else
                             throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
@@ -111,7 +111,7 @@ public class Maquina {
                             depositoLeche -= 1;
                             depositoCafe -= 1;
                             depositoVasos -= 1;
-                            this.monedero+=PRECIOCAFECONLECHE;
+                            this.monedero+= PRECIO_CAFE_CON_LECHE;
                             break;
                         } else
                             throw new MaquinaCafeException("Lo siento, no podemos servirle eso debido a que no hay cantidad suficiente en el deposito. \n");
@@ -127,13 +127,13 @@ public class Maquina {
     private double establecerPrecio(String comanda) {
         switch (comanda.toLowerCase()) {
             case "cafe" -> {
-                return PRECIOCAFE;
+                return PRECIO_CAFE;
             }
             case "leche" -> {
-                return PRECIOLECHE;
+                return PRECIO_LECHE;
             }
             case "cafe con leche" -> {
-                return PRECIOCAFECONLECHE;
+                return PRECIO_CAFE_CON_LECHE;
             }
             default -> {
                 return 0;
