@@ -7,7 +7,7 @@ public class Main {
         Punto puntoA = null;
         Punto puntoB = null;
         Linea linea1 = null;
-        boolean
+        boolean activo = true;
         while (puntoA==null){
             puntoA = crearPunto();
         }
@@ -22,6 +22,14 @@ public class Main {
                 "Comparar lineas " +
                 "Crear linea " +
                 "Salir");
+
+        while (activo){
+            String comando = MiEntradaSalida.leerLinea("¿Que desea hacer?");
+            switch (comando.toLowerCase()){
+                case "mover en el ejex":
+                    double distancia = MiEntradaSalida.leerDouble("¿Cuanto lo quieres mover?");
+            }
+        }
 
     }
 

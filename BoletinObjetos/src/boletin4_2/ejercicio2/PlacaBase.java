@@ -4,7 +4,7 @@ import exceptions.MontarPCException;
 
 public class PlacaBase {
     // Atributos
-     private String marca;
+    private String marca;
     private String chipset;
     private String socket;
     // Constructor

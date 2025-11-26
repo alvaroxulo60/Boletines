@@ -1,6 +1,5 @@
 package boletin4_2.ejercicio2;
 
-import exceptions.MontarPCException;
 
 public class Microprocesador {
     // Atributos
