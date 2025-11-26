@@ -8,14 +8,14 @@ import utils.MiEntradaSalida;
 import java.time.LocalDate;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
         DiscoDuro discoDuro = null;
         Microprocesador microprocesador = null;
         PlacaBase placaBase = null;
         TarjetaGrafica tarjetaGrafica = null;
-        Videojuego videojuego1 = new Videojuego("Valorant", "Riot Games", LocalDate.of(2020,6,12),6,2.4f,4,7,4);
-        Videojuego videojuego2 = new Videojuego("Minecraft","Mojang",LocalDate.of(2009,5,17),4,1.2f,3,4,2);
-        Videojuego[] videojuegos = {videojuego1,videojuego2};
+        Videojuego videojuego1 = new Videojuego("Valorant", "Riot Games", LocalDate.of(2020, 6, 12), 6, 2.4f, 4, 7, 4);
+        Videojuego videojuego2 = new Videojuego("Minecraft", "Mojang", LocalDate.of(2009, 5, 17), 4, 1.2f, 3, 4, 2);
+        Videojuego[] videojuegos = {videojuego1, videojuego2};
 
         System.out.println("¡Bienvenido vamos a montar tu ordenador y a comprobar con que videojuegos son disponibles!\n");
         System.out.println("Vamos a empezar con la Placa Base.");
@@ -43,28 +43,25 @@ public class Main {
         } catch (MontarPCException e) {
             System.out.println(e.getMessage());
         }
-        Ordenador ordenador = new Ordenador(discoDuro,microprocesador,placaBase,tarjetaGrafica);
+        Ordenador ordenador = new Ordenador(discoDuro, microprocesador, placaBase, tarjetaGrafica);
         System.out.println("Juegos disponibles: ");
         for (int i = 0; i < videojuegos.length; i++) {
-            System.out.println(i+1+videojuegos[i].getName()+"\n");
+            System.out.println(i + 1 + videojuegos[i].getName() + "\n");
         }
         int opcion = 0;
         boolean hayOpcion = false;
         while (!hayOpcion) {
             try {
                 opcion = MiEntradaSalida.leerEnteroRango("Elige el juego que quieras comprobar si es compatible: ", 1, videojuegos.length) - 1;
-                hayOpcion=true;
+                hayOpcion = true;
             } catch (MiEntradaSalidaException e) {
                 System.out.println(e.getMessage());
             }
         }
-        if (ordenador.compatibilidad(videojuegos[opcion]).isEmpty()){
+        if (ordenador.compatibilidad(videojuegos[opcion]).isEmpty()) {
             System.out.println("Son compatibles.");
-        }
-        else
+        } else
             System.out.println(ordenador.compatibilidad(videojuegos[opcion]));
-
-
 
 
     }

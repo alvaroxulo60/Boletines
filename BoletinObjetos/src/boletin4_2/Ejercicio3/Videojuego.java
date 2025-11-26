@@ -13,7 +13,7 @@ public class Videojuego {
     private final int MINIMA_MEMORIA_GPU;
 
 
-    public Videojuego( String nombre,  String compañia, LocalDate fechaDeSalida, int nucleosProcesador, float velocidadMinimaCpu, int capacidadMinimaDisco, int minimosNucleosGpu, int minimaMemoriaGpu) {
+    public Videojuego(String nombre, String compañia, LocalDate fechaDeSalida, int nucleosProcesador, float velocidadMinimaCpu, int capacidadMinimaDisco, int minimosNucleosGpu, int minimaMemoriaGpu) {
         NUCLEOS_PROCESADOR = nucleosProcesador;
         VELOCIDAD_MINIMA_CPU = velocidadMinimaCpu;
         CAPACIDAD_MINIMA_DISCO = capacidadMinimaDisco;
