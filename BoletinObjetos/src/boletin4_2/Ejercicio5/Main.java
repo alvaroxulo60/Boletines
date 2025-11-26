@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         boolean activo = true;
         Linea[] lineas = new Linea[3];
+        int contador = 0;
         System.out.println("Opciones:\n" +
                 "Mover en el ejeX \n" +
                 "Mover en en ejeY \n" +
@@ -16,14 +17,15 @@ public class Main {
 
         while (activo) {
 
-            int linea = 0;
+            int linea;
             double distancia;
             String comando = MiEntradaSalida.leerLinea("¿Que desea hacer?\n");
             switch (comando.toLowerCase()) {
                 case "mover en el ejex":
                     if (hayLineasCreadas(lineas)) {
-                        distancia = MiEntradaSalida.leerDouble("¿Cuanto lo quieres mover?");
+                        MiEntradaSalida.mostrarOpcionesSinNulos("Opciones: \n",lineas);
                         linea=pedirLinea(lineas);
+                        distancia = MiEntradaSalida.leerDouble("¿Cuanto lo quieres mover?");
                         lineas[linea].moverEjeX(distancia);
                         break;
                     } else {
@@ -32,8 +34,9 @@ public class Main {
                     }
                 case "mover en el ejey":
                     if (hayLineasCreadas(lineas)) {
-                        distancia = MiEntradaSalida.leerDouble("¿Cuanto lo quieres mover?");
+                        MiEntradaSalida.mostrarOpcionesSinNulos("Opciones: \n",lineas);
                         linea=pedirLinea(lineas);
+                        distancia = MiEntradaSalida.leerDouble("¿Cuanto lo quieres mover?");
                         lineas[linea].moverEjeY(distancia);
                         break;
                     } else {
@@ -44,28 +47,21 @@ public class Main {
                     int cantidad;
                     try {
                         cantidad = MiEntradaSalida.leerEnteroRango("¿Cuantas lineas quieres crear?", 1, lineas.length);
-                        int contador = 0;
                         for (int i = 0; i < cantidad; i++) {
-                            if (lineas[i] == null) {
-                                lineas[i] = crearLinea(i+1);
-                                contador++;
-                            } else if (lineas[i] != null) {
-                                continue;
-                            } else if (contador == lineas.length) {
-                                System.out.println("no es posible crear mas lineas.\n ");
+                            if (contador<lineas.length){
+                                if (lineas[i] == null) {
+                                    lineas[i] = crearLinea(i+1);
+                                    contador++;
+                                } else if (lineas[i] != null) {
+                                    cantidad++;
+                                }
+                            } else {
+                                System.out.println("No puedes crear mas lineas.\n");
                             }
                         }
                     } catch (MiEntradaSalidaException e) {
                         System.out.println(e.getMessage());
                     }
-                default:
-                    System.out.println("Opciones:\n" +
-                            "Mover en el ejeX \n" +
-                            "Mover en en ejeY \n" +
-                            "Comparar lineas \n" +
-                            "Crear linea \n" +
-                            "Salir\n");
-                    break;
                 case "comparar lineas":
                     if (contarLineasCreadas(lineas) >= 2) {
                         int pedirLinea1 = pedirLinea(lineas);
@@ -78,14 +74,24 @@ public class Main {
                             break;
                         }
                     }
+                    else {
+                        System.out.println("No hay suficientes lineas");
+                        break;
+                    }
                 case "salir":
                     activo = false;
+                    break;
+                default:
+                    System.out.println("Opciones:\n" +
+                            "Mover en el ejeX \n" +
+                            "Mover en en ejeY \n" +
+                            "Comparar lineas \n" +
+                            "Crear linea \n" +
+                            "Salir\n");
                     break;
             }
         }
     }
-
-
     public static Punto crearPunto(String mensaje) {
         System.out.println(mensaje);
         int x = MiEntradaSalida.leerEntero("Introduzca la coordenada x: ");
@@ -102,12 +108,12 @@ public class Main {
 
     public static boolean hayLineasCreadas(Linea[] lineas) {
         for (int i = 0; i < lineas.length; i++) {
-            if (lineas[i] == null) {
-                return false;
+            if (lineas[i] != null) {
+                return true;
             }
 
         }
-        return true;
+        return false;
     }
 
     public static int pedirLinea(Linea[] lineas) {
