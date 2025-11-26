@@ -15,6 +15,8 @@ public class Main {
         }
         linea1=crearLinea(puntoA,puntoB);
 
+        System.out.println();
+
     }
 
 
