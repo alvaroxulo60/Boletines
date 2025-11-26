@@ -25,4 +25,19 @@ public class Punto {
     public void setCordenadaY(double cordenadaY) {
         this.cordenadaY = cordenadaY;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Punto punto = (Punto) o;
+        return Double.compare(cordenadaX, punto.cordenadaX) == 0 && Double.compare(cordenadaY, punto.cordenadaY) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Double.hashCode(cordenadaX);
+        result = 31 * result + Double.hashCode(cordenadaY);
+        return result;
+    }
 }

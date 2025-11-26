@@ -3,7 +3,7 @@ package boletin4_2.ejercicio1;
 import java.time.LocalDate;
 
 public class Persona {
-     private String nombre;
+    private  String nombre;
     private LocalDate fechaNacimiento;
     private int dni;
     private char sexo;

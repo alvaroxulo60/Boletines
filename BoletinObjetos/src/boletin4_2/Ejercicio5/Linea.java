@@ -30,18 +30,38 @@ public class Linea {
         this.puntoB = puntoB;
     }
 
-    public boolean sonIguales(Linea linea1, Linea linea2){
-        return linea1.equals(linea2);
-    }
 
-    public void moverDerecha(double distancia){
+    public void moverEjeX(double distancia){
         puntoA.setCordenadaX(puntoA.getCordenadaX()+distancia);
         puntoB.setCordenadaX(puntoB.getCordenadaX()+distancia);
     }
-    public void moverIzquierda(double distancia){
-        puntoA.setCordenadaX(puntoA.getCordenadaX()-distancia);
-        puntoB.setCordenadaX(puntoB.getCordenadaX()-distancia);
+
+    public void moverEjeY(double distancia){
+        puntoA.setCordenadaY(puntoA.getCordenadaY()+distancia);
+        puntoB.setCordenadaY(puntoB.getCordenadaY()+distancia);
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Linea{");
+        sb.append("puntoA=").append(puntoA);
+        sb.append(", puntoB=").append(puntoB);
+        sb.append('}');
+        return sb.toString();
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Linea linea = (Linea) o;
+        return puntoA.equals(linea.puntoA) && puntoB.equals(linea.puntoB);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = puntoA.hashCode();
+        result = 31 * result + puntoB.hashCode();
+        return result;
+    }
 }
