@@ -7,6 +7,7 @@ public class Main {
         Punto puntoA = null;
         Punto puntoB = null;
         Linea linea1 = null;
+        boolean
         while (puntoA==null){
             puntoA = crearPunto();
         }
@@ -15,7 +16,12 @@ public class Main {
         }
         linea1=crearLinea(puntoA,puntoB);
 
-        System.out.println();
+        System.out.println("Opciones:" +
+                "Mover en el ejeX " +
+                "Mover en ek ejeY " +
+                "Comparar lineas " +
+                "Crear linea " +
+                "Salir");
 
     }
 

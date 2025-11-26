@@ -1,5 +1,8 @@
 package boletin4_2.ejercicio1;
 
+import exceptions.PersonaException;
+
+import java.text.ParseException;
 import java.time.LocalDate;
 
 public class Persona {
@@ -11,7 +14,7 @@ public class Persona {
     private float peso;
 
 
-    public Persona(String nombre, LocalDate fechaNacimiento, int dni, char sexo, float altura, float peso) {
+    public Persona(String nombre, LocalDate fechaNacimiento, int dni, char sexo, float altura, float peso) throws PersonaException{
        setNombre(nombre);
        setFechaNacimiento(fechaNacimiento);
        setDni(dni);
@@ -64,7 +67,10 @@ public class Persona {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(float peso) throws PersonaException {
+        if (peso < 0){
+            throw new PersonaException("Error: No puede ser un peso negativo.");
+        }
         this.peso = peso;
     }
 
