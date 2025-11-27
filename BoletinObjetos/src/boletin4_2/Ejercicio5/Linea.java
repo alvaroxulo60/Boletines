@@ -1,5 +1,7 @@
 package boletin4_2.Ejercicio5;
 
+import exceptions.LineaExceptions;
+
 public class Linea {
     private Punto puntoA;
     private Punto puntoB;
@@ -63,5 +65,11 @@ public class Linea {
         int result = puntoA.hashCode();
         result = 31 * result + puntoB.hashCode();
         return result;
+    }
+
+    public void comprobarSiEsPunto() throws LineaExceptions{
+        if (puntoA.getCordenadaX()==puntoB.getCordenadaX() && puntoA.getCordenadaY()==puntoB.getCordenadaY()){
+            throw new LineaExceptions("\nError: No es una linea.\n");
+        }
     }
 }
