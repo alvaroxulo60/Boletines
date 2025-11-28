@@ -17,15 +17,7 @@ public class Jarra {
         cantidadDeAgua = 0;
     }
 
-    public int getCantidadDeAgua() {
-        return cantidadDeAgua;
-    }
-
-    public void setCantidadDeAgua(int cantidadDeAgua) {
-        this.cantidadDeAgua = cantidadDeAgua;
-    }
-
-    public static void setContadorDeLitros(int contadorDeLitros) {
+    public static void sumarContadorDeLitros(int contadorDeLitros) {
         Jarra.contadorDeLitros += contadorDeLitros;
     }
 
@@ -39,14 +31,14 @@ public class Jarra {
         }
         int litrosUsados = CAPACIDAD_MAX - cantidadDeAgua;
         cantidadDeAgua = CAPACIDAD_MAX;
-        setContadorDeLitros(litrosUsados);
+        sumarContadorDeLitros(litrosUsados);
     }
 
     public void vaciarJarra() throws JarraExceptions {
         if (cantidadDeAgua == 0) {
-            throw new JarraExceptions("La jarra ya esta vacia");
+            throw new JarraExceptions("La jarra ya está vacía");
         }
-        cantidadDeAgua -= cantidadDeAgua;
+        cantidadDeAgua = 0;
     }
 
     @Override
@@ -59,6 +51,9 @@ public class Jarra {
     public void jarra1EnJarra2(Jarra jarra2) throws JarraExceptions {
         if (cantidadDeAgua == 0) {
             throw new JarraExceptions("Esta jarra no tiene suficiente agua");
+        }
+        if (jarra2.cantidadDeAgua==jarra2.CAPACIDAD_MAX){
+            throw new JarraExceptions("La jarra ya está llena.");
         }
         while (cantidadDeAgua > 0 && jarra2.cantidadDeAgua < jarra2.CAPACIDAD_MAX) {
             cantidadDeAgua--;
