@@ -44,22 +44,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public void cambiarNombre(String nuevoNombre){
-        setNombre(nuevoNombre);
-    }
-
     public static double getIVA() {
         return IVA;
     }
 
     public static void setIVA(double IVA) {
         Producto.IVA = IVA;
-    }
-
-    public void cambiarPrecioSinIva(double nuevoPrecio)throws ProductoExceptions{
-        if(nuevoPrecio<0){
-            throw new ProductoExceptions("Error: El precio no puede ser menor que 0");
-        }
     }
 
     public double precioConIVA(){

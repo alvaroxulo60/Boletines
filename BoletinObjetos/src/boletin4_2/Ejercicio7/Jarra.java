@@ -3,9 +3,10 @@ package boletin4_2.Ejercicio7;
 import exceptions.JarraExceptions;
 
 public class Jarra {
+    private static int contadorDeLitros = 0;
+
     private final int CAPACIDAD_MAX;
     private int cantidadDeAgua;
-    private static int contadorDeLitros = 0;
 
 
     public Jarra(int capacidad) throws JarraExceptions {
@@ -24,20 +25,21 @@ public class Jarra {
         this.cantidadDeAgua = cantidadDeAgua;
     }
 
+    public static void setContadorDeLitros(int contadorDeLitros) {
+        Jarra.contadorDeLitros += contadorDeLitros;
+    }
+
+    public static int getContadorDeLitros() {
+        return contadorDeLitros;
+    }
+
     public void llenarJarra() throws JarraExceptions {
         if (cantidadDeAgua == CAPACIDAD_MAX) {
             throw new JarraExceptions("La jarra ya esta llena.");
         }
-        int litroUsado = 0;
-        for (int i = 0; i < CAPACIDAD_MAX; i++) {
-            if (cantidadDeAgua < CAPACIDAD_MAX) {
-                litroUsado++;
-            }
-            else {
-                cantidadDeAgua=CAPACIDAD_MAX;
-                contadorDeLitros+=litroUsado;
-            }
-        }
+        int litrosUsados = CAPACIDAD_MAX - cantidadDeAgua;
+        cantidadDeAgua = CAPACIDAD_MAX;
+        setContadorDeLitros(litrosUsados);
     }
 
     public void vaciarJarra() throws JarraExceptions {
@@ -49,26 +51,18 @@ public class Jarra {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Jarra{");
-        sb.append("CAPACIDAD_MAX=").append(CAPACIDAD_MAX);
-        sb.append(", cantidadDeAgua=").append(cantidadDeAgua);
-        sb.append('}');
-        return sb.toString();
+        return "Jarra{" + "CAPACIDAD_MAX=" + CAPACIDAD_MAX +
+                ", cantidadDeAgua=" + cantidadDeAgua +
+                '}';
     }
 
     public void jarra1EnJarra2(Jarra jarra2) throws JarraExceptions {
-        int agua = 0;
         if (cantidadDeAgua == 0) {
             throw new JarraExceptions("Esta jarra no tiene suficiente agua");
         }
-        for (int i = 0; i < CAPACIDAD_MAX; i++) {
-            if (cantidadDeAgua > 0 || jarra2.cantidadDeAgua < jarra2.CAPACIDAD_MAX) {
-                agua++;
-            } else {
-                setCantidadDeAgua(getCantidadDeAgua() - agua);
-                jarra2.setCantidadDeAgua(jarra2.getCantidadDeAgua() + agua);
-                return;
-            }
+        while (cantidadDeAgua > 0 && jarra2.cantidadDeAgua < jarra2.CAPACIDAD_MAX) {
+            cantidadDeAgua--;
+            jarra2.cantidadDeAgua++;
         }
     }
 }
