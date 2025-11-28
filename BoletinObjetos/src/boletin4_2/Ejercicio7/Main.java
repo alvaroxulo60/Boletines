@@ -32,6 +32,11 @@ public class Main {
             String accion = MiEntradaSalida.leerLinea("¿Que vas a hacer?");
             switch (accion.toLowerCase()){
                 case "llenar jarra":
+                    String eleccion = elegirJarra();
+                    llenarJarra(eleccion,jarraA,jarraB);
+                    break;
+                case "vaciar jarra":
+                    eleccion = elegirJarra();
 
             }
         }
@@ -40,6 +45,26 @@ public class Main {
 
     public static String elegirJarra(){
         return MiEntradaSalida.leerLinea("¿Que jarra vas a utilizar? (A/B)");
+    }
 
+    public static void llenarJarra(String eleccion, Jarra jarraA, Jarra jarraB){
+        switch (eleccion.toLowerCase()){
+            case "a":
+                try {
+                    jarraA.jarra1EnJarra2(jarraB);
+                    System.out.println("Hecho!");
+                } catch (JarraExceptions e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+            case "b":
+                try {
+                    jarraB.jarra1EnJarra2(jarraA);
+                    System.out.println("Hecho!");
+                } catch (JarraExceptions e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+        }
     }
 }
