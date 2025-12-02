@@ -48,4 +48,17 @@ public class Equipo {
     public void sumarPartidoGanados(int suma){
         partidosGanados+=suma;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Equipo equipo = (Equipo) o;
+        return nombre.equals(equipo.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode();
+    }
 }
