@@ -1,4 +1,4 @@
-package boletin4_2.Ejercicio6;
+package boletin4_2.ejercicio6;
 
 import exceptions.ProductoExceptions;
 

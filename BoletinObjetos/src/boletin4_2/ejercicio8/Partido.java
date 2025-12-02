@@ -1,8 +1,6 @@
-package boletin4_2.Ejercicio8;
+package boletin4_2.ejercicio8;
 
 import exceptions.PartidoException;
-
-import java.text.ParseException;
 
 public class Partido {
     private Equipo equipoLocal;

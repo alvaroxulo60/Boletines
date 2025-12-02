@@ -1,4 +1,4 @@
-package boletin4_2.Ejercicio7;
+package boletin4_2.ejercicio7;
 
 import exceptions.JarraExceptions;
 

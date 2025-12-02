@@ -1,4 +1,4 @@
-package boletin4_2.Ejercicio5;
+package boletin4_2.ejercicio5;
 
 public class Punto {
     private double cordenadaX;

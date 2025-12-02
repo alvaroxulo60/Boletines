@@ -1,4 +1,4 @@
-package boletin4_2.Ejercicio3;
+package boletin4_2.ejercicio3;
 
 import java.time.LocalDate;
 

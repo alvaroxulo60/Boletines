@@ -1,4 +1,4 @@
-package boletin4_2.Ejercicio8;
+package boletin4_2.ejercicio8;
 
 public class Equipo {
     private String nombre;
