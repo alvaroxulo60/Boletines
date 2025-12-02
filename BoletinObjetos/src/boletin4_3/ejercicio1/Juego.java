@@ -16,9 +16,15 @@ public class Juego {
         System.out.println();
 
         try {
-            System.out.println(Arrays.toString(barajaEspañola.repartir(4,7)));
-
+            barajaEspañola.repartir(4,7);
+            System.out.println("¡Hecho!");
         } catch (BarajaException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            barajaEspañola.repartir(4,7);
+            System.out.println("¡Hecho!");
+        }catch (BarajaException e){
             System.out.println(e.getMessage());
         }
 

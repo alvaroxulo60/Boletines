@@ -52,7 +52,7 @@ public class Baraja {
 
     public void repartir(int numJugadores, int numCartas) throws BarajaException {
         int reparto = numJugadores * numCartas;
-        if (reparto > baraja.length || reparto > cartasRepartidas-TAMAÑO_BARAJA) {
+        if (reparto > TAMAÑO_BARAJA-cartasRepartidas) {
             throw new BarajaException("No hay suficientes cartas en la baraja");
         } else cartasRepartidas = reparto;
 
