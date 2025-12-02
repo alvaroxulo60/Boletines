@@ -53,7 +53,10 @@ public class Partido {
         this.jugado = jugado;
     }
 
-    public void ponerResultado(String resultado) {
+    public void ponerResultado(String resultado) throws PartidoException{
+        if (equipoLocal.equals(equipoVisitante)){
+            throw new PartidoException("Los equipos son iguales");
+        }
         String[] goles = resultado.split("-", 2);
         int[] numGoles = new int[]{
                 Integer.parseInt(goles[0]),
