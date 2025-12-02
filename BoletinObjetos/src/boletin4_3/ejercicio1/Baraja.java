@@ -58,10 +58,15 @@ public class Baraja {
 
     }
 
+    public String  cartasRestantes(){
+        return String.valueOf(TAMAÑO_BARAJA-cartasRepartidas);
+    }
+
     @Override
     public String toString() {
         return "Baraja{" +
                 "baraja=" + Arrays.toString(baraja) +
                 '}';
     }
+
 }
