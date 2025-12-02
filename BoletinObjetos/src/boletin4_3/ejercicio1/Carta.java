@@ -13,11 +13,11 @@ public class Carta {
         setNumero(numero);
     }
 
-    public void setNumero(int numero) {
+    private void setNumero(int numero) {
         this.numero = numero;
     }
 
-    public void setPalo(String palo) {
+    private void setPalo(String palo) {
         this.palo = palo;
     }
 

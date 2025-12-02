@@ -1,9 +1,14 @@
 package boletin4_3.ejercicio1;
 
+import exceptions.BarajaException;
+import utils.MiEntradaSalida;
+
 import java.util.Arrays;
 
 public class Baraja {
-    private Carta[] baraja = new Carta[40];
+    public final int TAMAÑO_BARAJA = 40;
+    private Carta[] baraja = new Carta[TAMAÑO_BARAJA];
+    private int cartasRepartidas;
 
     public Baraja() {
         crearBaraja();
@@ -18,7 +23,7 @@ public class Baraja {
     }
 
     public void crearBaraja() {
-        String[] palo = {"oros", "bastos", "copas", "espadas"};
+        String[] palo = {"Oros", "Bastos", "Copas", "Espadas"};
         int posicionBaraja = 0;
         for (int i = 0; i < palo.length; i++) {
             for (int j = 1; j <= 12; j++) {
@@ -35,7 +40,21 @@ public class Baraja {
         System.out.println(toString());
     }
 
-    public void barajar(){
+    public void barajar() {
+        for (int i = 0; i < baraja.length; i++) {
+            int primeraPosicion = MiEntradaSalida.generaAleatorioEntre(0, baraja.length, false);
+            int segundaPosicion = MiEntradaSalida.generaAleatorioEntre(0, baraja.length, false);
+            Carta aux = baraja[segundaPosicion];
+            baraja[primeraPosicion] = baraja[segundaPosicion];
+            baraja[primeraPosicion] = aux;
+        }
+    }
+
+    public void repartir(int numJugadores, int numCartas) throws BarajaException {
+        int reparto = numJugadores * numCartas;
+        if (reparto > baraja.length || reparto > cartasRepartidas-TAMAÑO_BARAJA) {
+            throw new BarajaException("No hay suficientes cartas en la baraja");
+        } else cartasRepartidas = reparto;
 
     }
 
