@@ -64,8 +64,8 @@ public class Baraja {
 
     @Override
     public String toString() {
-        return "Baraja{" +
-                "baraja=" + Arrays.toString(baraja) +
+        return "Baraja={" +
+                  Arrays.toString(baraja) +
                 '}';
     }
 
