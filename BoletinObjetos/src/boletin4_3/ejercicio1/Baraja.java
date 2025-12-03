@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class Baraja {
     public final int TAMAÑO_BARAJA = 40;
+
     private Carta[] baraja = new Carta[TAMAÑO_BARAJA];
     private int cartasRepartidas;
 

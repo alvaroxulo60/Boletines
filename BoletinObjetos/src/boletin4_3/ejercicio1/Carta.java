@@ -1,9 +1,5 @@
 package boletin4_3.ejercicio1;
 
-import utils.MiEntradaSalida;
-
-import java.util.Objects;
-
 public class Carta {
     private String palo;
     private int numero;
