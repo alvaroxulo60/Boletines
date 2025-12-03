@@ -2,8 +2,6 @@ package boletin4_3.ejercicio1;
 
 import exceptions.BarajaException;
 
-import java.util.Arrays;
-
 public class Juego {
 
     public static void main(String[] args) {

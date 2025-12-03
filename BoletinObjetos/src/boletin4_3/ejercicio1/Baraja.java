@@ -15,14 +15,6 @@ public class Baraja {
         crearBaraja();
     }
 
-    public Carta[] getBaraja() {
-        return baraja;
-    }
-
-    public void setBaraja(Carta[] baraja) {
-        this.baraja = baraja;
-    }
-
     public void crearBaraja() {
         String[] palo = {"Oros", "Bastos", "Copas", "Espadas"};
         int posicionBaraja = 0;
@@ -46,7 +38,7 @@ public class Baraja {
             int primeraPosicion = MiEntradaSalida.generaAleatorioEntre(0, baraja.length, false);
             int segundaPosicion = MiEntradaSalida.generaAleatorioEntre(0, baraja.length, false);
             Carta aux = baraja[segundaPosicion];
-            baraja[primeraPosicion] = baraja[segundaPosicion];
+            baraja[segundaPosicion] = baraja[primeraPosicion];
             baraja[primeraPosicion] = aux;
         }
     }
@@ -55,11 +47,11 @@ public class Baraja {
         int reparto = numJugadores * numCartas;
         if (reparto > TAMAÑO_BARAJA-cartasRepartidas) {
             throw new BarajaException("No hay suficientes cartas en la baraja");
-        } else cartasRepartidas = reparto;
+        } else cartasRepartidas += reparto;
 
     }
 
-    public String  cartasRestantes(){
+    public String cartasRestantes(){
         return String.valueOf(TAMAÑO_BARAJA-cartasRepartidas);
     }
 
