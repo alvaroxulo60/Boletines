@@ -40,6 +40,9 @@ public class Persona2 {
     }
 
     public void enviarMensaje(Mensaje mensaje, Persona2 persona2) throws MensajeExceptions {
+        if (this.equals(persona2)){
+            throw new MensajeExceptions("No te puedes enviar un mensaje a ti mismo");
+        }
         if (mensaje.getAsunto().isBlank()) {
             throw new MensajeExceptions("El mensaje no tiene asunto");
         }
@@ -49,7 +52,7 @@ public class Persona2 {
         if (mensaje.getCuerpo().isBlank()) {
             throw new MensajeExceptions("El mensaje no tiene cuerpo");
         }
-        if (buzonMensajesEnviados!= null) {
+        if (buzonMensajesEnviados != null) {
             throw new MensajeExceptions("Tienes el buzon lleno");
         }
         if (persona2.buzonMensajesRecibidos != null) {
@@ -99,5 +102,18 @@ public class Persona2 {
         while (cantidad < buzonMensajesEnviados.length) {
             buzonMensajesEnviados[cantidad++] = null;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Persona2 persona2 = (Persona2) o;
+        return nombre.equals(persona2.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode();
     }
 }
