@@ -6,7 +6,9 @@ import utils.MiEntradaSalida;
 import java.util.Arrays;
 
 public class Baraja {
-    public final int TAMAÑO_BARAJA = 40;
+    public static final int TAMAÑO_BARAJA = 40;
+    public static final String[] palo = {"Oros", "Bastos", "Copas", "Espadas"};
+
 
     private Carta[] baraja = new Carta[TAMAÑO_BARAJA];
     private int cartasRepartidas;
@@ -16,7 +18,6 @@ public class Baraja {
     }
 
     public void crearBaraja() {
-        String[] palo = {"Oros", "Bastos", "Copas", "Espadas"};
         int posicionBaraja = 0;
         for (int i = 0; i < palo.length; i++) {
             for (int j = 1; j <= 12; j++) {
