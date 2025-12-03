@@ -37,14 +37,16 @@ public class Mensajeria {
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
                     }
-                break;
+                    opcionEscogida=false;
+                    break;
                 case 2:
                     try {
                         p1.borrarMensajeEnviadoMásAntiguo();
                         System.out.println("Hecho\n");
                     } catch (MensajeExceptions e) {
-                        throw new RuntimeException(e);
+                        System.out.println(e.getMessage());
                     }
+                    opcionEscogida=false;
                     break;
                 case 3:
                     try {
@@ -53,6 +55,7 @@ public class Mensajeria {
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
                     }
+                    opcionEscogida=false;
                     break;
                 case 4:
                     enviando=false;

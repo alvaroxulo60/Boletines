@@ -52,10 +52,10 @@ public class Persona2 {
         if (mensaje.getCuerpo().isBlank()) {
             throw new MensajeExceptions("El mensaje no tiene cuerpo");
         }
-        if (buzonMensajesEnviados != null) {
+        if (buzonMensajesEnviados[4] != null) {
             throw new MensajeExceptions("Tienes el buzon lleno");
         }
-        if (persona2.buzonMensajesRecibidos != null) {
+        if (persona2.buzonMensajesRecibidos[4] != null) {
             throw new MensajeExceptions("El destinatario tiene el buzon lleno");
         }
         mensaje.setRemitente(this);
