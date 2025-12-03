@@ -12,21 +12,21 @@ public class Juego {
         System.out.println();
         barajaEspañola.mostrarBaraja();
         System.out.println();
-        System.out.println("En la baraja quedan "+ barajaEspañola.cartasRestantes());
+        System.out.println("En la baraja quedan " + barajaEspañola.cartasRestantes());
 
         try {
-            barajaEspañola.repartir(4,7);
+            barajaEspañola.repartir(4, 7);
             System.out.println("¡Hecho!");
         } catch (BarajaException e) {
             System.out.println(e.getMessage());
         }
         System.out.println();
-        System.out.println("En la baraja quedan "+ barajaEspañola.cartasRestantes());
+        System.out.println("En la baraja quedan " + barajaEspañola.cartasRestantes());
         System.out.println();
         try {
-            barajaEspañola.repartir(4,7);
+            barajaEspañola.repartir(4, 7);
             System.out.println("¡Hecho!");
-        }catch (BarajaException e){
+        } catch (BarajaException e) {
             System.out.println(e.getMessage());
         }
 

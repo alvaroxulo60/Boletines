@@ -45,20 +45,20 @@ public class Baraja {
 
     public void repartir(int numJugadores, int numCartas) throws BarajaException {
         int reparto = numJugadores * numCartas;
-        if (reparto > TAMAÑO_BARAJA-cartasRepartidas) {
+        if (reparto > TAMAÑO_BARAJA - cartasRepartidas) {
             throw new BarajaException("No hay suficientes cartas en la baraja");
         } else cartasRepartidas += reparto;
 
     }
 
-    public String cartasRestantes(){
-        return String.valueOf(TAMAÑO_BARAJA-cartasRepartidas);
+    public String cartasRestantes() {
+        return String.valueOf(TAMAÑO_BARAJA - cartasRepartidas);
     }
 
     @Override
     public String toString() {
         return "Baraja={" +
-                  Arrays.toString(baraja) +
+                Arrays.toString(baraja) +
                 '}';
     }
 
