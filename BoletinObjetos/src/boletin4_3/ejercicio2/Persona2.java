@@ -15,32 +15,12 @@ public class Persona2 {
         setNombre(nombre);
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public Mensaje[] getBuzonMensajesRecibidos() {
-        return buzonMensajesRecibidos;
-    }
-
-    public void setBuzonMensajesRecibidos(Mensaje[] buzonMensajesRecibidos) {
-        this.buzonMensajesRecibidos = buzonMensajesRecibidos;
-    }
-
-    public Mensaje[] getBuzonMensajesEnviados() {
-        return buzonMensajesEnviados;
-    }
-
-    public void setBuzonMensajesEnviados(Mensaje[] buzonMensajesEnviados) {
-        this.buzonMensajesEnviados = buzonMensajesEnviados;
-    }
-
     public void enviarMensaje(Mensaje mensaje, Persona2 persona2) throws MensajeExceptions {
-        if (this.equals(persona2)){
+        if (this.equals(persona2)) {
             throw new MensajeExceptions("No te puedes enviar un mensaje a ti mismo");
         }
         if (mensaje.getAsunto().isBlank()) {
@@ -74,36 +54,24 @@ public class Persona2 {
         }
     }
 
-    public void borrarMensajeEnviadoMásAntiguo()throws MensajeExceptions{
-        if (buzonMensajesEnviados[0]==null){
+    public void borrarMensajeEnviadoMásAntiguo() throws MensajeExceptions {
+        if (buzonMensajesEnviados[0] == null) {
             throw new MensajeExceptions("El buzon esta vacío");
         }
-        this.buzonMensajesEnviados[0]=null;
-        int cantidad = 0;
-        for (int i = 0; i < buzonMensajesEnviados.length; i++) {
-            if (buzonMensajesEnviados[i] != null) {
-                buzonMensajesEnviados[cantidad++] = buzonMensajesEnviados[i];
-            }
+        for (int i = 0; i < buzonMensajesEnviados.length - 1 && buzonMensajesEnviados[i] != null; i++) {
+            buzonMensajesEnviados[i] = buzonMensajesEnviados[i + 1];
         }
-        while (cantidad < buzonMensajesEnviados.length) {
-            buzonMensajesEnviados[cantidad++] = null;
-        }
+        buzonMensajesEnviados[buzonMensajesEnviados.length - 1] = null;
     }
 
-    public void borrarMensajeRecibidoMásAntiguo(Persona2 persona2)throws MensajeExceptions {
+    public void borrarMensajeRecibidoMásAntiguo(Persona2 persona2) throws MensajeExceptions {
         if (persona2.buzonMensajesRecibidos[0] == null) {
             throw new MensajeExceptions("El buzon esta vacío");
         }
-        persona2.buzonMensajesRecibidos[0] = null;
-        int cantidad = 0;
-        for (int i = 0; i < buzonMensajesRecibidos.length; i++) {
-            if (buzonMensajesRecibidos[i] != null) {
-                buzonMensajesRecibidos[cantidad++] = buzonMensajesRecibidos[i];
-            }
+        for (int i = 0; i < persona2.buzonMensajesRecibidos.length - 1 && buzonMensajesRecibidos[i] != null; i++) {
+            buzonMensajesRecibidos[i]=buzonMensajesRecibidos[i+1];
         }
-        while (cantidad < buzonMensajesRecibidos.length) {
-            buzonMensajesRecibidos[cantidad++] = null;
-        }
+        buzonMensajesRecibidos[buzonMensajesRecibidos.length-1]=null;
     }
 
     @Override
