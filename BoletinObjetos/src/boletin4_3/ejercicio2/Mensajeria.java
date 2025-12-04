@@ -22,7 +22,7 @@ public class Mensajeria {
             int opcion = 0;
             while (!opcionEscogida) {
                 try {
-                    opcion = MiEntradaSalida.leerEnteroRango("¿Que vas a hacer?", 1, 3);
+                    opcion = MiEntradaSalida.leerEnteroRango("¿Que vas a hacer?", 1, 4);
                     opcionEscogida = true;
                 } catch (MiEntradaSalidaException e) {
                     System.out.println(e.getMessage());
