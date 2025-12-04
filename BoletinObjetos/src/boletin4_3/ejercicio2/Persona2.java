@@ -38,6 +38,7 @@ public class Persona2 {
         if (persona2.buzonMensajesRecibidos[4] != null) {
             throw new MensajeExceptions("El destinatario tiene el buzon lleno");
         }
+
         Mensaje mensaje=new Mensaje(asunto,cuerpo,LocalDateTime.now(),this,persona2);
 
         for (int i = 0; i < buzonMensajesEnviados.length; i++) {
