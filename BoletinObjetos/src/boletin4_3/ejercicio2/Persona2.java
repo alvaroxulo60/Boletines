@@ -2,7 +2,7 @@ package boletin4_3.ejercicio2;
 
 import exceptions.MensajeExceptions;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Persona2 {
     public static int CAPACIDAD_BUZONES = 5;
@@ -59,15 +59,17 @@ public class Persona2 {
             throw new MensajeExceptions("El destinatario tiene el buzon lleno");
         }
         mensaje.setRemitente(this);
-        mensaje.setFechaEnvio(LocalDate.now());
+        mensaje.setFechaEnvio(LocalDateTime.now());
         for (int i = 0; i < buzonMensajesEnviados.length; i++) {
             if (buzonMensajesEnviados[i] == null) {
                 buzonMensajesEnviados[i] = mensaje;
+                break;
             }
         }
         for (int i = 0; i < persona2.buzonMensajesRecibidos.length; i++) {
             if (persona2.buzonMensajesRecibidos[i] == null) {
                 persona2.buzonMensajesRecibidos[i] = mensaje;
+                break;
             }
         }
     }
@@ -88,19 +90,19 @@ public class Persona2 {
         }
     }
 
-    public void borrarMensajeRecibidoMásAntiguo()throws MensajeExceptions {
-        if (buzonMensajesRecibidos[0] == null) {
+    public void borrarMensajeRecibidoMásAntiguo(Persona2 persona2)throws MensajeExceptions {
+        if (persona2.buzonMensajesRecibidos[0] == null) {
             throw new MensajeExceptions("El buzon esta vacío");
         }
-        this.buzonMensajesEnviados[0] = null;
+        persona2.buzonMensajesRecibidos[0] = null;
         int cantidad = 0;
-        for (int i = 0; i < buzonMensajesEnviados.length; i++) {
-            if (buzonMensajesEnviados[i] != null) {
-                buzonMensajesEnviados[cantidad++] = buzonMensajesEnviados[i];
+        for (int i = 0; i < buzonMensajesRecibidos.length; i++) {
+            if (buzonMensajesRecibidos[i] != null) {
+                buzonMensajesRecibidos[cantidad++] = buzonMensajesRecibidos[i];
             }
         }
-        while (cantidad < buzonMensajesEnviados.length) {
-            buzonMensajesEnviados[cantidad++] = null;
+        while (cantidad < buzonMensajesRecibidos.length) {
+            buzonMensajesRecibidos[cantidad++] = null;
         }
     }
 

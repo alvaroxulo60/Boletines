@@ -1,14 +1,11 @@
 package boletin4_3.ejercicio2;
 
-import boletin4_2.ejercicio1.Persona;
-import exceptions.MensajeExceptions;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Mensaje {
     private String asunto;
     private String cuerpo;
-    private LocalDate fechaEnvio;
+    private LocalDateTime fechaEnvio;
     private Persona2 remitente;
     private Persona2 destinatario;
 
@@ -34,11 +31,7 @@ public class Mensaje {
         this.cuerpo = cuerpo;
     }
 
-    public LocalDate getFechaEnvio() {
-        return fechaEnvio;
-    }
-
-    public void setFechaEnvio(LocalDate fechaEnvio) {
+    public void setFechaEnvio(LocalDateTime fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
 

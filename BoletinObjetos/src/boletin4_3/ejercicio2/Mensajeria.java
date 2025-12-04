@@ -50,7 +50,7 @@ public class Mensajeria {
                     break;
                 case 3:
                     try {
-                        p1.borrarMensajeRecibidoMásAntiguo();
+                        p1.borrarMensajeRecibidoMásAntiguo(p2);
                         System.out.println("Hecho");
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
@@ -58,6 +58,7 @@ public class Mensajeria {
                     opcionEscogida=false;
                     break;
                 case 4:
+                    System.out.println("Adios");
                     enviando=false;
                     break;
             }
