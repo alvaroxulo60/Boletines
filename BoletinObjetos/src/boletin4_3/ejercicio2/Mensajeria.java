@@ -30,9 +30,10 @@ public class Mensajeria {
             }
             switch (opcion) {
                 case 1:
-                    Mensaje m1 = crearMensaje(p2);
                     try {
-                        p1.enviarMensaje(m1,p2);
+                        String asunto = MiEntradaSalida.leerLinea("Introduce el asunto del mensaje: \n");
+                        String cuerpo = MiEntradaSalida.leerLinea("Introduce el cuerpo del mensaje: \n");
+                        p1.enviarMensaje(asunto,cuerpo,p2);
                         System.out.println("Hecho\n");
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
@@ -50,7 +51,7 @@ public class Mensajeria {
                     break;
                 case 3:
                     try {
-                        p1.borrarMensajeRecibidoMásAntiguo(p2);
+                        p1.borrarMensajeRecibidoMásAntiguo();
                         System.out.println("Hecho");
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
@@ -65,9 +66,4 @@ public class Mensajeria {
         }
     }
 
-    public static Mensaje crearMensaje(Persona2 p2){
-        String asunto = MiEntradaSalida.leerLinea("Introduce el asunto del mensaje: \n");
-        String cuerpo = MiEntradaSalida.leerLinea("Introduce el cuerpo del mensaje: \n");
-        return new Mensaje(asunto,cuerpo,p2);
-    }
 }

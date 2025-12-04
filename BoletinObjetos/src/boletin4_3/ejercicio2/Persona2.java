@@ -19,17 +19,17 @@ public class Persona2 {
         this.nombre = nombre;
     }
 
-    public void enviarMensaje(Mensaje mensaje, Persona2 persona2) throws MensajeExceptions {
+    public void enviarMensaje(String asunto, String cuerpo, Persona2 persona2) throws MensajeExceptions {
         if (this.equals(persona2)) {
             throw new MensajeExceptions("No te puedes enviar un mensaje a ti mismo");
         }
-        if (mensaje.getAsunto().isBlank()) {
+        if (asunto.isBlank()) {
             throw new MensajeExceptions("El mensaje no tiene asunto");
         }
         if (persona2 == null) {
             throw new MensajeExceptions("No hay un destinatario");
         }
-        if (mensaje.getCuerpo().isBlank()) {
+        if (cuerpo.isBlank()) {
             throw new MensajeExceptions("El mensaje no tiene cuerpo");
         }
         if (buzonMensajesEnviados[4] != null) {
@@ -38,8 +38,8 @@ public class Persona2 {
         if (persona2.buzonMensajesRecibidos[4] != null) {
             throw new MensajeExceptions("El destinatario tiene el buzon lleno");
         }
-        mensaje.setRemitente(this);
-        mensaje.setFechaEnvio(LocalDateTime.now());
+        Mensaje mensaje=new Mensaje(asunto,cuerpo,LocalDateTime.now(),this,persona2);
+
         for (int i = 0; i < buzonMensajesEnviados.length; i++) {
             if (buzonMensajesEnviados[i] == null) {
                 buzonMensajesEnviados[i] = mensaje;
@@ -64,11 +64,11 @@ public class Persona2 {
         buzonMensajesEnviados[buzonMensajesEnviados.length - 1] = null;
     }
 
-    public void borrarMensajeRecibidoMásAntiguo(Persona2 persona2) throws MensajeExceptions {
-        if (persona2.buzonMensajesRecibidos[0] == null) {
+    public void borrarMensajeRecibidoMásAntiguo() throws MensajeExceptions {
+        if (buzonMensajesRecibidos[0] == null) {
             throw new MensajeExceptions("El buzon esta vacío");
         }
-        for (int i = 0; i < persona2.buzonMensajesRecibidos.length - 1 && buzonMensajesRecibidos[i] != null; i++) {
+        for (int i = 0; i < buzonMensajesRecibidos.length - 1 && buzonMensajesRecibidos[i] != null; i++) {
             buzonMensajesRecibidos[i]=buzonMensajesRecibidos[i+1];
         }
         buzonMensajesRecibidos[buzonMensajesRecibidos.length-1]=null;
