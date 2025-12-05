@@ -33,12 +33,12 @@ public class Mensajeria {
                     try {
                         String asunto = MiEntradaSalida.leerLinea("Introduce el asunto del mensaje: \n");
                         String cuerpo = MiEntradaSalida.leerLinea("Introduce el cuerpo del mensaje: \n");
-                        p1.enviarMensaje(asunto,cuerpo,p2);
+                        p1.enviarMensaje(asunto, cuerpo, p2);
                         System.out.println("Hecho\n");
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
                     }
-                    opcionEscogida=false;
+                    opcionEscogida = false;
                     break;
                 case 2:
                     try {
@@ -47,7 +47,7 @@ public class Mensajeria {
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
                     }
-                    opcionEscogida=false;
+                    opcionEscogida = false;
                     break;
                 case 3:
                     try {
@@ -56,11 +56,11 @@ public class Mensajeria {
                     } catch (MensajeExceptions e) {
                         System.out.println(e.getMessage());
                     }
-                    opcionEscogida=false;
+                    opcionEscogida = false;
                     break;
                 case 4:
                     System.out.println("Adios");
-                    enviando=false;
+                    enviando = false;
                     break;
             }
         }
