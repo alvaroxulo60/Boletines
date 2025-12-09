@@ -24,11 +24,16 @@ public class Biblioteca {
     public String buscarPeliculaPorEtiquetas(String etiqueta) throws PeliculaException {
         StringBuilder devolver = new StringBuilder();
         for (int i = 0; i < peliculas.length; i++) {
-            String[] etiquetas = peliculas[i].getEtiquetas().split(",");
-            for (int j = 0; j < etiquetas.length; j++) {
-                if (etiquetas[j].equalsIgnoreCase(etiqueta)) {
-                    devolver.append(peliculas[i].getTitulo());
+            if (peliculas[i] != null) {
+                String[] etiquetas = peliculas[i].getEtiquetas().split(",");
+                for (int j = 0; j < etiquetas.length; j++) {
+                    if (etiquetas[j].equalsIgnoreCase(etiqueta)) {
+                        devolver.append(peliculas[i].getTitulo());
+                    }
                 }
+            }
+            else if (peliculas[i] == null) {
+                break;
             }
         }
         if (devolver.toString().isEmpty()) {
@@ -39,8 +44,12 @@ public class Biblioteca {
 
     public String buscarPeliculaPorTitulo(String titulo)throws PeliculaException {
         for (int i = 0; i < peliculas.length; i++) {
-            if (titulo.equalsIgnoreCase(peliculas[i].getTitulo())) {
-               return peliculas[i].toString();
+            if (peliculas[i] != null) {
+                if (titulo.equalsIgnoreCase(peliculas[i].getTitulo())) {
+                    return peliculas[i].toString();
+                }
+            }else if (peliculas[i] == null) {
+                break;
             }
         }
         throw new PeliculaException("Esa película no esta en la biblioteca");
@@ -49,8 +58,13 @@ public class Biblioteca {
     public String buscarPeliculaPorPresupuestoMaximo(double presupuestoMaximo) throws PeliculaException {
         StringBuilder devolver = new StringBuilder();
         for (int i = 0; i < peliculas.length; i++) {
-            if (peliculas[i].getPresupuesto()<=presupuestoMaximo) {
-                devolver.append(peliculas[i].getTitulo());
+            if (peliculas[i] != null) {
+                if (peliculas[i].getPresupuesto() <= presupuestoMaximo) {
+                    devolver.append(peliculas[i].getTitulo());
+                }
+            }
+            else if (peliculas[i] == null) {
+                break;
             }
         }
         if (devolver.toString().isEmpty()) {
@@ -61,11 +75,11 @@ public class Biblioteca {
 
     public String mostrarBiblioteca(){
         StringBuilder devolver = new StringBuilder();
-        for (int i = 0; i < peliculas.length; i++) {
-            if (peliculas[i] != null){
-                devolver.append(peliculas[i].toString());
+        for (Pelicula pelicula : peliculas) {
+            if (pelicula != null) {
+                devolver.append(pelicula.toString());
             }
-            if (peliculas[i] == null){
+            if (pelicula == null) {
                 break;
             }
         }

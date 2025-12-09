@@ -32,7 +32,6 @@ public class Main {
                 case 1:
                     biblioteca.añadirPelicula(crearPelicula());
                     System.out.println("¡Añadida!\n");
-                    System.out.println();
                     break;
                 case 2:
                     System.out.println(biblioteca.mostrarBiblioteca());
