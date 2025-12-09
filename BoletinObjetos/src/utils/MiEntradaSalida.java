@@ -83,7 +83,7 @@ public class MiEntradaSalida{
             // Si se lanza la excepción, informamos al usuario de su error.
             catch (NumberFormatException e) {
                 // 2. Mensaje de error específico.
-                System.out.println("Error: Debe introducir un número entero.");
+                System.out.println("Error: Debe introducir un número decimal.");
             }
 
         }
