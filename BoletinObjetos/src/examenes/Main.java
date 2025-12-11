@@ -25,7 +25,7 @@ public class Main {
             try {
                 opcion = MiEntradaSalida.leerEnteroRango("¿Qué quieres hacer? (Introduce el numero)", 1, 6);
             } catch (MiEntradaSalidaException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             }
 
             switch (opcion) {
