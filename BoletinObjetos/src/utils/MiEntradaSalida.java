@@ -272,12 +272,9 @@ public class MiEntradaSalida{
 
     }
 
-    public static void main(String[] args) {
-        try {
-            LocalDate fecha = MiEntradaSalida.fecha("lol");
-            System.out.println(fecha);
-        } catch (MiEntradaSalidaException e) {
-            System.out.println(e.getMessage());
-        }
+    public static char leerChar(String mensaje) throws MiEntradaSalidaException {
+        String texto = leerTexto(mensaje);
+        if (texto.length() != 1) {throw new MiEntradaSalidaException("Debes introducir un caracter.");}
+        return texto.charAt(0);
     }
 }
