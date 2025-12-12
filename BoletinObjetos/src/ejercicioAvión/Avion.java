@@ -57,7 +57,7 @@ public class Avion {
                 ", modelo='" + modelo + '\'' +
                 ", consumo=" + consumo +
                 ", combustible=" + combustible +
-                ", ¿Listo para viajar? " + Arrays.toString(revisiones) +
+                ", ¿Listo para viajar? " + estaListo() +
                 '}';
     }
 }
