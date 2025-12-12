@@ -9,7 +9,7 @@ public class Cartucho {
     private double potencia;
     private double peso;
 
-    public Cartucho(String id, String tipo, double potencia, double peso) throws NaveException {
+    public Cartucho(String id, String tipo, double potencia, double peso) {
         this.id = id;
         this.tipo = tipo;
         setPotencia(potencia);
@@ -17,17 +17,11 @@ public class Cartucho {
     }
 
     //Utilizamos estos dos setters para validar los datos introducidos
-    public void setPotencia(double potencia) throws NaveException {
-        if (potencia < 0) {
-            throw new NaveException("No puede tener una potencia menor a 0");
-        }
+    public void setPotencia(double potencia) {
         this.potencia = potencia;
     }
 
-    public void setPeso(double peso) throws NaveException {
-        if (peso < 0) {
-            throw new NaveException("El peso no puede ser 0");
-        }
+    public void setPeso(double peso){
         this.peso = peso;
     }
 
@@ -40,5 +34,26 @@ public class Cartucho {
 
     public double getPeso() {
         return peso;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cartucho cartucho = (Cartucho) o;
+        return tipo.equals(cartucho.tipo);
+    }
+
+    @Override
+    public int hashCode() {
+        return tipo.hashCode();
     }
 }

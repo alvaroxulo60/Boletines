@@ -10,9 +10,14 @@ public class Deposito {
         cartuchos = new Cartucho[NUM_CARTUCHOS];
     }
 
+    /**
+     * Agrega el cartucho al array
+     * @param c el cartucho que se va a agrerar
+     * @return
+     */
     public boolean agregarCartucho(Cartucho c) {
         for (int i = 0; i < cartuchos.length; i++) {
-            if (cartuchos[i] != null) {
+            if (cartuchos[i] == null) {
                 cartuchos[i] = c;
                 return true;
             }
@@ -34,8 +39,33 @@ public class Deposito {
         double pesoTotal = 0;
         for (int i = 0; i < cartuchos.length; i++) {
             if (cartuchos[i]!= null){
-                
+                pesoTotal += cartuchos[i].getPeso();
             }
         }
+        return pesoTotal;
+    }
+
+    public int contarCartuchosDeTipo(String tipo){
+        int contador = 0;
+        for (int i = 0; i < cartuchos.length; i++) {
+            if (cartuchos[i]!= null){
+                if (cartuchos[i].getTipo().equalsIgnoreCase(tipo)){
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+
+    public double calcularPesoCartuchoTipo(String tipo){
+        double sumaPesoMismosCartuchos = 0;
+        for (int i = 0; i < cartuchos.length; i++) {
+            if (cartuchos[i]!= null){
+                if (cartuchos[i].getTipo().equalsIgnoreCase(tipo)){
+                    sumaPesoMismosCartuchos+= cartuchos[i].getPeso();
+                }
+            }
+        }
+        return sumaPesoMismosCartuchos;
     }
 }
