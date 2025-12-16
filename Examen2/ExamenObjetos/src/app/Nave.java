@@ -35,7 +35,7 @@ public class Nave {
      */
     public void saltarHiperespacio() throws NaveException {
         if (checkAntimateria()) {
-            throw new NaveException("ERROR CRÍTICO: ¡EXPLOSIÓN");
+            throw new NaveException("ERROR CRÍTICO: ¡EXPLOSIÓN!");
         }
         if (calcularPotenciaTotal() < 1000) {
             throw new NaveException("FALLO: Potencia insuficiente");
