@@ -12,6 +12,7 @@ public class Deposito {
 
     /**
      * Agrega el cartucho al array
+     *
      * @param c el cartucho que se va a agrerar
      * @return
      */
@@ -28,28 +29,28 @@ public class Deposito {
     public double calcularPotenciaTotal() {
         double potenciaTotal = 0;
         for (int i = 0; i < cartuchos.length; i++) {
-            if (cartuchos[i]!=null) {
+            if (cartuchos[i] != null) {
                 potenciaTotal += cartuchos[i].getPotencia();
             }
         }
         return potenciaTotal;
     }
 
-    public double calcularPesoTotal(){
+    public double calcularPesoTotal() {
         double pesoTotal = 0;
         for (int i = 0; i < cartuchos.length; i++) {
-            if (cartuchos[i]!= null){
+            if (cartuchos[i] != null) {
                 pesoTotal += cartuchos[i].getPeso();
             }
         }
         return pesoTotal;
     }
 
-    public int contarCartuchosDeTipo(String tipo){
+    public int contarCartuchosDeTipo(String tipo) {
         int contador = 0;
         for (int i = 0; i < cartuchos.length; i++) {
-            if (cartuchos[i]!= null){
-                if (cartuchos[i].getTipo().equalsIgnoreCase(tipo)){
+            if (cartuchos[i] != null) {
+                if (cartuchos[i].getTipo().equalsIgnoreCase(tipo)) {
                     contador++;
                 }
             }
@@ -57,12 +58,12 @@ public class Deposito {
         return contador;
     }
 
-    public double calcularPesoCartuchoTipo(String tipo){
+    public double calcularPesoCartuchoTipo(String tipo) {
         double sumaPesoMismosCartuchos = 0;
         for (int i = 0; i < cartuchos.length; i++) {
-            if (cartuchos[i]!= null){
-                if (cartuchos[i].getTipo().equalsIgnoreCase(tipo)){
-                    sumaPesoMismosCartuchos+= cartuchos[i].getPeso();
+            if (cartuchos[i] != null) {
+                if (cartuchos[i].getTipo().equalsIgnoreCase(tipo)) {
+                    sumaPesoMismosCartuchos += cartuchos[i].getPeso();
                 }
             }
         }

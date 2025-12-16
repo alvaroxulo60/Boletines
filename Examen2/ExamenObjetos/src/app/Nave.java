@@ -19,6 +19,9 @@ public class Nave {
     }
 
     public boolean cargarDeposito(int indice, Cartucho c) throws NaveException {
+        if (indice < 0 || indice >= depositos.length){
+            throw new NaveException("Ese índice no es valido");
+        }
         if (depositos[indice] == null) {
             depositos[indice] = new Deposito();
         }
@@ -116,9 +119,7 @@ public class Nave {
     private double calcularPesoPlasmaVerde() {
         double pesoTotalPlasmaVerde = 0;
         for (int i = 0; i < depositos.length; i++) {
-            for (int j = 0; j < depositos[i].cartuchos.length; j++) {
                 pesoTotalPlasmaVerde += depositos[i].calcularPesoCartuchoTipo("plasma verde");
-            }
         }
         return pesoTotalPlasmaVerde;
     }

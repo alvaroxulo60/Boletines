@@ -17,11 +17,11 @@ public class Cartucho {
     }
 
     //Utilizamos estos dos setters para validar los datos introducidos
-    public void setPotencia(double potencia) {
+    private void setPotencia(double potencia){
         this.potencia = potencia;
     }
 
-    public void setPeso(double peso){
+    private void setPeso(double peso){
         this.peso = peso;
     }
 
