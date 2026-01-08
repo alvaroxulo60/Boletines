@@ -1,7 +1,5 @@
 package ejercicio3;
 
-import java.util.Objects;
-
 public class Hechizo {
     private final String nombre;
 

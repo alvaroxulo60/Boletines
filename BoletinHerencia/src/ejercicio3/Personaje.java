@@ -10,7 +10,7 @@ public class Personaje {
     private final int VIDA_MAX;
     private int vidaActual;
 
-    public Personaje(String nombre, String raza, int fuerza, int inteligencia, int vidaMax, int vidaActual) throws PersonajeExecption {
+    public Personaje(String nombre, String raza, int fuerza, int inteligencia, int vidaMax) throws PersonajeExecption {
         this.nombre = nombre;
         setRaza(raza);
         setFuerza(fuerza);
