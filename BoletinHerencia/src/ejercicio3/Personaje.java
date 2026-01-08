@@ -41,9 +41,6 @@ public class Personaje {
     }
 
     public void modificarVidaActual(int modificacion) throws PersonajeExecption {
-        if (vidaActual<0){
-            throw new PersonajeExecption("Este personaje esta muerto...");
-        }
         if (vidaActual+modificacion>VIDA_MAX){
             throw new PersonajeExecption("Este personaje no puede ser curado, su vida esta al máximo");
         }
