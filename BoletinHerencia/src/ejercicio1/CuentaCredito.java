@@ -62,7 +62,8 @@ public class CuentaCredito extends Cuenta{
         }
         if (credito < CREDITO_INICIAL){
             double dineroDeCredito = CREDITO_INICIAL - credito;
-
+            credito += dineroDeCredito;
+            super.ingreso(getSaldo()-dineroDeCredito);
 
         }
     }
