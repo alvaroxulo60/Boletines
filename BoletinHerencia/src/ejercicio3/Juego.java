@@ -11,6 +11,9 @@ public class Juego {
     public static void main(String[] args) {
          Personaje[] jugadores = new Personaje[TAM_ARRAY_JUGADORES];
          boolean interactuando = true;
+         int magoElegido;
+         String hechizo;
+         int jugadorElegido;
 
         System.out.println("""
                 Bienvenido al juego. Estas son tus opciones: \
@@ -41,16 +44,52 @@ public class Juego {
                         }
                         break;
                     case 2:
-
+                        for (int i = 0; i < jugadores.length; i++) {
+                            if (jugadores[i] instanceof Mago){
+                                System.out.println(i + "." + " " + jugadores[i]);
+                            }
+                        }
+                        magoElegido = MiEntradaSalida.leerEntero("Introduce el numero del mago a el cual quieras enseñarle el hechizo\n");
+                        hechizo = MiEntradaSalida.leerLinea("¿Que hechizo quieres enseñarle?\n");
+                        if (jugadores[magoElegido] instanceof Mago m){
+                            m.aprenderHechizo(hechizo);
+                            System.out.println("Hecho!\n");
+                        }
                         break;
                     case 3:
-
+                        for (int i = 0; i < jugadores.length; i++) {
+                            if (jugadores[i] instanceof Mago){
+                                System.out.println(i + "." + " " + jugadores[i]);
+                            }
+                        }
+                        magoElegido = MiEntradaSalida.leerEntero("Introduce el numero del mago el cual quieras que use un hechizo\n");
+                        if (jugadores[magoElegido]instanceof Mago m){
+                            m.mostrarHechizos();
+                            hechizo = MiEntradaSalida.leerLinea("¿Que hechizo quieres utilizar?");
+                            for (int i = 0; i < jugadores.length; i++) {
+                                if (jugadores[i] != null){
+                                    System.out.println(i + "."+" "+jugadores[i]);
+                                }
+                                else {
+                                    System.out.println("No quedan mas jugadores por mostrar");
+                                    break;
+                                }
+                            }
+                            jugadorElegido = MiEntradaSalida.leerEntero("Introduce el índice del personaje al cual quieres atacar: ");
+                            if (m.equals(jugadores[jugadorElegido])){
+                                System.out.println("¡No puedes atacarte a ti mismo, Tonto!");
+                            }
+                            else{
+                                m.lanzarHechizos(jugadores[jugadorElegido],hechizo);
+                                System.out.println("Hecho!");
+                            }
+                        }
                         break;
                     case 4:
 
                         break;
                     case 5:
-
+                        MiEntradaSalida.mostrarOpcionesSinNulos("Aqui tienes todos los jugadores activos: ",jugadores);
                         break;
                     case 6:
 
@@ -59,7 +98,7 @@ public class Juego {
                         interactuando = false;
                         break;
                 }
-            } catch (MiEntradaSalidaException e) {
+            } catch (MiEntradaSalidaException | PersonajeException e) {
                 System.out.println(e.getMessage());
             }
         }

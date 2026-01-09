@@ -54,6 +54,15 @@ public class Mago extends Personaje {
         throw new PersonajeException("Ese hechizo no es válido o el mago no lo conoce");
     }
 
+    public void mostrarHechizos(){
+        for (int i = 0; i < hechizos.length; i++) {
+            if (hechizos[i]!=null){
+                System.out.println("· "+hechizos[i].getNombre());
+            }
+        }
+    }
+
+
     @Override
     public String toString() {
         return super.toString()+" Mago{" +

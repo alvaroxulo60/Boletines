@@ -42,9 +42,27 @@ public class Personaje {
 
     public void modificarVidaActual(int modificacion) throws PersonajeException {
         if (vidaActual+modificacion>VIDA_MAX){
-            throw new PersonajeException("Este personaje no puede ser curado, su vida esta al máximo");
+            vidaActual = VIDA_MAX;
+        }
+        if (vidaActual==VIDA_MAX){
+           throw new PersonajeException("Este personaje no puede ser curado, su vida esta al máximo.");
         }
         this.vidaActual += modificacion;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Personaje personaje = (Personaje) o;
+        return nombre.equals(personaje.nombre) && raza == personaje.raza;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = nombre.hashCode();
+        result = 31 * result + raza.hashCode();
+        return result;
     }
 
     @Override

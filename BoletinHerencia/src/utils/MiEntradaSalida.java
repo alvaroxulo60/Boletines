@@ -277,4 +277,5 @@ public class MiEntradaSalida {
         if (texto.length() != 1) {throw new MiEntradaSalidaException("Debes introducir un caracter.");}
         return texto.charAt(0);
     }
+
 }
