@@ -38,7 +38,7 @@ public class Juego {
                         String personaje = MiEntradaSalida.leerLinea("¿A que personaje deseas crear? (Mago o Clérigo)\n");
                         Personaje p = switch (personaje.toLowerCase()) {
                             case "mago" -> crearMago();
-                            case "clerigo" -> crearClerigo();
+                            case "clérigo" -> crearClerigo();
                             default -> null;
                         };
                         for (int i = 0; i < jugadores.length; i++) {
@@ -94,7 +94,7 @@ public class Juego {
                         else System.out.println("¡Eso no es un Clérigo!");
                         break;
                     case 5:
-                        MiEntradaSalida.mostrarOpcionesSinNulos("Aqui tienes todos los jugadores activos: ", jugadores);
+                        MiEntradaSalida.mostrarOpcionesSinNulos("Aquí tienes todos los jugadores activos: ", jugadores);
                         break;
                     case 6:
                         Personaje[] copia = Arrays.copyOf(jugadores,TAM_ARRAY_JUGADORES);
