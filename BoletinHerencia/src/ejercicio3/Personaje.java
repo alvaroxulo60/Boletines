@@ -1,6 +1,6 @@
 package ejercicio3;
 
-import exceptions.PersonajeExecption;
+import exceptions.PersonajeException;
 
 public class Personaje {
     private String nombre;
@@ -10,13 +10,13 @@ public class Personaje {
     private final int VIDA_MAX;
     private int vidaActual;
 
-    public Personaje(String nombre, String raza, int fuerza, int inteligencia, int vidaMax) throws PersonajeExecption {
+    public Personaje(String nombre, String raza, int fuerza, int inteligencia, int vidaMax) throws PersonajeException {
         this.nombre = nombre;
         setRaza(raza);
         setFuerza(fuerza);
         setInteligencia(inteligencia);
         if (vidaMax < 0 || vidaMax > 100) {
-            throw new PersonajeExecption("La vida máxima introducida no es válida.");
+            throw new PersonajeException("La vida máxima introducida no es válida.");
         }
         this.VIDA_MAX = vidaMax;
         this.vidaActual=VIDA_MAX;
@@ -26,23 +26,23 @@ public class Personaje {
         this.raza = Raza.valueOf(raza.toUpperCase());
     }
 
-    private void setFuerza(int fuerza)throws PersonajeExecption {
+    private void setFuerza(int fuerza)throws PersonajeException {
         if (fuerza<0 || fuerza>20){
-            throw new PersonajeExecption("La fuerza introducida no es válida");
+            throw new PersonajeException("La fuerza introducida no es válida");
         }
             this.fuerza = fuerza;
     }
 
-    private void setInteligencia(int inteligencia)throws PersonajeExecption {
+    private void setInteligencia(int inteligencia)throws PersonajeException {
         if (inteligencia<0 || inteligencia>20){
-            throw new PersonajeExecption("La inteligencia introducida no es válida");
+            throw new PersonajeException("La inteligencia introducida no es válida");
         }
         this.inteligencia = inteligencia;
     }
 
-    public void modificarVidaActual(int modificacion) throws PersonajeExecption {
+    public void modificarVidaActual(int modificacion) throws PersonajeException {
         if (vidaActual+modificacion>VIDA_MAX){
-            throw new PersonajeExecption("Este personaje no puede ser curado, su vida esta al máximo");
+            throw new PersonajeException("Este personaje no puede ser curado, su vida esta al máximo");
         }
         this.vidaActual += modificacion;
     }

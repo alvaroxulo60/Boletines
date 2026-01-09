@@ -1,6 +1,6 @@
 package ejercicio3;
 
-import exceptions.PersonajeExecption;
+import exceptions.PersonajeException;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class Main {
 
 
         }
-        catch(PersonajeExecption e){
+        catch(PersonajeException e){
             System.out.println(e.getMessage());
         }
     }

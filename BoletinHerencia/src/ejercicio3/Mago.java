@@ -1,6 +1,6 @@
 package ejercicio3;
 
-import exceptions.PersonajeExecption;
+import exceptions.PersonajeException;
 
 import java.util.Arrays;
 
@@ -11,17 +11,17 @@ public class Mago extends Personaje {
     Hechizo[] hechizos = new Hechizo[TAM_ARRAY_DE_HECHIZOS];
 
 
-    public Mago(String nombre, String raza, int fuerza, int inteligencia, int vidaMax) throws PersonajeExecption {
+    public Mago(String nombre, String raza, int fuerza, int inteligencia, int vidaMax) throws PersonajeException {
         if (fuerza > 15) {
-            throw new PersonajeExecption("Un mago no puede tener mas de 15 de fuerza");
+            throw new PersonajeException("Un mago no puede tener mas de 15 de fuerza");
         }
         if (inteligencia < 17) {
-            throw new PersonajeExecption("Un mago no puede tener menos de 17 de inteligencia");
+            throw new PersonajeException("Un mago no puede tener menos de 17 de inteligencia");
         }
         super(nombre, raza, fuerza, inteligencia, vidaMax);
     }
 
-    public void aprenderHechizo(String hechizo) throws PersonajeExecption {
+    public void aprenderHechizo(String hechizo) throws PersonajeException {
         Hechizo h = new Hechizo(hechizo);
         int contador = 0;
         for (int i = 0; i <TAM_ARRAY_DE_HECHIZOS; i++) {
@@ -30,7 +30,7 @@ public class Mago extends Personaje {
             }
         }
         if (contador == TAM_ARRAY_DE_HECHIZOS){
-            throw new PersonajeExecption("Este mago no puede aprender mas hechizos");
+            throw new PersonajeException("Este mago no puede aprender mas hechizos");
         }
         for (int i = 0; i < TAM_ARRAY_DE_HECHIZOS; i++) {
 
@@ -41,7 +41,7 @@ public class Mago extends Personaje {
         }
     }
 
-    public void lanzarHechizos(Personaje p, String s) throws PersonajeExecption {
+    public void lanzarHechizos(Personaje p, String s) throws PersonajeException {
         for (int i = 0; i < hechizos.length; i++) {
             if (hechizos[i]!=null) {
                 if (hechizos[i].getNombre().equalsIgnoreCase(s)) {
@@ -51,7 +51,7 @@ public class Mago extends Personaje {
                 }
             }
         }
-        throw new PersonajeExecption("Ese hechizo no es válido o el mago no lo conoce");
+        throw new PersonajeException("Ese hechizo no es válido o el mago no lo conoce");
     }
 
     @Override
