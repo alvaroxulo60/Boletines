@@ -50,6 +50,14 @@ public class Personaje {
         this.vidaActual += modificacion;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getVidaActual() {
+        return vidaActual;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

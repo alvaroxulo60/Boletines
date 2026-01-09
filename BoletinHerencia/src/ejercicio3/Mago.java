@@ -7,8 +7,8 @@ import java.util.Arrays;
 public class Mago extends Personaje {
     public static final int DAÑO = -10;
     public static final int TAM_ARRAY_DE_HECHIZOS = 4;
+    private Hechizo[] hechizos;
 
-    Hechizo[] hechizos = new Hechizo[TAM_ARRAY_DE_HECHIZOS];
 
 
     public Mago(String nombre, String raza, int fuerza, int inteligencia, int vidaMax) throws PersonajeException {
@@ -19,6 +19,7 @@ public class Mago extends Personaje {
             throw new PersonajeException("Un mago no puede tener menos de 17 de inteligencia");
         }
         super(nombre, raza, fuerza, inteligencia, vidaMax);
+        hechizos= new Hechizo[TAM_ARRAY_DE_HECHIZOS];
     }
 
     public void aprenderHechizo(String hechizo) throws PersonajeException {
