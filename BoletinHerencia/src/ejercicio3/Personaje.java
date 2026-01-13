@@ -44,9 +44,10 @@ public class Personaje {
         if (vidaActual+modificacion>VIDA_MAX){
             vidaActual = VIDA_MAX;
         }
-        if (vidaActual==VIDA_MAX){
+        if (vidaActual==VIDA_MAX && modificacion>0){
            throw new PersonajeException("Este personaje no puede ser curado, su vida esta al máximo.");
         }
+
         this.vidaActual += modificacion;
     }
 

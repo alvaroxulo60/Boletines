@@ -160,6 +160,8 @@ public class Juego {
             if (jugadores[i] instanceof Mago) {
                 System.out.println(i + "." + " " + jugadores[i].getNombre());
             }
+            else
+                System.out.println("Eso no es un mago.");
         }
     }
 
@@ -168,6 +170,8 @@ public class Juego {
             if (jugadores[i] instanceof Clerigo) {
                 System.out.println(i + "." + " " + jugadores[i].getNombre());
             }
+            else
+                System.out.println("Eso no es un Clérigo");
         }
     }
 
@@ -181,10 +185,5 @@ public class Juego {
         }
     }
 
-    public static void ordenarPorVida(Personaje[] jugadores){
-
-        //Ordenar de mayor a menor vida
-        Arrays.sort(jugadores, Comparator.comparingInt(Personaje::getVidaActual).reversed());
-    }
 
 }
