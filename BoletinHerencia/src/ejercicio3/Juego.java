@@ -37,8 +37,14 @@ public class Juego {
                     case 1:
                         String personaje = MiEntradaSalida.leerLinea("¿A que personaje deseas crear? (Mago o Clérigo)\n");
                         Personaje p = switch (personaje.toLowerCase()) {
-                            case "mago" -> crearMago();
-                            case "clérigo" -> crearClerigo();
+                            case "mago" ->{
+                                System.out.println("Creando mago...\n");
+                                yield crearMago();
+                            }
+                            case "clérigo" ->{
+                                System.out.println("Creando clérigo...\n");
+                                yield crearClerigo();
+                            }
                             default -> null;
                         };
                         for (int i = 0; i < jugadores.length; i++) {
@@ -51,8 +57,8 @@ public class Juego {
                     case 2:
                         mostrarMagos(jugadores);
                         magoElegido = MiEntradaSalida.leerEntero("Introduce el numero del mago a el cual quieras enseñarle el hechizo: ");
-                        hechizo = MiEntradaSalida.leerLinea("¿Que hechizo quieres enseñarle?\n");
                         if (jugadores[magoElegido] instanceof Mago m) {
+                            hechizo = MiEntradaSalida.leerLinea("¿Que hechizo quieres enseñarle?\n");
                             m.aprenderHechizo(hechizo);
                             System.out.println("Hecho!\n");
                         }
@@ -97,12 +103,16 @@ public class Juego {
                         MiEntradaSalida.mostrarOpcionesSinNulos("Aquí tienes todos los jugadores activos: ", jugadores);
                         break;
                     case 6:
-                        Personaje[] copia = Arrays.copyOf(jugadores,TAM_ARRAY_JUGADORES);
-                        Arrays.sort(copia, Comparator.comparingInt(Personaje::getVidaActual).reversed());
-                        int contador = 0;
-                        for (Personaje pe : copia){
-                            System.out.println(contador++ + pe.getNombre());
-                        }
+                        System.out.println("Esta en desarrollo...");
+                        //
+                        //Personaje[] copia = Arrays.copyOf(jugadores,TAM_ARRAY_JUGADORES);
+                        //Arrays.sort(copia, Comparator.comparingInt(Personaje::getVidaActual).reversed());
+                        // int contador = 0;
+                        //for (Personaje pe : copia){
+                        //    if (pe != null){
+                        //        System.out.println(contador++ +" " + pe.getNombre());
+                        //    }
+                        //}
 
                         break;
                     case 7:
@@ -128,7 +138,7 @@ public class Juego {
             try {
                 aux = new Mago(nombre, raza, fuerza, inteligencia, vidaMax);
                 creado = true;
-            } catch (PersonajeException e) {
+            } catch (PersonajeException | IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -148,7 +158,7 @@ public class Juego {
             try {
                 aux = new Clerigo(nombre, raza, fuerza, inteligencia, vidaMax, dios);
                 creado = true;
-            } catch (PersonajeException e) {
+            } catch (PersonajeException | IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -157,21 +167,23 @@ public class Juego {
 
     public static void mostrarMagos(Personaje[] jugadores){
         for (int i = 0; i < jugadores.length; i++) {
-            if (jugadores[i] instanceof Mago) {
-                System.out.println(i + "." + " " + jugadores[i].getNombre());
+            if (jugadores[i]!= null) {
+                if (jugadores[i] instanceof Mago) {
+                    System.out.println(i + "." + " " + jugadores[i].getNombre());
+                } else
+                    System.out.println("Eso no es un mago.");
             }
-            else
-                System.out.println("Eso no es un mago.");
         }
     }
 
     public static void mostrarClerigos(Personaje[] jugadores){
         for (int i = 0; i < jugadores.length; i++) {
-            if (jugadores[i] instanceof Clerigo) {
-                System.out.println(i + "." + " " + jugadores[i].getNombre());
+            if (jugadores[i]!= null) {
+                if (jugadores[i] instanceof Clerigo) {
+                    System.out.println(i + "." + " " + jugadores[i].getNombre());
+                } else
+                    System.out.println("Eso no es un Clérigo");
             }
-            else
-                System.out.println("Eso no es un Clérigo");
         }
     }
 
