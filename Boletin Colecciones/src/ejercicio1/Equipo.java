@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Equipo <T> {
+public class Equipo<T> {
 
     private Set<T> alumnos;
     private String nombre;
@@ -22,42 +22,42 @@ public class Equipo <T> {
         this.nombre = nombre;
     }
 
-    public void addAlumno(T a) throws AlumnoException{
+    public void addAlumno(T a) throws AlumnoException {
         if (!alumnos.add(a)) {
             throw new AlumnoException("Ese alumno ya esta en el equipo");
         }
 
     }
 
-    public void removeAlumno(T a) throws AlumnoException{
-        if (!alumnos.remove(a)){
+    public void removeAlumno(T a) throws AlumnoException {
+        if (!alumnos.remove(a)) {
             throw new AlumnoException("Ese alumno no esta en el equipo");
         }
     }
 
-    public T containsAlumno(T a){
-        if (alumnos.contains(a)){
+    public T containsAlumno(T a) {
+        if (alumnos.contains(a)) {
             return a;
         }
         return null;
     }
 
-    public List<T> devolverListaAlumnos(){
+    public List<T> devolverListaAlumnos() {
         return new ArrayList<>(alumnos);
     }
 
-    public Equipo<T> interseccionEquipos(String nombreEquipo, Equipo<T> equipo2){
-        Set<T> nuevaLista = new HashSet<>(alumnos);
+    public Equipo<T> interseccionEquipos(String nombreEquipo, Equipo<T> equipo2) {
+        Set<T> nuevaLista = new HashSet<>(this.alumnos);
         nuevaLista.retainAll(equipo2.alumnos);
-        return new Equipo<T>(nuevaLista,nombreEquipo);
+        return new Equipo<>(nuevaLista, nombreEquipo);
     }
 
-    public Equipo<T> unifyEquipos(String nombreEquipo, Equipo<T> equipo2){
+    public Equipo<T> unifyEquipos(String nombreEquipo, Equipo<T> equipo2) {
         Set<T> nuevoAlumnos = new HashSet<>();
         nuevoAlumnos.addAll(alumnos);
         nuevoAlumnos.addAll(equipo2.alumnos);
 
-        return new Equipo<T>(nuevoAlumnos,nombreEquipo);
+        return new Equipo<>(nuevoAlumnos, nombreEquipo);
     }
 
     @Override
@@ -69,9 +69,9 @@ public class Equipo <T> {
     }
 
     public static void main(String[] args) {
-        Alumno a1 = new Alumno("Jorge","1");
+        Alumno a1 = new Alumno("Jorge", "1");
         Alumno a2 = new Alumno("Jorge", "2");
-        Alumno a3 = new Alumno("Moi","3");
+        Alumno a3 = new Alumno("Moi", "3");
 
         Equipo<Alumno> e1 = new Equipo<>("lolo");
         Equipo<Alumno> e2 = new Equipo<>("bla bla bla");
@@ -112,7 +112,7 @@ public class Equipo <T> {
             System.out.println(e.getMessage());
         }
 
-        Equipo<Alumno> nuevo = e1.unifyEquipos("lobla",e2);
+        Equipo<Alumno> nuevo = e1.unifyEquipos("lobla", e2);
         Equipo<Alumno> nuevo2 = e1.interseccionEquipos("blalo", e2);
 
         System.out.println(e1.devolverListaAlumnos());
