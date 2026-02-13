@@ -7,9 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Equipo {
+public class Equipo <T> {
 
-    private Set<Alumno> alumnos;
+    private Set<T> alumnos;
     private String nombre;
 
     public Equipo(String nombre) {
@@ -17,47 +17,47 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public Equipo(Set<Alumno> lista, String nombre) {
+    public Equipo(Set<T> lista, String nombre) {
         this.alumnos = lista;
         this.nombre = nombre;
     }
 
-    public void addAlumno(Alumno a) throws AlumnoException{
+    public void addAlumno(T a) throws AlumnoException{
         if (!alumnos.add(a)) {
             throw new AlumnoException("Ese alumno ya esta en el equipo");
         }
 
     }
 
-    public void removeAlumno(Alumno a) throws AlumnoException{
+    public void removeAlumno(T a) throws AlumnoException{
         if (!alumnos.remove(a)){
             throw new AlumnoException("Ese alumno no esta en el equipo");
         }
     }
 
-    public Alumno containsAlumno(Alumno a){
+    public T containsAlumno(T a){
         if (alumnos.contains(a)){
             return a;
         }
         return null;
     }
 
-    public List<Alumno> devolverListaAlumnos(){
+    public List<T> devolverListaAlumnos(){
         return new ArrayList<>(alumnos);
     }
 
-    public Equipo interseccionEquipos(String nombreEquipo, Equipo equipo2){
-        Set<Alumno> nuevaLista = new HashSet<>(alumnos);
+    public Equipo<T> interseccionEquipos(String nombreEquipo, Equipo<T> equipo2){
+        Set<T> nuevaLista = new HashSet<>(alumnos);
         nuevaLista.retainAll(equipo2.alumnos);
-        return new Equipo(nuevaLista,nombreEquipo);
+        return new Equipo<T>(nuevaLista,nombreEquipo);
     }
 
-    public Equipo unifyEquipos(String nombreEquipo, Equipo equipo2){
-        Set<Alumno> nuevoAlumnos = new HashSet<>();
+    public Equipo<T> unifyEquipos(String nombreEquipo, Equipo<T> equipo2){
+        Set<T> nuevoAlumnos = new HashSet<>();
         nuevoAlumnos.addAll(alumnos);
         nuevoAlumnos.addAll(equipo2.alumnos);
 
-        return new Equipo(nuevoAlumnos,nombreEquipo);
+        return new Equipo<T>(nuevoAlumnos,nombreEquipo);
     }
 
     @Override
@@ -73,8 +73,8 @@ public class Equipo {
         Alumno a2 = new Alumno("Jorge", "2");
         Alumno a3 = new Alumno("Moi","3");
 
-        Equipo e1 = new Equipo("lolo");
-        Equipo e2 = new Equipo("bla bla bla");
+        Equipo<Alumno> e1 = new Equipo<>("lolo");
+        Equipo<Alumno> e2 = new Equipo<>("bla bla bla");
 
         try {
             e1.addAlumno(a1);
@@ -112,8 +112,8 @@ public class Equipo {
             System.out.println(e.getMessage());
         }
 
-        Equipo nuevo = e1.unifyEquipos("lobla",e2);
-        Equipo nuevo2 = e1.interseccionEquipos("blalo", e2);
+        Equipo<Alumno> nuevo = e1.unifyEquipos("lobla",e2);
+        Equipo<Alumno> nuevo2 = e1.interseccionEquipos("blalo", e2);
 
         System.out.println(e1.devolverListaAlumnos());
         System.out.println(e2.devolverListaAlumnos());
