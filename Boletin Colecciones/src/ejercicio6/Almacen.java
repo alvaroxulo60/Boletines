@@ -51,14 +51,14 @@ public class Almacen {
         }
     }
 
-    public String crearCliente(){
+    public String crearCliente() throws SupermercadoException {
         Cliente cliente = new Cliente();
-        Caja caja = cajas.stream().filter(Caja::isCajaAbierta).min(Caja::compareTo).orElse(null);
-        if (caja != null && caja.isCajaAbierta()){
-            caja.añadirClienteACaja(cliente);
-            return "Es usted el cliente número "+cliente.getNUM_CLIENTE()+" y debe ir a la caja número "+caja.getNUMERO_DE_CAJA();
-        }
-        return "No hay ninguna caja abierta";
+        Caja caja = cajas.stream().filter(Caja::isCajaAbierta).min(Caja::compareTo).orElseThrow(()-> new SupermercadoException("No hay cajas abiertas"));
+
+
+        caja.añadirClienteACaja(cliente);
+        return "Es usted el cliente número "+cliente.getNUM_CLIENTE()+" y debe ir a la caja número "+caja.getNUMERO_DE_CAJA();
+
     }
 
     public String atenderCliente() throws SupermercadoException {
