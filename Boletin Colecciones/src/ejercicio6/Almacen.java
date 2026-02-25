@@ -61,6 +61,24 @@ public class Almacen {
         return "No hay ninguna caja abierta";
     }
 
+    public String atenderCliente() throws SupermercadoException {
+        try {
+            int numCaja = MiEntradaSalida.leerEnteroRango("Introduce el numero de caja que quieras atender (1-20): ",1,20) - 1;
+            if (cajas.get(numCaja).isCajaAbierta()){
+                if (cajas.get(numCaja).getClientes()!= 0){
+                    Cliente primerCliente;
+                    Cliente clienteEliminado = cajas.get(numCaja).removeClienteDeCaja();
+                    return "Se ha atendido al cliente con número "+ clienteEliminado.getNUM_CLIENTE();
+                }
+            }else {
+                throw new SupermercadoException("Esta caja no esta abierta.");
+            }
+        } catch (MiEntradaSalidaException e) {
+            throw new SupermercadoException("Esa caja no existe");
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         Almacen almacen = new Almacen();
 
@@ -95,7 +113,7 @@ public class Almacen {
                         break;
                     case 4:
                         System.out.println("Acción seleccionada: Atender cliente.");
-                        // Aquí iría la solicitud de caja y extracción del cliente
+                        System.out.println(almacen.atenderCliente());
                         break;
                     case 5:
                         System.out.println("Saliendo del sistema... ¡Hasta pronto!");

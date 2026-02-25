@@ -40,9 +40,10 @@ public class Caja implements Comparable<Caja>{
         clientes.add(c);
     }
 
-    public void removeClienteDeCaja(Cliente c){
-        clientes.remove(c);
+    public Cliente removeClienteDeCaja(){
+       return clientes.poll();
     }
+
 
     @Override
     public int compareTo(Caja o) {
