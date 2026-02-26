@@ -36,15 +36,12 @@ public class Receta implements Comparable<Receta> {
     }
 
     public void annadirIngrediente(Ingrediente ingredienteNuevo) {
-        boolean encontrado = false;
-        for (Ingrediente i : ingredientes) {
-            if (i.getNombre().equalsIgnoreCase(ingredienteNuevo.getNombre())) {
-                i.setCantidad(i.getCantidad() + ingredienteNuevo.getCantidad());
-                encontrado = true;
+        if (!ingredientes.add(ingredienteNuevo)){
+            for (Ingrediente i : ingredientes){
+                if (i.equals(ingredienteNuevo)){
+                    i.setCantidad(i.getCantidad()+ingredienteNuevo.getCantidad());
+                }
             }
-        }
-        if (!encontrado) {
-            ingredientes.add(ingredienteNuevo);
         }
     }
 
@@ -64,10 +61,12 @@ public class Receta implements Comparable<Receta> {
     }
 
     public void annadirPasoDetrasDe(String pasoNuevo, String pasoExistente) throws RecetaException {
-        if (pasosDeLaReceta.contains(pasoExistente)) {
-            pasosDeLaReceta.set(pasosDeLaReceta.indexOf(pasoExistente) + 1, pasoNuevo);
-        } else
+        int pos = pasosDeLaReceta.indexOf(pasoExistente);
+
+        if (pos == -1) {
             throw new RecetaException("El paso existente no se encuentra en la receta");
+        } else
+            pasosDeLaReceta.set(pos + 1, pasoNuevo);
     }
 
     public Set<Ingrediente> getIngredientes() {

@@ -21,4 +21,16 @@ public class Ingrediente {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof Ingrediente that)) return false;
+
+        return nombre.equals(that.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode();
+    }
 }
