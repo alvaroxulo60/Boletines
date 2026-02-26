@@ -161,7 +161,7 @@ public class Recetario {
     /**
      * Submenú para gestionar las acciones internas de una Clase Receta
      */
-    private static void menuEdicionReceta(Receta receta) {
+    private static void menuEdicionReceta(Receta receta) throws RecetaException {
         System.out.println("\n--- 📝 EDICIÓN DE RECETA ---");
         System.out.println("a. Comprobar si necesita ingrediente");
         System.out.println("b. Añadir Ingrediente");
@@ -173,19 +173,40 @@ public class Recetario {
         switch (subOpcion) {
             case "a":
                 System.out.println("Ejecutando: necesitaIngrediente()...");
+                String ing = MiEntradaSalida.leerLinea("¿Que ingrediente quieres comprobar? \n");
+                if (receta.necesitaIngrediente(ing)){
+                    System.out.println("Si lo necesita");
+                }else {
+                    System.out.println("No lo necesita");
+                }
                 break;
             case "b":
                 System.out.println("Ejecutando: annadirIngrediente()...");
+                Ingrediente nuevo = crearIngrediente();
+                receta.annadirIngrediente(nuevo);
                 break;
             case "c":
                 System.out.println("Ejecutando: borrarIngrediente()...");
+                String ing2 = MiEntradaSalida.leerLinea("¿Que ingrediente quieres borrar? \n");
+                Ingrediente borrar = receta.devolverIngrediente(ing2);
+                receta.borrarIngrediente(borrar);
+                System.out.println("Hecho");
                 break;
             case "d":
                 System.out.println("Ejecutando: annadirPasoDetrasDe()...");
+                String pasoExistente = MiEntradaSalida.leerLinea("Introduce el paso existente: \n");
+                String pasoNuevo = MiEntradaSalida.leerLinea("Introduce el paso nuevo: \n");
+                receta.annadirPasoDetrasDe(pasoNuevo,pasoExistente);
                 break;
             default:
                 System.out.println("Regresando al menú principal...");
         }
+    }
+
+    public static Ingrediente crearIngrediente(){
+        String nombre = MiEntradaSalida.leerLinea("Introduce el nombre del ingrediente: ");
+        int cantidad = MiEntradaSalida.leerEnteroPositivo("Introduce la cantidad: \n",false);
+        return new Ingrediente(nombre,cantidad);
     }
 
 }

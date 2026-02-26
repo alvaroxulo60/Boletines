@@ -54,12 +54,21 @@ public class Receta implements Comparable<Receta>{
         }
     }
 
+    public Ingrediente devolverIngrediente(String nombre) throws RecetaException {
+        for (Ingrediente ing: ingredientes){
+            if (ing.getNombre().equalsIgnoreCase(nombre)){
+                return ing;
+            }
+        }
+        throw new RecetaException("Ese ingrediente no esta en la receta. \n");
+    }
+
     public void annadirPasoDetrasDe(String pasoNuevo, String pasoExistente) throws RecetaException {
         if (pasosDeLaReceta.contains(pasoExistente)) {
             pasosDeLaReceta.set(pasosDeLaReceta.indexOf(pasoExistente) + 1, pasoNuevo);
         }
         else
-            pasosDeLaReceta.add(pasoNuevo);
+            throw new RecetaException("El paso existente no se encuentra en la receta");
     }
 
     public Set<Ingrediente> getIngredientes() {
