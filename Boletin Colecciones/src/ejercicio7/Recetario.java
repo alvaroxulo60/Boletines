@@ -9,19 +9,19 @@ import java.util.*;
 
 public class Recetario {
 
-    private Map<String,Receta> recetas;
+    private Map<String, Receta> recetas;
 
     public Recetario() {
         recetas = new HashMap<>();
     }
 
-    public void annadirReceta( Receta nuevaReceta) throws RecetaException {
-        if (!recetas.containsKey(nuevaReceta.getNombre())){
-            recetas.put(nuevaReceta.getNombre(),nuevaReceta);
+    public void annadirReceta(Receta nuevaReceta) throws RecetaException {
+        if (!recetas.containsKey(nuevaReceta.getNombre())) {
+            recetas.put(nuevaReceta.getNombre(), nuevaReceta);
         }
     }
 
-    public String listadoRecetasOrdenadasAlfabeticamente() throws RecetaException{
+    public String listadoRecetasOrdenadasAlfabeticamente() throws RecetaException {
         List<String> nombresDeRecetas = new ArrayList<>(recetas.keySet());
         StringBuilder sb = new StringBuilder();
 
@@ -29,14 +29,14 @@ public class Recetario {
 
         int contador = 1;
 
-        for (String nombre : nombresDeRecetas){
+        for (String nombre : nombresDeRecetas) {
             sb.append(contador++).append(". ").append(nombre).append(System.lineSeparator());
         }
 
-      return sb.toString();
+        return sb.toString();
     }
 
-    public String listadoRecetasConIngredienteOrdenadasPorTiempoPreparacion(String ingrediente) throws RecetaException{
+    public String listadoRecetasConIngredienteOrdenadasPorTiempoPreparacion(String ingrediente) throws RecetaException {
 
         StringBuilder sb = new StringBuilder();
 
@@ -45,7 +45,7 @@ public class Recetario {
 
         int contador = 1;
 
-        for (Receta r : recetasConIngrediente){
+        for (Receta r : recetasConIngrediente) {
             sb.append(contador++).append(". ").append(r.getNombre()).append(" ,tiempo de preparacion: ").append(r.getTiempoDeElaboracion().toHoursPart()).append(" h ").append(r.getTiempoDeElaboracion().toMinutesPart()).append(" m ").append(System.lineSeparator());
         }
         return sb.toString();
@@ -63,15 +63,15 @@ public class Recetario {
 
         Recetario miRecetario = new Recetario();
         Ingrediente huevo = new Ingrediente("Huevo", 2);
-        Ingrediente mantequilla =new Ingrediente("Mantequilla", 50);
+        Ingrediente mantequilla = new Ingrediente("Mantequilla", 50);
         Ingrediente harina = new Ingrediente("Harina", 400);
         Ingrediente chips = new Ingrediente("Chips de chocolate", 150);
         Ingrediente aceite = new Ingrediente("Aceite", 30);
         Ingrediente azucar = new Ingrediente("Azúcar", 100);
-        Ingrediente vainilla = new Ingrediente("Esencia Vainilla",20);
+        Ingrediente vainilla = new Ingrediente("Esencia Vainilla", 20);
 
 
-        Receta tortilla = new Receta("Tortilla",Duration.ofMinutes(20));
+        Receta tortilla = new Receta("Tortilla", Duration.ofMinutes(20));
         tortilla.annadirIngrediente(huevo);
         tortilla.annadirIngrediente(aceite);
         tortilla.annadirPaso("Batir los huevos en un bol con una pizca de sal.");
@@ -116,7 +116,7 @@ public class Recetario {
 
 
             try {
-                opcion = MiEntradaSalida.leerEnteroRango("Seleccione una opción: ",0,4);
+                opcion = MiEntradaSalida.leerEnteroRango("Seleccione una opción: ", 0, 4);
 
                 switch (opcion) {
                     case 1:
@@ -136,8 +136,7 @@ public class Recetario {
                         Receta receta = miRecetario.devolverReceta(nombreDeLaReceta);
                         if (receta != null) {
                             menuEdicionReceta(receta);
-                        }
-                        else {
+                        } else {
                             System.out.println("Esa receta no existe");
                         }
                         break;
@@ -153,7 +152,6 @@ public class Recetario {
                 System.out.println("Error: " + e.getMessage());
             }
         } while (opcion != 0);
-
 
 
     }
@@ -174,9 +172,9 @@ public class Recetario {
             case "a":
                 System.out.println("Ejecutando: necesitaIngrediente()...");
                 String ing = MiEntradaSalida.leerLinea("¿Que ingrediente quieres comprobar? \n");
-                if (receta.necesitaIngrediente(ing)){
+                if (receta.necesitaIngrediente(ing)) {
                     System.out.println("Si lo necesita");
-                }else {
+                } else {
                     System.out.println("No lo necesita");
                 }
                 break;
@@ -196,17 +194,17 @@ public class Recetario {
                 System.out.println("Ejecutando: annadirPasoDetrasDe()...");
                 String pasoExistente = MiEntradaSalida.leerLinea("Introduce el paso existente: \n");
                 String pasoNuevo = MiEntradaSalida.leerLinea("Introduce el paso nuevo: \n");
-                receta.annadirPasoDetrasDe(pasoNuevo,pasoExistente);
+                receta.annadirPasoDetrasDe(pasoNuevo, pasoExistente);
                 break;
             default:
                 System.out.println("Regresando al menú principal...");
         }
     }
 
-    public static Ingrediente crearIngrediente(){
+    public static Ingrediente crearIngrediente() {
         String nombre = MiEntradaSalida.leerLinea("Introduce el nombre del ingrediente: ");
-        int cantidad = MiEntradaSalida.leerEnteroPositivo("Introduce la cantidad: \n",false);
-        return new Ingrediente(nombre,cantidad);
+        int cantidad = MiEntradaSalida.leerEnteroPositivo("Introduce la cantidad: \n", false);
+        return new Ingrediente(nombre, cantidad);
     }
 
 }

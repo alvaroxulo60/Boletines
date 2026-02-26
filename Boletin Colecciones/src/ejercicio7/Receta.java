@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-public class Receta implements Comparable<Receta>{
+public class Receta implements Comparable<Receta> {
 
     private String nombre;
     private Duration tiempoDeElaboracion;
@@ -31,19 +31,19 @@ public class Receta implements Comparable<Receta>{
         return ingredientes.stream().anyMatch(ingrediente -> ingrediente.getNombre().equalsIgnoreCase(nombreIngrediente));
     }
 
-    public void annadirPaso(String paso){
+    public void annadirPaso(String paso) {
         pasosDeLaReceta.add(paso);
     }
 
     public void annadirIngrediente(Ingrediente ingredienteNuevo) {
-        boolean encontrado  = false;
-        for (Ingrediente i : ingredientes){
-            if (i.getNombre().equalsIgnoreCase(ingredienteNuevo.getNombre())){
-                i.setCantidad(i.getCantidad()+ingredienteNuevo.getCantidad());
+        boolean encontrado = false;
+        for (Ingrediente i : ingredientes) {
+            if (i.getNombre().equalsIgnoreCase(ingredienteNuevo.getNombre())) {
+                i.setCantidad(i.getCantidad() + ingredienteNuevo.getCantidad());
                 encontrado = true;
             }
         }
-        if (!encontrado){
+        if (!encontrado) {
             ingredientes.add(ingredienteNuevo);
         }
     }
@@ -55,8 +55,8 @@ public class Receta implements Comparable<Receta>{
     }
 
     public Ingrediente devolverIngrediente(String nombre) throws RecetaException {
-        for (Ingrediente ing: ingredientes){
-            if (ing.getNombre().equalsIgnoreCase(nombre)){
+        for (Ingrediente ing : ingredientes) {
+            if (ing.getNombre().equalsIgnoreCase(nombre)) {
                 return ing;
             }
         }
@@ -66,8 +66,7 @@ public class Receta implements Comparable<Receta>{
     public void annadirPasoDetrasDe(String pasoNuevo, String pasoExistente) throws RecetaException {
         if (pasosDeLaReceta.contains(pasoExistente)) {
             pasosDeLaReceta.set(pasosDeLaReceta.indexOf(pasoExistente) + 1, pasoNuevo);
-        }
-        else
+        } else
             throw new RecetaException("El paso existente no se encuentra en la receta");
     }
 
