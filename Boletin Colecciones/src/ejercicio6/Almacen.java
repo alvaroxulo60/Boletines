@@ -52,8 +52,8 @@ public class Almacen {
     }
 
     public String crearCliente() throws SupermercadoException {
-        Cliente cliente = new Cliente();
         Caja caja = cajas.stream().filter(Caja::isCajaAbierta).min(Caja::compareTo).orElseThrow(()-> new SupermercadoException("No hay cajas abiertas"));
+        Cliente cliente = new Cliente();
 
 
         caja.añadirClienteACaja(cliente);
@@ -66,7 +66,6 @@ public class Almacen {
             int numCaja = MiEntradaSalida.leerEnteroRango("Introduce el numero de caja que quieras atender (1-20): ",1,20) - 1;
             if (cajas.get(numCaja).isCajaAbierta()){
                 if (cajas.get(numCaja).getClientes()!= 0){
-                    Cliente primerCliente;
                     Cliente clienteEliminado = cajas.get(numCaja).removeClienteDeCaja();
                     return "Se ha atendido al cliente con número "+ clienteEliminado.getNUM_CLIENTE();
                 }
