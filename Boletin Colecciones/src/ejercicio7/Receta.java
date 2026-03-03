@@ -4,10 +4,7 @@ package ejercicio7;
 import exceptions.RecetaException;
 
 import java.time.Duration;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Receta implements Comparable<Receta> {
 
@@ -36,10 +33,10 @@ public class Receta implements Comparable<Receta> {
     }
 
     public void annadirIngrediente(Ingrediente ingredienteNuevo) {
-        if (!ingredientes.add(ingredienteNuevo)){
-            for (Ingrediente i : ingredientes){
-                if (i.equals(ingredienteNuevo)){
-                    i.setCantidad(i.getCantidad()+ingredienteNuevo.getCantidad());
+        if (!ingredientes.add(ingredienteNuevo)) {
+            for (Ingrediente i : ingredientes) {
+                if (i.equals(ingredienteNuevo)) {
+                    i.setCantidad(i.getCantidad() + ingredienteNuevo.getCantidad());
                 }
             }
         }
@@ -49,6 +46,7 @@ public class Receta implements Comparable<Receta> {
         if (!ingredientes.remove(ingredienteABorrar)) {
             throw new RecetaException("Ese ingrediente no se encuentra en la receta");
         }
+        pasosDeLaReceta.removeIf(paso -> paso.contains(ingredienteABorrar.getNombre()));
     }
 
     public Ingrediente devolverIngrediente(String nombre) throws RecetaException {

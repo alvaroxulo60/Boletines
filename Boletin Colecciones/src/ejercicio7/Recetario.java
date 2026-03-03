@@ -19,6 +19,9 @@ public class Recetario {
         if (!recetas.containsKey(nuevaReceta.getNombre())) {
             recetas.put(nuevaReceta.getNombre(), nuevaReceta);
         }
+        else {
+            throw new RecetaException("...");
+        }
     }
 
     public String listadoRecetasOrdenadasAlfabeticamente() throws RecetaException {
@@ -36,7 +39,7 @@ public class Recetario {
         return sb.toString();
     }
 
-    public String listadoRecetasConIngredienteOrdenadasPorTiempoPreparacion(String ingrediente) throws RecetaException {
+    public String listadoRecetasConIngredienteOrdenadasPorTiempoPreparacion(String ingrediente) {
 
         StringBuilder sb = new StringBuilder();
 
