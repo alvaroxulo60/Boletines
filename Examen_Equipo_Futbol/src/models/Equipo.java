@@ -52,4 +52,6 @@ public class Equipo {
         sb.append(jugadores.stream().map(Jugador::toString).collect(Collectors.joining(",")));
         return sb.toString();
     }
+
+
 }

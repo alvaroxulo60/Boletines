@@ -11,6 +11,7 @@ public class Jugador implements Comparable<Jugador> {
     private String paisNacimiento;
 
     public Jugador(String nombre, TDemarcacion demarcacion,LocalDate fechaNacimiento, String paisNacimiento) {
+        assert nombre != null;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.demarcacion = demarcacion;
@@ -52,7 +53,9 @@ public class Jugador implements Comparable<Jugador> {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(nombre).append(": ").append(fechaNacimiento).append(". ").append(demarcacion).append(" (").append(paisNacimiento).append(") ").append(System.lineSeparator());
+        sb.append(nombre).append(": ").append(fechaNacimiento).append(". ")
+                .append(demarcacion).append(" (").append(paisNacimiento)
+                .append(") ").append(System.lineSeparator());
         return sb.toString();
     }
 

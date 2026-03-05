@@ -2,10 +2,7 @@ package models;
 
 import exceptions.LigaException;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Liga {
@@ -73,7 +70,8 @@ public class Liga {
     }
 
     public List<Jugador> jugadoresOrdenadosPorFechaNacimiento(){
-         return todosLosJugadores().stream().sorted((j1,j2) -> j2.getEdad() - j1.getEdad()).toList();
+         //return todosLosJugadores().stream().sorted((j1,j2) -> j2.getEdad() - j1.getEdad()).toList();
+         return todosLosJugadores().stream().sorted(Comparator.comparing(Jugador::getEdad).reversed()).toList();
     }
 
     public List<Jugador> jugadoresOrdenadosPorNombre(){

@@ -130,7 +130,7 @@ public class Principal {
         try {
             laLiga.removeEquipo(e5);
         } catch (LigaException e) {
-            System.err.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
 
         System.out.println(laLiga);
@@ -179,4 +179,3 @@ public class Principal {
 
     }
 }
-
