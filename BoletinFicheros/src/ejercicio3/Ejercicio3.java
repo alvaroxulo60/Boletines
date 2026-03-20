@@ -17,7 +17,8 @@ public class Ejercicio3 {
             while ((linea = bf.readLine()) != null && !linea.equalsIgnoreCase("fin")) {
 
 
-                Files.writeString(rutaFicheroSalida,linea + System.lineSeparator(),StandardOpenOption.APPEND);
+                Files.writeString(rutaFicheroSalida,linea + System.lineSeparator(),StandardOpenOption.APPEND
+                , StandardOpenOption.CREATE);
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
