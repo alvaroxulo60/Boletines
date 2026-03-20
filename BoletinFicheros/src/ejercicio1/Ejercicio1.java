@@ -4,6 +4,7 @@ package ejercicio1;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.stream.Collectors;
 
 
 public class Ejercicio1 {
@@ -25,9 +26,6 @@ public class Ejercicio1 {
 
             System.out.println(contador);
 
-            Path fichero = Path.of("./src/ejercicio1/leeme.txt");
-
-            System.out.println(Files.lines(fichero).count());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
