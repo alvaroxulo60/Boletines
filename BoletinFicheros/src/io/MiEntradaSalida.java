@@ -2,9 +2,13 @@ package io;
 
 import exceptions.MiEntradaSalidaException;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 //Version2.0
 public class MiEntradaSalida {
@@ -261,20 +265,22 @@ public class MiEntradaSalida {
     }
 
     public static LocalDate fecha(String mensaje) throws MiEntradaSalidaException {
-        int año =  leerEnteroPositivo("Introduce el año: ",true);
-        int mes =  leerEnteroPositivo("Introduce el mes: ",true);
-        int dia =  leerEnteroPositivo("Introduce el dia: ",true);
+        int año = leerEnteroPositivo("Introduce el año: ", true);
+        int mes = leerEnteroPositivo("Introduce el mes: ", true);
+        int dia = leerEnteroPositivo("Introduce el dia: ", true);
         try {
-            return LocalDate.of(año,mes,dia);
-        }catch (DateTimeException e){
+            return LocalDate.of(año, mes, dia);
+        } catch (DateTimeException e) {
             throw new MiEntradaSalidaException("Fecha no valida.");
         }
 
     }
 
-    public static char leerChar(String mensaje) throws MiEntradaSalidaException{
+    public static char leerChar(String mensaje) throws MiEntradaSalidaException {
         String texto = leerTexto(mensaje);
-        if (texto.length() != 1) {throw new MiEntradaSalidaException("Debes introducir un caracter.");}
+        if (texto.length() != 1) {
+            throw new MiEntradaSalidaException("Debes introducir un caracter.");
+        }
         return texto.charAt(0);
     }
 
@@ -282,4 +288,14 @@ public class MiEntradaSalida {
 //     TODO: Crear método.
 //    }
 
+
+    public static void mostrarArchivosEnCarpeta(String nombreCarpeta) {
+        Path rutaAbsoluta = Path.of(nombreCarpeta).toAbsolutePath().normalize();
+
+        try (Stream<Path> listaDeArchivos = Files.list(rutaAbsoluta)) {
+            listaDeArchivos.forEach(p -> System.out.println(p.getFileName()));
+        }catch (IOException e){
+            System.out.println("No se puede acceder a la ruta: " + e.getMessage());
+        }
+    }
 }

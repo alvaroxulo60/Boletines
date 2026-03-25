@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.stream.Stream;
 
 public class Menu {
     public static void main(String[] args) {
@@ -25,13 +26,13 @@ public class Menu {
 
         try {
             while (opcion != 5) {
-                opcion = MiEntradaSalida.leerEnteroRango("bla bla bla", 1, 5);
+                opcion = MiEntradaSalida.leerEnteroRango("\n Opción: ", 1, 5);
 
                 switch (opcion) {
                     case 1 -> crearDirectorio();
                     case 2 -> crearFichero();
                     case 3 -> borrarFichero();
-                    //case 4 -> listarFicheros();
+                    case 4 -> mostrarFicheros();
                     case 5 -> System.out.println("Saliendo del programa...");
                     default -> System.out.println("Opción no válida.");
                 }
@@ -48,6 +49,7 @@ public class Menu {
 
         try {
             Files.createDirectories(directorio);
+            System.out.println("Creado!");
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -81,10 +83,16 @@ public class Menu {
         }
     }
 
-//    public static void mostrarFicherosDeUnaCarpeta(String nombreDeLaCarpeta){
-//        Path ruta =  Path.of("src", "ejercicio5", "salidasEjercicio5", nombreDeLaCarpeta);
-//
-//    }
+   public static void mostrarFicheros(){
+        Path ruta =  Path.of("src", "ejercicio5", "salidasEjercicio5");
+
+        try(Stream<Path> lista = Files.list(ruta)){
+            System.out.println("Archivos en "+ ruta.getFileName());
+            lista.forEach(p -> System.out.println(p.getFileName()));
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+   }
 
 
 }
