@@ -21,6 +21,7 @@ public class MenuFicheros {
                 switch (opcion) {
                     case 1:
                         System.out.println("Opción 1: Listar directorio");
+                        opcion1();
                         break;
                     case 2:
                         System.out.println("Opción 2: Listar con prefijo");
@@ -36,6 +37,7 @@ public class MenuFicheros {
                         break;
                     case 5:
                         System.out.println("Opción 5: Buscar recursivo");
+                        opcion5();
                         break;
                     case 6:
                         System.out.println("¡Saliendo del programa!");
@@ -59,6 +61,27 @@ public class MenuFicheros {
         System.out.println("5. Buscar recursivamente un archivo en un directorio");
         System.out.println("6. Salir");
         System.out.println("=====================================");
+    }
+
+    public static void opcion1(){
+        String nombreDirectorio = MiEntradaSalida.leerLinea("Introduce el nombre del directorio: ");
+        Path ruta = Path.of(nombreDirectorio);
+
+        try(Stream<Path> lista = Files.walk(ruta,5)){
+            lista.forEach(p -> {
+                if (Files.isDirectory(p)) {
+                    System.out.printf("%s - Directorio %n", p.getFileName());
+                } else {
+                    try {
+                        System.out.printf("%s %.2f KB %n", p.getFileName(), Files.size(p) / 1024.0);
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                    };
+                }
+            });
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void opcion2() {
@@ -127,6 +150,30 @@ public class MenuFicheros {
                             }
                         }
                     });
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void opcion5(){
+        String nombreArchivo = MiEntradaSalida.leerLinea("Introduce el nombre del archivo: ");
+        String nombreDirectorio = MiEntradaSalida.leerLinea("Introduce el nombre del directorio: ");
+
+        Path ruta = Path.of(nombreDirectorio);
+
+        try (Stream<Path> lista = Files.walk(ruta)){
+            lista.filter(p-> p.getFileName().toString().equals(nombreArchivo))
+                    .forEach(p -> {
+                    if (Files.isDirectory(p)) {
+                        System.out.printf("%s - Directorio %n", p.getFileName());
+                    } else {
+                        try {
+                            System.out.printf("%s %.2f KB %n", p.getFileName(), Files.size(p) / 1024.0);
+                        } catch (IOException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+            });
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
