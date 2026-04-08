@@ -5,6 +5,7 @@ import exceptions.Ejercicio11Exception;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -48,6 +49,7 @@ public class Main {
                         String apellido1 = m.group("apellido1");
                         String apellido2 = m.group("apellido2");
                         String curso = m.group("curso");
+
                         try {
                             Files.createDirectories(Path.of("src/ejercicio11/salida",curso,apellido1+apellido2+nombre));
                         } catch (IOException e) {
