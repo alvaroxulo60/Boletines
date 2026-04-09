@@ -1,0 +1,27 @@
+[
+  {
+    "nombre": "Jose",
+    "dni": "12345678T",
+    "telefono": 123456789
+  },
+  {
+    "nombre": "Juan",
+    "dni": "92823864L",
+    "telefono": 254145562
+  },
+  {
+    "nombre": "Moisés",
+    "dni": "78373987H",
+    "telefono": 698589654
+  },
+  {
+    "nombre": "Lolo",
+    "dni": "353544636M",
+    "telefono": 333696654
+  },
+  {
+    "nombre": "Carlos",
+    "dni": "36572383X",
+    "telefono": 999999999
+  }
+]

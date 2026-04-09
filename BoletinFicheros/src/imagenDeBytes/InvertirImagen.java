@@ -6,7 +6,7 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class InventirImagen {
+public class InvertirImagen {
 
     static void main(String[] args) {
 
@@ -23,11 +23,14 @@ public class InventirImagen {
             buffer.flip();
             canal2.write(buffer);
 
+
             while (canal.read(buffer1) > 0 ){
                 buffer1.flip();
                 byte azul = buffer1.get(0);
                 byte verde = buffer1.get(1);
                 byte rojo = buffer1.get(2);
+
+                byte media = (byte) ((azul+verde+rojo)/3);
 
                 byte inverso1 = (byte) ~azul;
                 byte inverso2 = (byte) ~verde;
