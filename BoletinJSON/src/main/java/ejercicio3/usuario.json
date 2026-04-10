@@ -1,0 +1,16 @@
+{
+  "userName": "Goku",
+  "email": "Goku@genkidama.com",
+  "direcciones": [
+    {
+      "calle": "Calle falsa 123",
+      "ciudad": "Las bahamas",
+      "codigoPostal": 12345
+    },
+    {
+      "calle": "Calle falsa 1876",
+      "ciudad": "Las bahamas",
+      "codigoPostal": 12345
+    }
+  ]
+}
