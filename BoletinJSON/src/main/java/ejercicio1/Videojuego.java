@@ -20,7 +20,7 @@ public class Videojuego {
     }
 
     public String getTitulo() {
-        return titulo;
+        return this.titulo;
     }
 
     public void setTitulo(String titulo) {
