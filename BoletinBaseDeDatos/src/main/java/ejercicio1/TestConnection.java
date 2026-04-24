@@ -1,10 +1,9 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
+package ejercicio1;
+
+import io.MiEntradaSalida;
+import io.PropertiesReader;
+
 import java.sql.*;
-import java.util.Properties;
 
 public class TestConnection {
     public static void main(String[] args) throws Exception {
